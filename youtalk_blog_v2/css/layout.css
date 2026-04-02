@@ -1,0 +1,36 @@
+/* ===== КОНТЕЙНЕРЫ ПО УСТРОЙСТВАМ ===== */
+
+/* Базовый контейнер (плавное сжатие от 1200px до 960px) */
+.container {
+  max-width: clamp(960px, 90vw, 1200px);
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Планшет (768px – 1023px) — фиксируем 960px, так как clamp уже даёт 960 */
+@media (max-width: 1023px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+/* Мобильный широкий (415px – 767px) */
+@media (max-width: 767px) {
+  .container {
+    max-width: 728px;
+  }
+}
+
+/* Мобильный стандарт (321px – 414px) */
+@media (max-width: 414px) {
+  .container {
+    max-width: 374px;
+  }
+}
+
+/* Мобильный узкий (≤ 320px) */
+@media (max-width: 320px) {
+  .container {
+    max-width: 288px;
+  }
+}

@@ -1,0 +1,51 @@
+/* ===== ХЕДЕР: ДЕСКТОП (≥ 1024px) ===== */
+@media (min-width: 1024px) {
+  .site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .header__logo img {
+    width: 51px;
+    height: 36px;
+    display: block;
+  }
+
+  .header__nav {
+    margin: 0 auto;
+  }
+
+  /* Плавное сжатие gap от 30px (1440px) до 16px (1024px) */
+  .nav__list {
+    display: flex;
+    gap: calc(16px + (30px - 16px) * ((100vw - 1024px) / (1440px - 1024px)));
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav__list a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .header__button {
+    background: #e3f5f5;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+  }
+
+  .burger,
+  .mobile-menu {
+    display: none;
+  }
+}
