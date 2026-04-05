@@ -1,0 +1,11 @@
+/* ===== БАЗОВЫЕ СТИЛИ ===== 
+@import url("base/reset.css");
+@import url("base/variables.css");
+@import url("base/container.css");
+
+===== КОМПОНЕНТЫ ХЕДЕРА ====
+@import url("components/header/header.css");
+@import url("components/header/logo.css");
+@import url("components/header/nav.css");
+@import url("components/header/button.css");
+@import url("components/header/burger.css"); */

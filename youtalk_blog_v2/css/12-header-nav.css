@@ -1,0 +1,60 @@
+/* ===== НАВИГАЦИЯ ===== */
+.header__nav {
+  display: none;
+}
+
+.nav__list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  /* ✅ ПЛАВНОЕ СЖАТИЕ GAP (без скачков!) */
+  /* 1001px → 16px, 1440px → 30px */
+  gap: var(--gap-menu-items-desktop);
+
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.nav__list a {
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 500;
+  font-size: 14px; /* ✅ ФИКСИРОВАННЫЙ 14px ДО 1001px! */
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.nav__list a:hover {
+  color: var(--color-primary);
+}
+
+.nav__item--dropdown {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav__arrow {
+  width: 8px;
+  height: 8px;
+  border-right: 1.5px solid var(--color-text);
+  border-bottom: 1.5px solid var(--color-text);
+  transform: rotate(45deg);
+  margin-top: -3px;
+}
+
+/* ===== ДЕСКТОП (≥1001px) ===== */
+@media (min-width: 1001px) {
+  .header__nav {
+    display: block;
+  }
+}
+
+/* ===== МОБИЛЬНЫЙ (≤1000px) ===== */
+@media (max-width: 1000px) {
+  .header__nav {
+    display: none !important;
+  }
+}

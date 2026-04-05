@@ -4,19 +4,61 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>YOU TALK — Блог о психологии</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <script src="js/include.js" defer></script>
+
+    <!-- ✅ ШРИФТЫ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ✅ БАЗОВЫЕ СТИЛИ (порядок важен!) -->
+    <link rel="stylesheet" href="css/00-reset.css" />
+    <link rel="stylesheet" href="css/01-variables.css" />
+    <link rel="stylesheet" href="css/02-containers.css" />
+
+    <!-- ✅ КОМПОНЕНТЫ ХЕДЕРА -->
+    <link rel="stylesheet" href="css/10-header-base.css" />
+    <link rel="stylesheet" href="css/11-header-logo.css" />
+    <link rel="stylesheet" href="css/12-header-nav.css" />
+    <link rel="stylesheet" href="css/13-header-button.css" />
+    <link rel="stylesheet" href="css/14-header-burger.css" />
+
+    <!-- ✅ ОСНОВНОЙ СТИЛЬ (если нужен) -->
+    <link rel="stylesheet" href="css/99-style.css" />
   </head>
   <body>
     <div class="container">
-      <div data-include="components/header.html"></div>
-      <nav class="breadcrumbs" aria-label="Хлебные крошки">ХЛЕБНЫЕ КРОШКИ</nav>
-      <div class="filters" aria-label="Фильтры статей">ФИЛЬТРЫ</div>
-      <main class="main-content">ОСНОВНОЙ КОНТЕНТ (КАРТОЧКИ)</main>
-      <div class="pagination" aria-label="Пагинация">
-        ПАГИНАЦИЯ (КНОПКА "ЕЩЕ")
-      </div>
-      <footer class="site-footer">ПОДВАЛ</footer>
+      <header class="site-header">
+        <div class="header__group">
+          <div class="header__logo">
+            <img src="images/logo.svg" alt="YOU TALK" width="51" height="36" />
+          </div>
+          <nav class="header__nav" aria-label="Основное меню">
+            <ul class="nav__list">
+              <li><a href="#">О нас</a></li>
+              <li><a href="#">Тарифы</a></li>
+              <li><a href="#">Для бизнеса</a></li>
+              <li><a href="#">Психологам</a></li>
+              <li><a href="#">Сертификат</a></li>
+              <li class="nav__item--dropdown">
+                <a href="#">Материалы</a>
+                <span class="nav__arrow"></span>
+              </li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </nav>
+        </div>
+        <button class="header__button">Подобрать психолога</button>
+        <button class="burger" aria-label="Меню">
+          <span class="burger__icon"></span>
+        </button>
+      </header>
     </div>
+
+    <!-- ✅ СКРИПТЫ -->
+    <script src="js/css-diagnostic.js"></script>
+    <script src="js/debug-header.js"></script>
   </body>
 </html>

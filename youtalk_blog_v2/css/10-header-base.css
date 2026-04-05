@@ -1,0 +1,22 @@
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  flex-wrap: nowrap;
+  padding-top: clamp(12px, 2vw, 20px);
+  padding-bottom: clamp(12px, 2vw, 20px);
+}
+
+.header__group {
+  display: flex;
+  align-items: center;
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+@media (min-width: 1001px) {
+  .header__group {
+    gap: var(--gap-logo-menu-desktop);
+  }
+}

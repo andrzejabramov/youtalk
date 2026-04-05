@@ -1,0 +1,25 @@
+.burger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: var(--burger-size);
+  height: var(--burger-size);
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-right: 0 !important;
+}
+
+.burger__icon {
+  width: var(--burger-icon-width);
+  height: var(--burger-icon-height);
+  display: block;
+  background-color: var(--color-text);
+}
+
+@media (max-width: 1000px) {
+  .burger {
+    display: flex;
+  }
+}
