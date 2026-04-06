@@ -20,3 +20,24 @@
     gap: var(--gap-logo-menu-desktop);
   }
 }
+
+/* ===== ОТЛАДКА: ВИДИМЫЕ ГРАНИЦЫ ===== */
+.site-header {
+  border: 2px solid red !important;
+}
+
+.header__logo {
+  border: 2px solid blue !important;
+}
+
+.header__nav {
+  border: 2px solid green !important;
+}
+
+.burger {
+  border: 2px solid yellow !important;
+}
+
+.header__button {
+  border: 2px solid purple !important;
+}
