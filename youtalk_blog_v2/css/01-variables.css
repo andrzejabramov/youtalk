@@ -22,25 +22,45 @@
   --radius-lg: 24px;
   --radius-full: 60px;
 
-  /* ===== ОТСТУПЫ КОНТЕЙНЕРА (ИСПРАВЛЕННАЯ ФОРМУЛА) ===== */
-  /* 1001px → 16px, 1440px → 112px */
-  --container-margin-desktop: clamp(16px, 21.87vw - 203px, 112px);
+  /* ===== КОНТЕЙНЕР: ВЫСОТЫ ===== */
+  --container-height-desktop: 76px; /* 600-1440+ px */
+  --container-height-tablet: 72px; /* 348-599 px */
+  --container-height-mobile: 56px; /* ≤347 px */
 
-  --container-margin-tablet: 12px;
-  --container-margin-mobile-wide: 16px;
-  --container-margin-mobile-narrow: 8px;
+  /* ===== КОНТЕЙНЕР: MARGIN ===== */
+  --container-margin-body: 8px; /* body margin (все стороны, кроме top) */
+  --container-margin-desktop: 12px; /* 600-967 px */
+  --container-margin-tablet: 16px; /* 348-599 px */
+  --container-margin-mobile: 8px; /* ≤347 px (left only) */
+
+  /* ===== КОНТЕЙНЕР: ШИРИНА (формулы) ===== */
+  /* 600-967px: 100vw - 40px (40 = 8+8 body + 12+12 container) */
+  /* 348-599px: 100vw - 48px (48 = 8+8 body + 16+16 container) */
+  /* 968-1440px: 927 + (vw-967)/1.733 */
+  /* ≤347px: 296px (фикс) */
+  --container-width-min: 296px;
+  --container-width-max: 1200px;
+
+  /* ===== КОЭФФИЦИЕНТЫ (для calc) ===== */
+  --coef-967-1440-margin: 4.73;
+  --coef-967-1440-width: 1.733;
+  --coef-348-599-width: 0.954;
+
+  /* ===== ЛОГОТИП ===== */
+  --logo-width-desktop: 51px;
+  --logo-height-desktop: 36px;
+  --logo-width-mobile: 48px;
+  --logo-height-mobile: 34px;
 
   /* ===== ВНУТРЕННИЕ GAP ===== */
   --gap-logo-menu-desktop: clamp(32px, 4.33vw - 11px, 51px);
   --gap-menu-items-desktop: clamp(16px, 3.19vw - 16px, 30px);
 
-  /* ===== РАЗМЕРЫ ===== */
-  --container-width: 1200px;
-  --logo-width-desktop: 51px;
-  --logo-height-desktop: 36px;
-  --logo-width-mobile: 48px;
-  --logo-height-mobile: 34px;
+  /* ===== КНОПКА ===== */
   --button-width: 230px;
+  --button-height: 48px;
+
+  /* ===== БУРГЕР ===== */
   --burger-size: 40px;
   --burger-icon-width: 18px;
   --burger-icon-height: 14px;
