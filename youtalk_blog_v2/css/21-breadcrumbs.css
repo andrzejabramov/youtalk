@@ -1,0 +1,70 @@
+/* ============================================= */
+/* 🔹 КРОШКИ: СТИЛИ                              */
+/* ============================================= */
+
+/* ===== КОНТЕЙНЕР ===== */
+.breadcrumbs {
+  /* Отступы */
+  margin-top: 16px;
+  margin-bottom: 16px;
+
+  /* Линия (из Figma: box-shadow inset) */
+  border-top: 2px solid var(--color-border-light);
+
+  /* Внутренние отступы */
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 0;
+  padding-right: 0;
+
+  /* Flex для горизонтального списка */
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ===== СПИСОК ===== */
+.breadcrumbs__list {
+  display: contents; /* ← ПЕРЕНЕСЕНО ИЗ HTML! */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ===== ЭЛЕМЕНТ КРОШКИ ===== */
+.breadcrumbs__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ===== ССЫЛКА ===== */
+.breadcrumbs__link {
+  text-decoration: none;
+  color: var(--color-text-muted);
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: 0;
+  transition: color 0.3s ease;
+}
+
+.breadcrumbs__link:hover {
+  color: var(--color-primary);
+}
+
+/* ===== ТЕКУЩАЯ СТРАНИЦА (не кликабельна) ===== */
+.breadcrumbs__current {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+/* ===== РАЗДЕЛИТЕЛЬ (/) ===== */
+.breadcrumbs__divider {
+  color: var(--color-text-muted);
+  font-size: 14px;
+  line-height: 1;
+  user-select: none;
+}

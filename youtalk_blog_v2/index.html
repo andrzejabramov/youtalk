@@ -13,52 +13,29 @@
       rel="stylesheet"
     />
 
-    <!-- ✅ БАЗОВЫЕ СТИЛИ (порядок важен!) -->
+    <!-- ✅ СТИЛИ -->
     <link rel="stylesheet" href="css/00-reset.css" />
     <link rel="stylesheet" href="css/01-variables.css" />
     <link rel="stylesheet" href="css/02-containers.css" />
-
-    <!-- ✅ КОМПОНЕНТЫ ХЕДЕРА -->
-    <!--link rel="stylesheet" href="css/10-header-base.css" />
+    <link rel="stylesheet" href="css/10-header-base.css" />
     <link rel="stylesheet" href="css/11-header-logo.css" />
     <link rel="stylesheet" href="css/12-header-nav.css" />
     <link rel="stylesheet" href="css/13-header-button.css" />
-    <link rel="stylesheet" href="css/14-header-burger.css" /> -->
-
-    <!-- ✅ ОСНОВНОЙ СТИЛЬ (если нужен) -->
-    <link rel="stylesheet" href="css/99-style.css" />
+    <link rel="stylesheet" href="css/14-header-burger.css" />
+    <link rel="stylesheet" href="css/21-breadcrumbs.css" />
+    <!-- 🔹 ОТЛАДКА (удалить перед продакшеном!) -->
+    <link rel="stylesheet" href="css/debug.css" />
   </head>
   <body>
     <div class="container">
-      <header class="site-header">
-        <div class="header__group">
-          <div class="header__logo">
-            <img src="images/logo.svg" alt="YOU TALK" width="51" height="36" />
-          </div>
-          <nav class="header__nav" aria-label="Основное меню">
-            <ul class="nav__list">
-              <li><a href="#">О нас</a></li>
-              <li><a href="#">Тарифы</a></li>
-              <li><a href="#">Для бизнеса</a></li>
-              <li><a href="#">Психологам</a></li>
-              <li><a href="#">Сертификат</a></li>
-              <li class="nav__item--dropdown">
-                <a href="#">Материалы</a>
-                <span class="nav__arrow"></span>
-              </li>
-              <li><a href="#">FAQ</a></li>
-            </ul>
-          </nav>
-        </div>
-        <button class="header__button">Подобрать психолога</button>
-        <button class="burger" aria-label="Меню">
-          <span class="burger__icon"></span>
-        </button>
-      </header>
+      <!-- ✅ ПЛЕЙСХОЛДЕР ДЛЯ ХЕДЕРА -->
+      <div data-include="components/header.html"></div>
+      <!-- ✅ КРОШКИ -->
+      <div data-include="components/breadcrumbs.html"></div>
     </div>
 
     <!-- ✅ СКРИПТЫ -->
-    <!--script src="js/css-diagnostic.js"></script> -->
-    <script src="js/debug-container.js"></script>
+    <script src="js/debug-header-group.js"></script>
+    <script src="js/include.js"></script>
   </body>
 </html>

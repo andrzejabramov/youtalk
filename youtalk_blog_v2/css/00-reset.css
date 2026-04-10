@@ -15,9 +15,6 @@ body {
   padding: 0;
   font-family: var(--font-main);
   overflow-x: hidden;
-
-  /* 🔹 СИНИЙ ФОН (вместо border) */
-  background: rgba(0, 0, 255, 0.15);
 }
 
 a {

@@ -1,12 +1,13 @@
 :root {
   /* ===== ЦВЕТА ===== */
-  --color-primary: #35b3a9;
-  --color-primary-dark: #16c8bb;
+  --color-primary: #03b2a5; /* ← ОБНОВЛЕНО ПО FIGMA */
+  --color-primary-dark: #029d91;
   --color-primary-light: #e3f5f5;
   --color-text: #333333;
   --color-text-light: #868686;
   --color-text-secondary: #494949;
   --color-text-muted: rgba(51, 51, 51, 0.7);
+  --color-border-light: #eff2f2;
   --color-bg-footer: #2963a3;
   --color-border: #c1c5cd;
   --color-border-light: #dedede;
@@ -33,18 +34,25 @@
   --container-margin-tablet: 16px; /* 348-599 px */
   --container-margin-mobile: 8px; /* ≤347 px (left only) */
 
-  /* ===== КОНТЕЙНЕР: ШИРИНА (формулы) ===== */
-  /* 600-967px: 100vw - 40px (40 = 8+8 body + 12+12 container) */
-  /* 348-599px: 100vw - 48px (48 = 8+8 body + 16+16 container) */
-  /* 968-1440px: 927 + (vw-967)/1.733 */
-  /* ≤347px: 296px (фикс) */
+  /* ===== КОНТЕЙНЕР: ШИРИНА ===== */
   --container-width-min: 296px;
   --container-width-max: 1200px;
 
   /* ===== КОЭФФИЦИЕНТЫ (для calc) ===== */
+  --coef-header-width: 4.333;
   --coef-967-1440-margin: 4.73;
   --coef-967-1440-width: 1.733;
   --coef-348-599-width: 0.954;
+
+  /* ===== HEADER: LOGO-MENU ===== */
+  --header-group-height-desktop: 36px;
+  --header-group-height-mobile: 34px;
+  --header-group-margin-v-desktop: 20px;
+  --header-group-margin-v-mobile: 19px;
+  --header-group-width-desktop: 806px;
+  --header-group-width-tablet: 710px;
+  --header-group-width-mobile: 51px;
+  --header-group-width-mobile-narrow: 48px;
 
   /* ===== ЛОГОТИП ===== */
   --logo-width-desktop: 51px;
