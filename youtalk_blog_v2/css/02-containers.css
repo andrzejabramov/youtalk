@@ -1,8 +1,8 @@
 /* ===== КОНТЕЙНЕР (базовый ≤347px) ===== */
 .container {
   height: 56px;
-  margin-left: auto;
-  margin-right: 0;
+  margin-left: 16px;
+  margin-right: 8px;
   width: 296px;
 }
 
@@ -10,38 +10,38 @@
 @media (max-width: 347px) {
   .container {
     height: 56px;
-    margin-left: auto;
-    margin-right: 0;
+    margin-left: 16px;
+    margin-right: 8px;
     width: 296px;
   }
 }
 
-/* 348-599px: margin 16px, высота 72px, ширина растёт */
+/* 348-599px: margin 24px, высота 72px, ширина растёт */
 @media (min-width: 348px) and (max-width: 599px) {
   .container {
     height: 72px;
-    margin-left: 16px;
-    margin-right: 16px;
+    margin-left: 24px;
+    margin-right: 24px;
     width: calc(100vw - 48px);
   }
 }
 
-/* 600-967px: margin 12px (константа), ширина = экран - 40px */
+/* 600-967px: margin 20px (константа), ширина = экран - 40px */
 @media (min-width: 600px) and (max-width: 967px) {
   .container {
     height: 76px;
-    margin-left: 12px;
-    margin-right: 12px;
+    margin-left: 20px;
+    margin-right: 20px;
     width: calc(100vw - 40px);
   }
 }
 
-/* 968-1440px: margin 12→112, ширина 927→1200 (ОДИН БЛОК!) */
+/* 968-1440px: margin 20→120, ширина 927→1200 (ОДИН БЛОК!) */
 @media (min-width: 968px) and (max-width: 1440px) {
   .container {
     height: 76px;
-    margin-left: calc(12px + (100vw - 967px) / 4.73);
-    margin-right: calc(12px + (100vw - 967px) / 4.73);
+    margin-left: calc(20px + (100vw - 967px) / 4.73);
+    margin-right: calc(20px + (100vw - 967px) / 4.73);
     width: calc(927px + (100vw - 967px) / 1.733);
   }
 }
@@ -50,8 +50,8 @@
 @media (min-width: 1441px) {
   .container {
     height: 76px;
-    margin-left: 112px;
-    margin-right: 112px;
+    margin-left: 120px;
+    margin-right: 120px;
     width: 1200px;
     margin-left: auto;
     margin-right: auto;

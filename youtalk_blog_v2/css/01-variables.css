@@ -29,10 +29,10 @@
   --container-height-mobile: 56px; /* ≤347 px */
 
   /* ===== КОНТЕЙНЕР: MARGIN ===== */
-  --container-margin-body: 8px; /* body margin (все стороны, кроме top) */
-  --container-margin-desktop: 12px; /* 600-967 px */
-  --container-margin-tablet: 16px; /* 348-599 px */
-  --container-margin-mobile: 8px; /* ≤347 px (left only) */
+  --container-margin-body: 0px; /* body margin (все стороны, кроме top) */
+  --container-margin-desktop: 20px; /* 600-967 px */
+  --container-margin-tablet: 24px; /* 348-599 px */
+  --container-margin-mobile: 16px; /* ≤347 px (left only) */
 
   /* ===== КОНТЕЙНЕР: ШИРИНА ===== */
   --container-width-min: 296px;
