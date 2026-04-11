@@ -57,3 +57,29 @@
     margin-right: auto;
   }
 }
+
+/* ===== ЛИНИЯ ПОД КОНТЕЙНЕРОМ (БАЗОВЫЙ: 1px) ===== */
+.container-line {
+  display: block;
+  flex-shrink: 0;
+  flex-grow: 0;
+  align-self: auto;
+  width: 100vw;
+
+  height: var(--container-line-height);
+  background: var(--container-line-color);
+
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== ЛИНИЯ НА DESKTOP (≥1200px): BOX-SHADOW INSET ===== */
+@media (min-width: 1200px) {
+  .container-line {
+    background: transparent;
+    height: 2px; /* ← Высота для inset */
+    box-shadow: 0px var(--container-line-shadow-offset)
+      var(--container-line-shadow-blur) var(--container-line-shadow-spread)
+      var(--container-line-color) inset;
+  }
+}

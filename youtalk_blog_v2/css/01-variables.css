@@ -14,6 +14,13 @@
   --color-bg-gradient: #eff5fb;
   --color-white: #ffffff;
 
+  /* ===== ЛИНИЯ КОНТЕЙНЕРА ===== */
+  --container-line-color: #eff2f2; /* ← Бежевый из Figma */
+  --container-line-height: 1px; /* Для ≤1199px */
+  --container-line-shadow-offset: -2px; /* Для ≥1200px */
+  --container-line-shadow-blur: 0px;
+  --container-line-shadow-spread: 0px;
+
   /* ===== ШРИФТЫ ===== */
   --font-main: "Montserrat", sans-serif;
 
