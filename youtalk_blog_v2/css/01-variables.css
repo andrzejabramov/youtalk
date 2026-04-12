@@ -79,4 +79,44 @@
   --burger-size: 40px;
   --burger-icon-width: 18px;
   --burger-icon-height: 14px;
+
+  /* ===== КРОШКИ ===== */
+  --breadcrumbs-height: 18px;
+  --breadcrumbs-font-size: 12px;
+  --breadcrumbs-line-height: 18px;
+  --breadcrumbs-letter-spacing: 0.25px;
+  --breadcrumbs-gap-group: 8px; /* Между группами */
+  --breadcrumbs-gap-item: 4px; /* Текст-стрелка */
+  --breadcrumbs-arrow-size: 9.38px;
+  --breadcrumbs-arrow-container: 16px;
+
+  /* ===== КОЭФФИЦИЕНТЫ ===== */
+  --coef-breadcrumbs-margin-967-1024: 4.75;
+  --coef-breadcrumbs-margin-1025-1200: 4.75;
+  --coef-breadcrumbs-margin-1201-1440: 4.21;
+
+  /* ===== ЗАГОЛОВОК H1 ===== */
+  --h1-font-size-mobile: 24px;
+  --h1-font-size-tablet: 32px;
+  --h1-font-size-desktop: 48px;
+  --h1-line-height-mobile: 32px;
+  --h1-line-height-tablet: 40px;
+  --h1-line-height-desktop: 56px;
+  --h1-font-weight: 700;
+  --h1-letter-spacing: 0;
+
+  /* ===== КОЭФФИЦИЕНТЫ H1 (как header container) ===== */
+  --coef-h1-margin-967-1440: 4.73;
+
+  /* ===== ФИЛЬТРЫ ===== */
+  --filters-height: 32px;
+  --filters-gap: 8px;
+  --filters-font-size: 14px;
+  --filters-font-weight: 600;
+  --filters-line-height: 20px;
+  --filters-icon-size: 20px;
+
+  /* ===== КОЭФФИЦИЕНТЫ ===== */
+  --coef-filters-margin-967-1440: 4.73;
+  --coef-filters-margin-1441-plus: 2;
 }

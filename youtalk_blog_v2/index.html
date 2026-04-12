@@ -23,18 +23,29 @@
     <link rel="stylesheet" href="css/13-header-button.css" />
     <link rel="stylesheet" href="css/14-header-burger.css" />
     <link rel="stylesheet" href="css/21-breadcrumbs.css" />
+    <!-- ✅ ЗАГОЛОВОК H1 -->
+    <link rel="stylesheet" href="css/20-page-header.css" />
+    <link rel="stylesheet" href="css/30-filters.css" />
     <!-- 🔹 ОТЛАДКА (удалить перед продакшеном!) -->
     <link rel="stylesheet" href="css/debug.css" />
   </head>
   <body>
     <div class="container">
-      <!-- ✅ ПЛЕЙСХОЛДЕР ДЛЯ ХЕДЕРА -->
+      <!-- ✅ ШАПКА -->
       <div data-include="components/header.html"></div>
-      <!-- ✅ КРОШКИ -->
-      <div data-include="components/breadcrumbs.html"></div>
     </div>
+
     <!-- ✅ ЛИНИЯ ПОД КОНТЕЙНЕРОМ (НА ВЕСЬ ЭКРАН) -->
     <div class="container-line"></div>
+
+    <!-- ✅ КРОШКИ (для страницы БЛОГА) -->
+    <div data-include="components/breadcrumbs-article.html"></div>
+
+    <!-- ✅ ЗАГОЛОВОК H1 -->
+    <div data-include="components/page-header-blog.html"></div>
+
+    <!-- ✅ ФИЛЬТРЫ -->
+    <div data-include="components/filters.html"></div>
 
     <!-- ✅ СКРИПТЫ -->
     <script src="js/debug-header-group.js"></script>

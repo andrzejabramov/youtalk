@@ -1,0 +1,68 @@
+/* ===== КОНТЕЙНЕР-ОБЁРТКА ===== */
+.page-header {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+  /* Не задаём здесь margin-left, чтобы не дублировать */
+}
+
+/* ===== САМ ЗАГОЛОВОК H1 ===== */
+.page-header h1 {
+  /* Отступ сверху — 0 (крошки имеют margin-bottom) */
+  margin-top: 0;
+
+  /* Отступы по бокам (перенесено с .page-header) */
+  margin-left: 16px; /* ≤347px */
+  margin-right: 16px;
+
+  /* Типографика */
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0;
+  color: var(--color-text);
+
+  /* Сброс дефолтных стилей браузера */
+  padding: 0;
+}
+
+/* ===== 348-599px ===== */
+@media (min-width: 348px) and (max-width: 599px) {
+  .page-header h1 {
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 32px;
+    line-height: 40px;
+  }
+}
+
+/* ===== 600-966px ===== */
+@media (min-width: 600px) and (max-width: 966px) {
+  .page-header h1 {
+    margin-left: 33px;
+    margin-right: auto;
+    font-size: 48px;
+    line-height: 56px;
+  }
+}
+
+/* ===== 967-1440px: КАК HEADER CONTAINER ===== */
+@media (min-width: 967px) and (max-width: 1440px) {
+  .page-header h1 {
+    margin-left: calc(21px + (100vw - 967px) / 4.73);
+    margin-right: auto;
+    font-size: 48px;
+    line-height: 56px;
+  }
+}
+
+/* ===== ≥1441px: ФИКС КАК HEADER CONTAINER ===== */
+@media (min-width: 1441px) {
+  .page-header h1 {
+    margin-left: calc(120px + (100vw - 1440px) / 2);
+    margin-right: auto;
+    font-size: 48px;
+    line-height: 56px;
+  }
+}
