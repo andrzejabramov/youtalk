@@ -1,0 +1,74 @@
+/* ============================================= */
+/* 🔹 ЗАГЛУШКА КАРТОЧЕК (СТАТИЧЕСКАЯ)           */
+/* ============================================= */
+
+/* ===== КОНТЕЙНЕР ЗАГЛУШКИ ===== */
+.cards-placeholder {
+  /* Отступы как у фильтров */
+  margin-top: 32px; /* ≥600px */
+  margin-bottom: 48px; /* До пагинации */
+  margin-left: 20px; /* <967px */
+  margin-right: auto;
+}
+
+/* ≥967px: margin-left как у фильтров */
+@media (min-width: 967px) and (max-width: 1440px) {
+  .cards-placeholder {
+    margin-left: calc(20px + (100vw - 967px) / 4.73);
+  }
+}
+
+@media (min-width: 1441px) {
+  .cards-placeholder {
+    margin-left: 120px; /* Как фильтры и H1 */
+  }
+}
+
+/* ===== ОДИНОЧНАЯ КАРТОЧКА ===== */
+.card--empty {
+  background: var(--color-white);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 400px;
+  max-width: 384px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===== КОНТЕНТ ЗАГЛУШКИ ===== */
+.card__content--empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 32px 24px;
+  background: var(--color-white);
+}
+
+.card__empty-text {
+  font-family: var(--font-main);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-text-light);
+  margin-bottom: 16px;
+}
+
+.card__empty-close {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  border-radius: 50%;
+  background: var(--color-border);
+  color: var(--color-text);
+  font-size: 18px;
+  cursor: default;
+  margin: 0 auto;
+}

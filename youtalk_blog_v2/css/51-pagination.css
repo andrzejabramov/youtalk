@@ -1,0 +1,65 @@
+/* ============================================= */
+/* 🔹 ПАГИНАЦИЯ: КОНТЕЙНЕР                      */
+/* ============================================= */
+
+.pagination {
+  /* Сетка: 3 колонки 509 / 264 / 427 */
+  display: grid;
+  grid-template-columns: 509px 264px 427px;
+
+  /* Размеры */
+  width: 1200px;
+  height: 48px;
+
+  /* Отступы */
+  margin-top: 56px; /* 1440px */
+  margin-left: 120px; /* ≥1441px */
+  margin-right: 120px; /* ≥1441px */
+
+  /* Фон */
+  background: var(--color-white);
+
+  /* Для отладки: видим границы ячеек */
+  gap: 0;
+}
+
+/* ============================================= */
+/* 🔹 ТРИ GRID-ЯЧЕЙКИ (ОТЛАДКА)                 */
+/* ============================================= */
+
+/* 🔴 Левая ячейка: В начало + цифры (591px) */
+.pagination__left {
+  grid-column: 1;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  /* 🔹 ЦВЕТ ДЛЯ ОТЛАДКИ */
+  background: rgba(255, 0, 0, 0.1); /* Красный 10% */
+  border: 1px solid rgba(255, 0, 0, 0.3);
+}
+
+/* 🟢 Центральная ячейка: Кнопка Ещё (264px) */
+.pagination__center {
+  grid-column: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* 🔹 ЦВЕТ ДЛЯ ОТЛАДКИ */
+  background: rgba(0, 255, 0, 0.1); /* Зелёный 10% */
+  border: 1px solid rgba(0, 255, 0, 0.3);
+}
+
+/* 🔵 Правая ячейка: В конец + смайлик (345px) */
+.pagination__right {
+  grid-column: 3;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+
+  /* 🔹 ЦВЕТ ДЛЯ ОТЛАДКИ */
+  background: rgba(0, 0, 255, 0.1); /* Синий 10% */
+  border: 1px solid rgba(0, 0, 255, 0.3);
+}
