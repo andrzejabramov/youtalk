@@ -3,63 +3,388 @@
 /* ============================================= */
 
 .pagination {
-  /* Сетка: 3 колонки 509 / 264 / 427 */
+  /* Сетка: 509 / 182 / 509 */
   display: grid;
-  grid-template-columns: 509px 264px 427px;
+  grid-template-columns: 509px 182px 509px;
 
   /* Размеры */
   width: 1200px;
-  height: 48px;
 
-  /* Отступы */
-  margin-top: 56px; /* 1440px */
-  margin-left: 120px; /* ≥1441px */
-  margin-right: 120px; /* ≥1441px */
+  /* Отступы: сверху 56px, слева/справа auto (центрирование) */
+  margin: 56px auto;
 
   /* Фон */
   background: var(--color-white);
 
-  /* Для отладки: видим границы ячеек */
+  /* Gap между ячейками */
   gap: 0;
 }
 
 /* ============================================= */
-/* 🔹 ТРИ GRID-ЯЧЕЙКИ (ОТЛАДКА)                 */
+/* 🔹 АДАПТИВ: 967-1440px (373px → 509px)       */
 /* ============================================= */
 
-/* 🔴 Левая ячейка: В начало + цифры (591px) */
+@media (min-width: 967px) and (max-width: 1440px) {
+  .pagination {
+    grid-template-columns:
+      calc(373px + (100vw - 967px) / 3.47)
+      182px
+      calc(373px + (100vw - 967px) / 3.47);
+
+    width: 100%;
+
+    /* margin-left как у фильтров, margin-right auto */
+    margin-left: calc(20px + (100vw - 967px) / 4.73);
+    margin-right: auto;
+    margin-top: 56px;
+  }
+}
+
+/* ============================================= */
+/* 🔹 АДАПТИВ: 600-966px (189px → 373px)        */
+/* ============================================= */
+
+@media (min-width: 600px) and (max-width: 966px) {
+  .pagination {
+    grid-template-columns:
+      calc(189px + (100vw - 600px) / 2)
+      182px
+      calc(189px + (100vw - 600px) / 2);
+
+    width: 100%;
+    margin: 56px 20px;
+  }
+}
+
+/* ============================================= */
+/* 🔹 АДАПТИВ: 320-599px (ТОЛЬКО КНОПКА «ЕЩЁ»)  */
+/* ============================================= */
+
+@media (min-width: 320px) and (max-width: 599px) {
+  .pagination {
+    /* 🔹 ПЛАВНЫЙ ПЕРЕХОД: продолжаем формулу от 600px */
+    /* На 599px: 189 + (599-600)/2 ≈ 188.5px (почти как на 600px) */
+    grid-template-columns:
+      calc(189px + (100vw - 600px) / 2)
+      182px
+      calc(189px + (100vw - 600px) / 2);
+
+    width: 100%;
+    margin: 56px 15px;
+  }
+
+  /* Скрываем кнопки "В начало" / "В конец" */
+  .pagination__btn-first,
+  .pagination__btn-last {
+    display: none;
+  }
+
+  /* 🔹 КНОПКА «ЕЩЁ» ВСЕГДА ПО ЦЕНТРУ */
+  .pagination__btn-more {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Скрываем содержимое боковых ячеек */
+  .pagination__left,
+  .pagination__right {
+    visibility: hidden;
+  }
+}
+
+/* ============================================= */
+/* 🔹 ТРИ GRID-ЯЧЕЙКИ                           */
+/* ============================================= */
+
+/* 🔴 Левая ячейка: В начало (509px) */
 .pagination__left {
   grid-column: 1;
   display: flex;
   align-items: center;
   gap: 16px;
-
-  /* 🔹 ЦВЕТ ДЛЯ ОТЛАДКИ */
-  background: rgba(255, 0, 0, 0.1); /* Красный 10% */
+  background: rgba(255, 0, 0, 0.1);
   border: 1px solid rgba(255, 0, 0, 0.3);
 }
 
-/* 🟢 Центральная ячейка: Кнопка Ещё (264px) */
+/* 🟢 Центральная ячейка: Кнопка Ещё (182px) */
 .pagination__center {
   grid-column: 2;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* 🔹 ЦВЕТ ДЛЯ ОТЛАДКИ */
-  background: rgba(0, 255, 0, 0.1); /* Зелёный 10% */
+  background: rgba(0, 255, 0, 0.1);
   border: 1px solid rgba(0, 255, 0, 0.3);
 }
 
-/* 🔵 Правая ячейка: В конец + смайлик (345px) */
+/* 🔵 Правая ячейка: В конец (509px) */
 .pagination__right {
   grid-column: 3;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: 16px;
-
-  /* 🔹 ЦВЕТ ДЛЯ ОТЛАДКИ */
-  background: rgba(0, 0, 255, 0.1); /* Синий 10% */
+  background: rgba(0, 0, 255, 0.1);
   border: 1px solid rgba(0, 0, 255, 0.3);
+}
+
+/* ============================================= */
+/* 🔹 КНОПКА «ЕЩЁ» (ЦЕНТР)                      */
+/* ============================================= */
+
+.pagination__btn-more {
+  /* Размеры */
+  width: 182px;
+  height: 48px;
+
+  /* Паддинги */
+  padding: 12px 16px;
+
+  /* Flex для 4 контейнеров */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  /* Фон и границы */
+  background: var(--color-primary);
+  border: none;
+  border-radius: 4px;
+
+  /* Курсор и переходы */
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.pagination__btn-more:hover {
+  background: var(--color-primary-dark);
+}
+
+/* ============================================= */
+/* 🔹 4 КОНТЕЙНЕРА ВНУТРИ КНОПКИ                */
+/* ============================================= */
+
+.pagination__arrow-left,
+.pagination__arrow-right {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination__text {
+  width: 37px;
+  height: 24px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0;
+  text-align: center;
+  color: var(--color-white);
+}
+
+.pagination__smiley {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination__smiley img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ============================================= */
+/* 🔹 ВИДИМОСТЬ ЭЛЕМЕНТОВ                       */
+/* ============================================= */
+
+.pagination__arrow-left,
+.pagination__arrow-right {
+  display: none !important;
+}
+
+.pagination--has-prev .pagination__arrow-left {
+  display: flex !important;
+}
+
+.pagination--has-next .pagination__arrow-right {
+  display: flex !important;
+}
+
+.pagination__smiley {
+  display: none !important;
+}
+
+.pagination--is-last .pagination__smiley {
+  display: flex !important;
+}
+
+/* ============================================= */
+/* 🔹 КНОПКИ "В НАЧАЛО" / "В КОНЕЦ"             */
+/* ============================================= */
+
+.pagination__btn-edge {
+  /* Размеры */
+  width: 95px;
+  height: 48px;
+
+  /* Flex-центрирование */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Фон и границы */
+  background: var(--color-border-light);
+  border: none;
+  border-radius: 4px;
+
+  /* Типографика */
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0;
+  color: var(--color-text);
+
+  /* Курсор и переходы */
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+
+  /* Не сжимать */
+  flex-shrink: 0;
+}
+
+.pagination__btn-edge:hover {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+/* Левая: прижата влево */
+.pagination__btn-first {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* Правая: прижата вправо */
+.pagination__btn-last {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+/* ============================================= */
+/* 🔹 КОНТЕЙНЕР С ЦИФРАМИ (ОТДЕЛЬНЫЙ БЛОК!)     */
+/* ============================================= */
+
+.pagination__numbers-wrapper {
+  /* Полный ширины экрана */
+  width: 100vw;
+
+  /* Центрируем контент внутри */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Отступ от сетки */
+  margin-top: 8px;
+
+  /* Компенсируем margin контейнера */
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+.pagination__numbers-container {
+  /* Размеры: 5 × 48px = 240px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+
+  /* Без паддинга */
+  padding: 0;
+}
+
+/* ===== 5 КОНТЕЙНЕРОВ 48×48 ===== */
+.pagination__num {
+  /* Размеры */
+  width: 48px;
+  height: 48px;
+
+  /* Flex-центрирование текста внутри */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Фон и границы */
+  background: var(--color-border-light);
+  border: none;
+  border-radius: 4px;
+
+  /* Типографика */
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0;
+  color: var(--color-text);
+
+  /* Курсор и переходы */
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+
+  /* Не сжимать */
+  flex-shrink: 0;
+}
+
+/* Hover эффект */
+.pagination__num:hover {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+/* Активная страница */
+.pagination__num--active {
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-weight: 700;
+}
+
+/* Многоточие (не кликабельно, без фона) */
+.pagination__dots {
+  /* Размеры */
+  width: 48px;
+  height: 48px;
+
+  /* Flex-центрирование */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Типографика */
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-text-muted);
+
+  /* Без фона */
+  background: transparent;
+  cursor: default;
+
+  /* Не сжимать */
+  flex-shrink: 0;
 }
