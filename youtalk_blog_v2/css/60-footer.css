@@ -1,0 +1,255 @@
+/* ============================================= */
+/* 🔹 ПОДВАЛ: РОДИТЕЛЬСКИЙ КОНТЕЙНЕР (БАЗА)    */
+/* ============================================= */
+
+.footer {
+  width: 100%;
+  height: 302px;
+  margin-top: 96px;
+  background: #2963a3;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================= */
+/* 🔹 ГРИД: HUG ПО КОНТЕНТУ (1440px+)          */
+/* ============================================= */
+
+.footer__grid {
+  display: grid;
+
+  /* 🔹 КОЛОНКИ HUG: max-content для 1,2,4 и 1fr для 3-й */
+  grid-template-columns: max-content max-content 1fr max-content;
+
+  /* Центрирование */
+  width: 1200px;
+  margin: 40px auto 0;
+
+  position: relative;
+  z-index: 10;
+}
+
+/* ============================================= */
+/* 🔹 GAP ЧЕРЕЗ MARGIN-RIGHT (ФИКСИРОВАННЫЙ)   */
+/* ============================================= */
+
+.footer__col--nav1 {
+  margin-right: 93px; /* ← Фиксированный gap */
+  min-height: 184px;
+}
+
+.footer__col--nav2 {
+  margin-right: 91.5px; /* ← Фиксированный gap */
+  min-height: 184px;
+}
+
+.footer__col--subscribe {
+  margin-right: 91.5px; /* ← Фиксированный gap */
+  min-height: 184px;
+}
+
+.footer__col--brand {
+  margin-right: 0; /* ← Последний без gap */
+  min-height: 184px;
+}
+
+/* ============================================= */
+/* 🔹 БАЗОВЫЕ СТИЛИ КОЛОНОК                     */
+/* ============================================= */
+
+.footer__col {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0; /* НОЛЬ PADDING — HUG! */
+  height: auto;
+}
+
+/* ============================================= */
+/* 🔹 МЕНЮ В КОЛОНКАХ 1 И 2                     */
+/* ============================================= */
+
+.footer__menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer__menu-item {
+  margin: 0;
+  padding: 0;
+}
+
+.footer__menu-link {
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0;
+  color: var(--color-white);
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    color 0.3s ease,
+    opacity 0.3s ease;
+  display: block;
+  white-space: nowrap; /* ОДНА СТРОКА! */
+}
+
+.footer__menu-link:hover {
+  color: var(--color-primary-light);
+  opacity: 1;
+}
+
+/* ============================================= */
+/* 🔹 КОЛОНКА 3: ПОДПИСКА                       */
+/* ============================================= */
+
+.footer__col--subscribe {
+  margin-right: 91.5px;
+  min-height: 184px;
+
+  /* Flex для вертикального расположения контейнеров */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* ===== Контейнер 1: Форма подписки (384×108) ===== */
+.footer__subscribe {
+  width: 384px;
+  /* Высота по контенту: 52 + 8 + 48 = 108px */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer__subscribe-text {
+  /* Типографика */
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+  letter-spacing: 0;
+
+  /* Цвет */
+  color: var(--color-white);
+
+  /* Без отступов */
+  margin: 0;
+  padding: 0;
+
+  /* Ширина */
+  width: 356px;
+}
+
+.footer__subscribe-form {
+  /* Позиционирование: relative для абсолютной кнопки */
+  position: relative;
+  width: 384px;
+  height: 48px;
+}
+
+.footer__subscribe-input {
+  /* Размеры */
+  width: 384px;
+  height: 48px;
+
+  /* Границы и фон */
+  border: 1px solid rgba(157, 157, 157, 0.2); /* #9D9D9D33 */
+  border-radius: 4px;
+  background: var(--color-white);
+
+  /* Типографика */
+  font-family: var(--font-main);
+  font-size: 14px;
+  color: var(--color-text);
+
+  /* Паддинги */
+  padding: 0 16px;
+
+  /* Убираем стандартные стили */
+  outline: none;
+  box-sizing: border-box;
+}
+
+.footer__subscribe-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.footer__subscribe-input:focus {
+  border-color: var(--color-primary);
+}
+
+.footer__subscribe-btn {
+  /* Позиционирование: приклеена справа */
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  /* Размеры */
+  width: 64px;
+  height: 48px;
+
+  /* Фон */
+  background: var(--color-primary-dark); /* #16C8BB */
+  border: none;
+  border-radius: 4px;
+
+  /* Центрирование иконки */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Курсор */
+  cursor: pointer;
+
+  /* Переходы */
+  transition:
+    background 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.footer__subscribe-btn:hover {
+  background: var(--color-primary); /* #35B3A9 */
+  opacity: 1;
+}
+
+.footer__subscribe-btn img {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+/* ===== Контейнер 2: Политика конфиденциальности (486×54) ===== */
+.footer__privacy {
+  width: 486px;
+  /* Высота по контенту */
+  margin-top: 8px; /* gap между контейнерами */
+  margin-bottom: 14px; /* padding-bottom от родителя */
+}
+
+.footer__privacy-text {
+  /* Типографика */
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.25px;
+
+  /* Цвет */
+  color: var(--color-white);
+
+  /* Без отступов */
+  margin: 0;
+  padding: 0;
+
+  /* Перенос текста */
+  white-space: normal;
+  word-wrap: break-word;
+}

@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   includes.forEach(async (el) => {
     const file = el.getAttribute("data-include");
     try {
-      const response = await fetch(file);
+      const response = await fetch(file + "?v=" + Date.now());
       const html = await response.text();
       el.outerHTML = html;
     } catch (error) {
