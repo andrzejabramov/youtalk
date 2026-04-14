@@ -1,0 +1,116 @@
+/* ============================================= */
+/* 🔹 ГРИД: 7 КОЛОНОК (БАЗА ≥1440px)            */
+/* ============================================= */
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: 111px 93px 106px 91.5px 486px 91.5px 221px;
+  width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+/* ============================================= */
+/* 🔹 РАСПОЛОЖЕНИЕ КОНТЕНТА ПО ЯЧЕЙКАМ (БАЗА)   */
+/* ============================================= */
+
+.footer__col--nav1 {
+  grid-column: 1;
+  min-height: 184px;
+}
+
+.footer__col--nav2 {
+  grid-column: 3;
+  min-height: 184px;
+}
+
+.footer__col--subscribe {
+  grid-column: 5;
+  min-height: 184px;
+}
+
+/* 🔹 БАЗА: Col 4 на 1-й строке (переопределяется в медиа-запросах) */
+.footer__col--brand {
+  grid-column: 7;
+  grid-row: 1;
+  min-height: 184px;
+  margin-top: 0;
+  margin-left: auto;
+}
+
+/* ============================================= */
+/* 🔹 АДАПТИВ ГРИДА: 1024-1440px (ФОРМУЛЫ)      */
+/* ============================================= */
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .footer__grid {
+    grid-template-columns:
+      111px
+      calc(30px + (100vw - 1024px) / 6.6)
+      106px
+      calc(21px + (100vw - 1024px) / 5.9)
+      calc(450px + (100vw - 1024px) / 11.56)
+      calc(21px + (100vw - 1024px) / 5.9)
+      221px;
+
+    width: calc(960px + (100vw - 1024px) / 1.73);
+  }
+}
+
+/* ============================================= */
+/* 🔹 АДАПТИВ ГРИДА: 961-1023px (ФИКС 960px)    */
+/* ============================================= */
+
+@media (min-width: 961px) and (max-width: 1023px) {
+  .footer__grid {
+    grid-template-columns: 111px 30px 106px 21px 450px 21px 221px;
+    width: 960px;
+  }
+}
+
+/* ============================================= */
+/* 🔹 АДАПТИВ ГРИДА: 768-960px (ПЕРЕСКОК)       */
+/* ============================================= */
+
+@media (min-width: 768px) and (max-width: 960px) {
+  .footer__grid {
+    grid-template-columns:
+      111px
+      30px
+      106px
+      31px
+      450px
+      0
+      0;
+
+    width: 728px;
+  }
+
+  .footer__col--brand {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: start;
+    margin-top: 24px;
+    margin-left: 0;
+  }
+}
+
+/* ============================================= */
+/* 🔹 АДАПТИВ ГРИДА: ≤767px (ФИКС 728px)        */
+/* ============================================= */
+
+@media (max-width: 767px) {
+  .footer__grid {
+    grid-template-columns: 111px 30px 106px 31px 450px 0 0;
+    width: 728px;
+  }
+
+  .footer__col--brand {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: start;
+    margin-top: 24px;
+    margin-left: 0;
+  }
+}

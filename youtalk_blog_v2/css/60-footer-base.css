@@ -1,0 +1,27 @@
+/* ============================================= */
+/* 🔹 ПОДВАЛ: РОДИТЕЛЬСКИЙ КОНТЕЙНЕР (БАЗА)     */
+/* ============================================= */
+
+.footer {
+  width: 100%;
+  height: 302px;
+  margin-top: 96px;
+  background: #2963a3;
+  padding-top: 40px;
+  padding-bottom: 17px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================= */
+/* 🔹 БАЗОВЫЕ СТИЛИ КОЛОНОК                     */
+/* ============================================= */
+
+.footer__col {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0;
+  height: auto;
+  overflow: hidden;
+}

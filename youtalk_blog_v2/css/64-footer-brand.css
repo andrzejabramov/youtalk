@@ -1,0 +1,45 @@
+/* ============================================= */
+/* 🔹 КОЛОНКА 4: БРЕНД (ЛОГО + ТЕКСТ)           */
+/* ============================================= */
+
+.footer__col--brand {
+  min-height: 184px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.footer__brand {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 40px;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  max-width: 221px;
+  overflow: hidden;
+}
+
+.footer__logo {
+  width: 100px;
+  height: 50px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+}
+
+.footer__badge {
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 24px;
+  letter-spacing: 0;
+  color: var(--color-white);
+  white-space: nowrap;
+  flex-shrink: 0;
+  max-width: 115px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

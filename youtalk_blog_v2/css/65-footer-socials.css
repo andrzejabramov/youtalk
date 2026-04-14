@@ -1,0 +1,37 @@
+/* ===== Соцсети ===== */
+.socials {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 16px;
+  width: 176px;
+  height: 32px;
+}
+
+.socials__item {
+  margin: 0;
+  padding: 0;
+}
+
+.socials__link {
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+  flex-shrink: 0;
+}
+
+.socials__link:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.socials__link img {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
