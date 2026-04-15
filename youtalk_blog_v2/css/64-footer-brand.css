@@ -3,7 +3,7 @@
 /* ============================================= */
 
 .footer__col--brand {
-  min-height: 184px;
+  min-height: 102px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -15,11 +15,21 @@
   flex-direction: row;
   align-items: center;
   gap: 5px;
-  margin-bottom: 40px;
+  margin-bottom: 40px; /* Базовый отступ до соцсетей */
   flex-wrap: nowrap;
   white-space: nowrap;
   max-width: 221px;
   overflow: hidden;
+}
+
+/* ============================================= */
+/* 🔹 АДАПТИВ БРЕНДА: ≤566px (GAP 40→20)        */
+/* ============================================= */
+
+@media (max-width: 566px) {
+  .footer__brand {
+    margin-bottom: 20px;
+  }
 }
 
 .footer__logo {
@@ -32,10 +42,10 @@
 
 .footer__badge {
   font-family: var(--font-main);
-  font-weight: 700;
-  font-size: 23px;
+  font-weight: 600;
+  font-size: 22px;
   line-height: 24px;
-  letter-spacing: 0;
+  letter-spacing: 0.1;
   color: var(--color-white);
   white-space: nowrap;
   flex-shrink: 0;
