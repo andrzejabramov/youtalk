@@ -7,10 +7,13 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  width: 100%; /* ← ← ← Добавлено */
+  max-width: 486px; /* ← ← ← Добавлено */
 }
 
 .footer__subscribe {
-  width: 374px;
+  width: 384px;
+  max-width: 100%; /* ← ← ← Добавлено */
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -26,16 +29,19 @@
   margin: 0;
   padding: 0;
   width: 356px;
+  max-width: 100%; /* ← ← ← Добавлено */
 }
 
 .footer__subscribe-form {
   position: relative;
-  width: 374px;
+  width: 384px;
+  max-width: 100%; /* ← ← ← Добавлено */
   height: 48px;
+  overflow: hidden; /* ← ← ← Добавлено */
 }
 
 .footer__subscribe-input {
-  width: 374px;
+  width: 100%; /* ← ← ← ИСПРАВЛЕНО: 384px → 100% */
   height: 48px;
   border: 1px solid rgba(157, 157, 157, 0.2);
   border-radius: 4px;
@@ -43,7 +49,7 @@
   font-family: var(--font-main);
   font-size: 14px;
   color: var(--color-text);
-  padding: 0 16px;
+  padding: 0 64px 0 16px; /* ← ← ← ИСПРАВЛЕНО: место под кнопку справа */
   outline: none;
   box-sizing: border-box;
 }
@@ -86,7 +92,7 @@
 }
 
 .footer__privacy {
-  max-width: 450px;
+  max-width: 384px;
   width: 100%;
   margin-top: 8px;
   margin-bottom: 14px;

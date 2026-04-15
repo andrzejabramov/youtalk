@@ -71,10 +71,10 @@
 }
 
 /* ============================================= */
-/* 🔹 АДАПТИВ ГРИДА: 600-960px (2 РЯДА)         */
+/* 🔹 АДАПТИВ ГРИДА: 728-960px (2 РЯДА)         */
 /* ============================================= */
 
-@media (min-width: 600px) and (max-width: 960px) {
+@media (min-width: 728px) and (max-width: 960px) {
   .footer__grid {
     grid-template-columns:
       111px
@@ -88,6 +88,34 @@
     width: 728px;
   }
 
+  .footer__col--brand {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: start;
+    margin-top: 24px;
+    margin-left: 0;
+  }
+}
+
+/* ============================================= */
+/* 🔹 АДАПТИВ ГРИДА: 567-727px (СЖАТИЕ GAP)     */
+/* ============================================= */
+
+@media (min-width: 567px) and (max-width: 727px) {
+  .footer__grid {
+    /* Gap 1: 30→0, Gap 2: 31→0, Subscribe: 450→350 */
+    grid-template-columns:
+      111px
+      calc(0px + (100vw - 567px) / 5.37)
+      106px
+      calc(0px + (100vw - 567px) / 5.19)
+      calc(350px + (100vw - 567px) / 1.61)
+      0
+      0;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
   .footer__col--brand {
     grid-column: 1 / -1;
     grid-row: 2;
