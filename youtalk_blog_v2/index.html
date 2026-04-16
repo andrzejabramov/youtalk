@@ -124,7 +124,32 @@
     <div data-include="components/footer.html"></div>
 
     <!-- ✅ СКРИПТЫ -->
-    <script src="js/debug-header-group.js"></script>
+    <!--script src="js/debug-header-group.js"></script> -->
     <script src="js/include.js"></script>
+
+    <!-- 🔹 ВИЗУАЛЬНЫЙ ИНДИКАТОР ШИРИНЫ (для тестов) -->
+    <div
+      id="viewport-indicator"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: #ff6b6b;
+        color: white;
+        padding: 4px 8px;
+        font: 12px monospace;
+        z-index: 9999;
+        pointer-events: none;
+      "
+    >
+      Width: <span id="vw-value">?</span>px
+    </div>
+
+    <script>
+      const indicator = document.getElementById("vw-value");
+      const update = () => (indicator.textContent = window.innerWidth);
+      update();
+      window.addEventListener("resize", update);
+    </script>
   </body>
 </html>

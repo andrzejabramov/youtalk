@@ -98,21 +98,20 @@
 }
 
 /* ============================================= */
-/* 🔹 АДАПТИВ ГРИДА: 567-727px (СЖАТИЕ GAP)     */
+/* 🔹 АДАПТИВ ГРИДА: 567-767px (СЖАТИЕ GAP)     */
 /* ============================================= */
 
-@media (min-width: 567px) and (max-width: 727px) {
+@media (min-width: 567px) and (max-width: 767px) {
   .footer__grid {
-    /* Gap 1: 30→0, Gap 2: 31→0, Subscribe: 450→350 */
     grid-template-columns:
       111px
       calc(0px + (100vw - 567px) / 5.37)
       106px
       calc(0px + (100vw - 567px) / 5.19)
       calc(350px + (100vw - 567px) / 1.61)
-      0
-      0;
+      0 0 0;
     width: 100%;
+    max-width: 100%;
     margin-left: 0;
     margin-right: 0;
   }
@@ -126,19 +125,19 @@
 }
 
 /* ============================================= */
-/* 🔹 АДАПТИВ ГРИДА: ≤566px (3 РЯДА)            */
+/* 🔹 АДАПТИВ ГРИДА: ≤566px (БАЗА: 3 РЯДА)      */
 /* ============================================= */
 
 @media (max-width: 566px) {
   .footer__grid {
-    /* Row 1: Menu1 + gap(157) + Menu2 (центрированы) */
     grid-template-columns:
       111px
-      157px /* ← ← ← ИСПРАВЛЕНО: 150 → 157px */
+      157px
       106px
       0 0 0 0;
     width: 374px;
-    margin: 0 auto; /* Центрирование */
+    max-width: 100%;
+    margin: 0 auto;
   }
 
   .footer__col--nav1 {
@@ -154,15 +153,36 @@
   .footer__col--subscribe {
     grid-column: 1 / -1;
     grid-row: 2;
-    margin-top: 23px; /* Вертикальный gap */
+    margin-top: 23px;
     width: 375px;
+    max-width: 100%;
   }
 
   .footer__col--brand {
     grid-column: 1 / -1;
     grid-row: 3;
     justify-self: start;
-    margin-top: 23px; /* Вертикальный gap */
+    margin-top: 31px;
     margin-left: 0;
+  }
+}
+
+/* ============================================= */
+/* 🔹 АДАПТИВ ГРИДА: 327-414px (ГИБКИЙ GAP)     */
+/* ============================================= */
+
+@media (min-width: 327px) and (max-width: 414px) {
+  .footer__col--brand {
+    margin-top: calc(5px + (100vw - 327px) / 3.35);
+  }
+}
+
+/* ============================================= */
+/* 🔹 АДАПТИВ ГРИДА: ≤326px (ФИКС)              */
+/* ============================================= */
+
+@media (max-width: 326px) {
+  .footer__col--brand {
+    margin-top: 5px;
   }
 }
