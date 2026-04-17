@@ -13,22 +13,26 @@
       rel="stylesheet"
     />
 
-    <!-- ✅ СТИЛИ -->
+    <!-- ✅ СТИЛИ: БАЗА И КОНТЕЙНЕРЫ -->
     <link rel="stylesheet" href="css/00-reset.css" />
     <link rel="stylesheet" href="css/01-variables.css" />
     <link rel="stylesheet" href="css/02-containers.css" />
+
+    <!-- ✅ СТИЛИ: HEADER -->
     <link rel="stylesheet" href="css/10-header-base.css" />
     <link rel="stylesheet" href="css/11-header-logo.css" />
     <link rel="stylesheet" href="css/12-header-nav.css" />
     <link rel="stylesheet" href="css/13-header-button.css" />
     <link rel="stylesheet" href="css/14-header-burger.css" />
-    <link rel="stylesheet" href="css/21-breadcrumbs.css" />
-    <!-- ✅ ЗАГОЛОВОК H1 -->
+
+    <!-- ✅ СТИЛИ: СТРАНИЦА БЛОГА -->
     <link rel="stylesheet" href="css/20-page-header.css" />
+    <link rel="stylesheet" href="css/21-breadcrumbs.css" />
     <link rel="stylesheet" href="css/30-filters.css" />
     <link rel="stylesheet" href="css/40-cards-placeholder.css" />
     <link rel="stylesheet" href="css/51-pagination.css" />
-    <!-- Footer CSS -->
+
+    <!-- ✅ СТИЛИ: FOOTER -->
     <link rel="stylesheet" href="css/60-footer-base.css" />
     <link rel="stylesheet" href="css/61-footer-grid.css" />
     <link rel="stylesheet" href="css/62-footer-menu.css" />
@@ -37,12 +41,21 @@
     <link rel="stylesheet" href="css/65-footer-socials.css" />
     <link rel="stylesheet" href="css/66-footer-separator.css" />
     <link rel="stylesheet" href="css/67-footer-bottom.css" />
+
+    <!-- ✅ СТИЛИ: КАРТОЧКИ (плоская структура, порядок важен!) -->
+    <link rel="stylesheet" href="css/71-card.css" />
+    <link rel="stylesheet" href="css/72-card-badge.css" />
+    <link rel="stylesheet" href="css/73-card-content.css" />
+    <link rel="stylesheet" href="css/74-card-grid.css" />
+    <link rel="stylesheet" href="css/gradient.css" />
+
     <!-- 🔹 ОТЛАДКА (удалить перед продакшеном!) -->
     <link rel="stylesheet" href="css/debug.css" />
   </head>
+
   <body>
+    <!-- ✅ ШАПКА -->
     <div class="container">
-      <!-- ✅ ШАПКА -->
       <div data-include="components/header.html"></div>
     </div>
 
@@ -58,45 +71,34 @@
     <!-- ✅ ФИЛЬТРЫ -->
     <div data-include="components/filters.html"></div>
 
+    <!-- ✅ КОНТЕЙНЕР ДЛЯ КАРТОЧЕК (НОВОЕ!) -->
+    <div class="container">
+      <div class="cards-grid" id="cardsGrid"></div>
+    </div>
+
     <!-- ✅ ЗАГЛУШКА КАРТОЧЕК -->
     <div data-include="components/cards-placeholder.html"></div>
 
     <!-- ✅ ПАГИНАЦИЯ -->
     <div data-include="components/pagination.html"></div>
 
-    <!--✅ ПАГИНАЦИЯ (ПРЯМОЙ КОД — ДЛЯ ТЕСТА) -->
-    <!-- <nav
-      class="pagination pagination--has-prev pagination--has-next pagination--is-last"
-      aria-label="Навигация по страницам"
-    >
+    <!--✅ ПАГИНАЦИЯ (ПРЯМОЙ КОД — ДЛЯ ТЕСТА, закомментировано) -->
+    <!--
+    <nav class="pagination pagination--has-prev pagination--has-next pagination--is-last" aria-label="Навигация по страницам">
       <div class="pagination__left">
-        <button class="pagination__btn-edge pagination__btn-first">
-          В начало
-        </button>
+        <button class="pagination__btn-edge pagination__btn-first">В начало</button>
       </div>
       <div class="pagination__center">
         <button class="pagination__btn-more">
           <span class="pagination__arrow-left">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M15 18L9 12L15 6"
-                stroke="white"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
+              <path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
           <span class="pagination__text">Ещё</span>
           <span class="pagination__arrow-right">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M9 18L15 12L9 6"
-                stroke="white"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
+              <path d="M9 18L15 12L9 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
           <span class="pagination__smiley">
@@ -105,9 +107,7 @@
         </button>
       </div>
       <div class="pagination__right">
-        <button class="pagination__btn-edge pagination__btn-last">
-          В конец
-        </button>
+        <button class="pagination__btn-edge pagination__btn-last">В конец</button>
       </div>
     </nav>
     <div class="pagination__numbers-wrapper">
@@ -118,38 +118,41 @@
         <span class="pagination__dots">...</span>
         <button class="pagination__num">12</button>
       </div>
-    </div> -->
+    </div>
+    -->
 
     <!-- ✅ ПОДВАЛ -->
     <div data-include="components/footer.html"></div>
 
-    <!-- ✅ СКРИПТЫ -->
-    <!--script src="js/debug-header-group.js"></script> -->
+    <!-- 🔹 ШАБЛОН КАРТОЧКИ (для рендеринга через JS) -->
+    <!-- <template id="card-template">
+      <article class="card">
+        <div class="card__media">
+          <img src="images/{{image}}" alt="{{alt}}" class="card__image" />
+          <div class="card__badges">{{badges}}</div>
+        </div>
+        <div class="card__content">
+          <h2 class="card__title">{{title}}</h2>
+          <div class="card__meta">
+            <span class="card__author">{{author}}</span>
+          </div>
+          <p class="card__description">{{description}}</p>
+          <time class="card__date">{{date}}</time>
+          <a href="{{link}}" class="card__link">Читать далее →</a>
+        </div>
+      </article>
+    </template> -->
+
+    <!-- ✅ СКРИПТЫ (порядок важен!) -->
+    <!-- <script src="js/debug-header-group.js"></script> -->
+
+    <!-- Cards: сначала зависимости -->
+    <!-- <script src="js/pagination.js"></script>
+    <script src="js/cards.js"></script>
+    <script src="js/pagination-ui.js"></script> -->
+
+    <!-- Include и основной скрипт — в конце -->
     <script src="js/include.js"></script>
-
-    <!-- 🔹 ВИЗУАЛЬНЫЙ ИНДИКАТОР ШИРИНЫ (для тестов) -->
-    <div
-      id="viewport-indicator"
-      style="
-        position: fixed;
-        top: 0;
-        left: 0;
-        background: #ff6b6b;
-        color: white;
-        padding: 4px 8px;
-        font: 12px monospace;
-        z-index: 9999;
-        pointer-events: none;
-      "
-    >
-      Width: <span id="vw-value">?</span>px
-    </div>
-
-    <script>
-      const indicator = document.getElementById("vw-value");
-      const update = () => (indicator.textContent = window.innerWidth);
-      update();
-      window.addEventListener("resize", update);
-    </script>
+    <script src="js/script.js"></script>
   </body>
 </html>

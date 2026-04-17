@@ -11,24 +11,24 @@
   padding-bottom: 17px;
   box-sizing: border-box;
   position: relative;
-  z-index: 1;
+  z-index: 10;
 }
 
 /* ============================================= */
 /* 🔹 АДАПТИВ ВЫСОТЫ: 600-960px (2 РЯДА)        */
 /* ============================================= */
 
-@media (min-width: 600px) and (max-width: 960px) {
+@media (min-width: 567px) and (max-width: 960px) {
   .footer {
     height: 454px;
   }
 }
 
 /* ============================================= */
-/* 🔹 АДАПТИВ ВЫСОТЫ: ≤599px (3 РЯДА)           */
+/* 🔹 АДАПТИВ ВЫСОТЫ: ≤566px (3 РЯДА)           */
 /* ============================================= */
 
-@media (max-width: 599px) {
+@media (max-width: 566px) {
   .footer {
     height: 746px; /* ← По ТЗ */
     padding-top: 35px; /* ← Меняется с 40px */
