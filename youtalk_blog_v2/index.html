@@ -42,12 +42,15 @@
     <link rel="stylesheet" href="css/66-footer-separator.css" />
     <link rel="stylesheet" href="css/67-footer-bottom.css" />
 
-    <!-- ✅ СТИЛИ: КАРТОЧКИ (плоская структура, порядок важен!) -->
+    <!-- ✅ СТИЛИ: КАРТОЧКИ -->
     <link rel="stylesheet" href="css/71-card.css" />
     <link rel="stylesheet" href="css/72-card-badge.css" />
     <link rel="stylesheet" href="css/73-card-content.css" />
     <link rel="stylesheet" href="css/74-card-grid.css" />
     <link rel="stylesheet" href="css/gradient.css" />
+
+    <!-- ✅ СТИЛИ: МОДАЛКА (ДЕМО) -->
+    <link rel="stylesheet" href="css/80-modal.css" />
 
     <!-- 🔹 ОТЛАДКА (удалить перед продакшеном!) -->
     <link rel="stylesheet" href="css/debug.css" />
@@ -71,61 +74,19 @@
     <!-- ✅ ФИЛЬТРЫ -->
     <div data-include="components/filters.html"></div>
 
-    <!-- ✅ КОНТЕЙНЕР ДЛЯ КАРТОЧЕК (НОВОЕ!) -->
-    <div class="container">
+    <!-- ✅ КОНТЕЙНЕР ДЛЯ КАРТОЧЕК (гибкая высота) -->
+    <main class="main">
       <div class="cards-grid" id="cardsGrid"></div>
-    </div>
-
-    <!-- ✅ ЗАГЛУШКА КАРТОЧЕК -->
-    <div data-include="components/cards-placeholder.html"></div>
+    </main>
 
     <!-- ✅ ПАГИНАЦИЯ -->
     <div data-include="components/pagination.html"></div>
-
-    <!--✅ ПАГИНАЦИЯ (ПРЯМОЙ КОД — ДЛЯ ТЕСТА, закомментировано) -->
-    <!--
-    <nav class="pagination pagination--has-prev pagination--has-next pagination--is-last" aria-label="Навигация по страницам">
-      <div class="pagination__left">
-        <button class="pagination__btn-edge pagination__btn-first">В начало</button>
-      </div>
-      <div class="pagination__center">
-        <button class="pagination__btn-more">
-          <span class="pagination__arrow-left">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-          <span class="pagination__text">Ещё</span>
-          <span class="pagination__arrow-right">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M9 18L15 12L9 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-          <span class="pagination__smiley">
-            <img src="images/icon-smile.svg" alt="" width="20" height="20" />
-          </span>
-        </button>
-      </div>
-      <div class="pagination__right">
-        <button class="pagination__btn-edge pagination__btn-last">В конец</button>
-      </div>
-    </nav>
-    <div class="pagination__numbers-wrapper">
-      <div class="pagination__numbers-container">
-        <button class="pagination__num pagination__num--active">1</button>
-        <button class="pagination__num">2</button>
-        <button class="pagination__num">3</button>
-        <span class="pagination__dots">...</span>
-        <button class="pagination__num">12</button>
-      </div>
-    </div>
-    -->
 
     <!-- ✅ ПОДВАЛ -->
     <div data-include="components/footer.html"></div>
 
     <!-- 🔹 ШАБЛОН КАРТОЧКИ (для рендеринга через JS) -->
-    <!-- <template id="card-template">
+    <template id="card-template">
       <article class="card">
         <div class="card__media">
           <img src="images/{{image}}" alt="{{alt}}" class="card__image" />
@@ -141,18 +102,46 @@
           <a href="{{link}}" class="card__link">Читать далее →</a>
         </div>
       </article>
-    </template> -->
+    </template>
+
+    <!-- 🔹 ДЕМО-МОДАЛКА: ВВОД КОЛИЧЕСТВА КАРТОЧЕК -->
+    <div id="cardCountModal" class="modal" hidden>
+      <div class="modal__content">
+        <p class="modal__title">Сколько карточек показать?</p>
+        <input
+          type="number"
+          id="cardCountInput"
+          class="modal__input"
+          min="0"
+          max="21"
+          value="3"
+          placeholder="0–21"
+        />
+        <div class="modal__actions">
+          <button
+            type="button"
+            id="modalCancel"
+            class="modal__btn modal__btn--cancel"
+          >
+            Отмена
+          </button>
+          <button
+            type="button"
+            id="modalConfirm"
+            class="modal__btn modal__btn--confirm"
+          >
+            Применить
+          </button>
+        </div>
+      </div>
+    </div>
 
     <!-- ✅ СКРИПТЫ (порядок важен!) -->
-    <!-- <script src="js/debug-header-group.js"></script> -->
-
-    <!-- Cards: сначала зависимости -->
-    <!-- <script src="js/pagination.js"></script>
+    <script src="js/pagination.js"></script>
     <script src="js/cards.js"></script>
-    <script src="js/pagination-ui.js"></script> -->
-
-    <!-- Include и основной скрипт — в конце -->
+    <script src="js/pagination-ui.js"></script>
     <script src="js/include.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/demo-mode.js"></script>
   </body>
 </html>

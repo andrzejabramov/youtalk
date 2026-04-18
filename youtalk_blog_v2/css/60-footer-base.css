@@ -35,3 +35,9 @@
     padding-bottom: 37px; /* ← Меняется с 17px */
   }
 }
+
+/* ✅ Страховка: футер всегда после потока .main */
+.footer {
+  clear: both;
+  display: flow-root;
+}

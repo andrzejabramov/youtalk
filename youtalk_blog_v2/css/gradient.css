@@ -11,14 +11,69 @@
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0) 41.95%, #ffffff 70.27%),
     var(--color-bg-gradient);
-  z-index: 0; /* ← ← ← НИЖЕ ВСЕГО! */
+  z-index: 0;
   pointer-events: none;
   transition:
     top 0.2s ease,
     height 0.2s ease;
 }
 
+/* ============================================= */
+/* 🔹 .MAIN: КОНТЕЙНЕР КОНТЕНТА + КАРТОЧЕК      */
+/* ============================================= */
+
 .main {
   position: relative;
-  z-index: 1; /* ← ← ← КОНТЕНТ ВЫШЕ ГРАДИЕНТА */
+  z-index: 1;
+
+  /* ✅ Гибкая высота: растягивается под контент */
+  height: auto;
+  min-height: 0;
+
+  /* ✅ Центрирование и ширина как у .container */
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+
+  /* ✅ Отступы по бокам (десктоп по умолчанию) */
+  padding-left: 120px;
+  padding-right: 120px;
+
+  /* ✅ Отступ снизу: гарантированно отталкивает футер */
+  margin-bottom: 48px;
+}
+
+/* ===== АДАПТИВ ПАДДИНГОВ .MAIN ===== */
+/* 968-1440px: плавный переход 20px → 120px */
+@media (min-width: 968px) and (max-width: 1440px) {
+  .main {
+    padding-left: calc(20px + (100vw - 967px) / 4.73);
+    padding-right: calc(20px + (100vw - 967px) / 4.73);
+  }
+}
+
+/* 600-967px: фикс 20px */
+@media (min-width: 600px) and (max-width: 967px) {
+  .main {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* 348-599px: фикс 24px */
+@media (min-width: 348px) and (max-width: 599px) {
+  .main {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+/* ≤347px: фикс 16px */
+@media (max-width: 347px) {
+  .main {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 }

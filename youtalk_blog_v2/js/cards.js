@@ -1,31 +1,38 @@
 // js/cards.js
 let cardsCatalog = [];
-let currentListIds = [];
 let allCardsFull = [];
 let currentPage = 1;
 let totalPages = 1;
 
 async function loadData() {
   try {
+    // 1. Загружаем каталог
     const catalogResponse = await fetch("js/data/cards-catalog.json");
     const catalogData = await catalogResponse.json();
     cardsCatalog = catalogData.catalog || [];
+    const TOTAL_CATALOG = cardsCatalog.length;
 
-    const listResponse = await fetch("js/data/cards-list.json");
-    const listData = await listResponse.json();
-    currentListIds = listData.list || [];
+    // 2. Определяем количество карточек: демо > кеш > дефолт (0)
+    let requestedCount = 0;
+    if (window.DEMO_CARD_COUNT !== undefined) {
+      requestedCount = window.DEMO_CARD_COUNT;
+    } else {
+      const cached = localStorage.getItem("youtalk_cards_count");
+      requestedCount = cached ? parseInt(cached, 10) : 0;
+    }
 
-    allCardsFull = currentListIds
-      .map((id) => cardsCatalog.find((card) => String(card.id) === String(id)))
-      .filter((card) => card !== undefined);
+    // 3. Формируем массив циклически
+    allCardsFull = [];
+    for (let i = 0; i < requestedCount; i++) {
+      allCardsFull.push(cardsCatalog[i % TOTAL_CATALOG]);
+    }
 
-    totalPages = Math.ceil(
-      allCardsFull.length / Pagination.CONFIG.MAX_CARDS_PER_PAGE,
-    );
-    if (totalPages === 0) totalPages = 1;
-
+    // 4. Расчёт пагинации (будет пересчитан в updatePaginationState при ресайзе)
     currentPage = 1;
     updatePage();
+
+    // 5. Сохраняем в кеш
+    localStorage.setItem("youtalk_cards_count", requestedCount.toString());
 
     return allCardsFull;
   } catch (error) {
@@ -37,9 +44,10 @@ async function loadData() {
 function updatePage() {
   const start = (currentPage - 1) * Pagination.CONFIG.MAX_CARDS_PER_PAGE;
   const end = start + Pagination.CONFIG.MAX_CARDS_PER_PAGE;
-  const allCards = allCardsFull.slice(start, end);
-  renderCards(allCards);
-  if (typeof updatePaginationButton === "function") updatePaginationButton();
+  const pageCards = allCardsFull.slice(start, end);
+
+  renderCards(pageCards);
+  if (typeof updatePaginationState === "function") updatePaginationState();
 }
 
 function escapeHtml(str) {
@@ -163,9 +171,7 @@ function adjustFiltersGap() {
   if (filters.length === 0) return;
 
   let totalFiltersWidth = 0;
-  filters.forEach((filter) => {
-    totalFiltersWidth += filter.offsetWidth;
-  });
+  filters.forEach((filter) => (totalFiltersWidth += filter.offsetWidth));
 
   let currentGap = parseInt(getComputedStyle(filtersContainer).gap) || 8;
   let neededWidth = totalFiltersWidth + currentGap * (filters.length - 1);
@@ -179,9 +185,7 @@ function adjustFiltersGap() {
     const freeSpace = containerWidth - neededWidth;
     const gapIncrease = Math.floor(freeSpace / (filters.length - 1));
     let newGap = Math.min(20, currentGap + gapIncrease);
-    if (newGap > currentGap) {
-      currentGap = newGap;
-    }
+    if (newGap > currentGap) currentGap = newGap;
   }
 
   filtersContainer.style.gap = `${currentGap}px`;
