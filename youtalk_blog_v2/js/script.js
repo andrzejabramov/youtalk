@@ -27,8 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
     initPagination();
 
     window.addEventListener("resize", () => {
-      updateGradientHeight();
-      adjustFiltersGap();
+      // updateGradientHeight();
+      // adjustFiltersGap();
     });
   });
 });

@@ -12,6 +12,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  min-height: 400px; /* Базовый минимум для мобильных */
 }
 
 .card:hover {
@@ -24,21 +25,60 @@
   flex-shrink: 0;
 }
 
+/* Базовые стили изображения */
 .card__image {
   width: 100%;
-  aspect-ratio: 588 / 260;
   object-fit: cover;
+  height: auto;
 }
 
-.card--large .card__image {
-  aspect-ratio: 588 / 260;
-}
-
+/* Старые aspect-ratio правила заменены на фиксированную высоту по Figma */
+.card--large .card__image,
 .card:not(.card--large) .card__image {
-  aspect-ratio: 384 / 217;
+  /* Наследуют стили от .card__image */
 }
 
-/* ===== ЗАГЛУШКА (пустая карточка) ===== */
+/* ============================================= */
+/* 🔹 АДАПТИВ КАРТОЧЕК ПО FIGMA (1440px / 1024px) */
+/* ============================================= */
+
+/* 1440px+ (Контейнер 1200px) */
+@media (min-width: 1440px) {
+  .card__image {
+    height: 260px; /* ← Фикс по Figma для 2 и 3 карт */
+  }
+  .card {
+    min-height: 475px; /* Базовая высота ряда (3 карты) */
+  }
+  /* Если в ряду 1 или 2 карточки, высота ряда 499px */
+  .cards-row:has(> .card:nth-child(2):last-child) .card,
+  .cards-row:has(> .card:only-child) .card {
+    min-height: 499px;
+  }
+}
+
+/* 1024px - 1439px (Контейнер 960px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .card__image {
+    height: 206px; /* ← Высота для 3 карт по Figma */
+  }
+  .card {
+    min-height: 458px; /* Базовая высота для 3 карт */
+  }
+  /* Для ряда из 1-2 карт: изображение 260px, карточка 499px */
+  .cards-row:has(> .card:nth-child(2):last-child) .card__image,
+  .cards-row:has(> .card:only-child) .card__image {
+    height: 260px;
+  }
+  .cards-row:has(> .card:nth-child(2):last-child) .card,
+  .cards-row:has(> .card:only-child) .card {
+    min-height: 499px;
+  }
+}
+
+/* ============================================= */
+/* 🔹 ЗАГЛУШКА (пустая карточка) ===== */
+/* ============================================= */
 
 .card--empty {
   background: var(--color-white);
@@ -89,4 +129,14 @@
   font-size: 18px;
   cursor: default;
   margin: 0 auto;
+}
+
+/* ============================================= */
+/* 🔹 ОГРАНИЧЕНИЕ ТЕКСТА (защита от "прыжков" высоты) */
+/* ============================================= */
+.card__description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }

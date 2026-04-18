@@ -1,79 +1,75 @@
 /* ============================================= */
-/* 🔹 ДИНАМИЧЕСКИЙ ГРАДИЕНТ                     */
+/* 🔹 ГРАДИЕНТ: SVG-ФОН (≥1200px)               */
 /* ============================================= */
 
+/* Точка отсчёта для absolute-позиционирования */
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
 .gradient-bg {
+  /* 🔹 Скрыт на мобильных/планшетах */
+  display: none;
   position: absolute;
-  top: var(--gradient-top, 0);
+  top: 405px;
   left: 0;
   width: 100%;
-  height: var(--gradient-height, 672px);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0) 41.95%, #ffffff 70.27%),
-    var(--color-bg-gradient);
-  z-index: 0;
-  pointer-events: none;
-  transition:
-    top 0.2s ease,
-    height 0.2s ease;
+  height: 672px;
+
+  /* 🔹 ПОДКЛЮЧЕНИЕ SVG */
+  background-image: url("../images/gradient.png");
+  background-size: 100% 100%; /* Растягиваем ровно по ширине и высоте контейнера */
+  background-position: center;
+  background-repeat: no-repeat;
+
+  z-index: -1; /* Под всем контентом */
+  pointer-events: none; /* Не перехватывает клики */
+}
+
+/* 🔹 Показываем только на десктопе (≥1200px) */
+@media (min-width: 1200px) {
+  .gradient-bg {
+    display: block;
+  }
 }
 
 /* ============================================= */
-/* 🔹 .MAIN: КОНТЕЙНЕР КОНТЕНТА + КАРТОЧЕК      */
+/* 🔹 .MAIN: КОНТЕЙНЕР КАРТОЧЕК (ВОССТАНОВЛЕНО)*/
 /* ============================================= */
 
 .main {
   position: relative;
   z-index: 1;
-
-  /* ✅ Гибкая высота: растягивается под контент */
-  height: auto;
-  min-height: 0;
-
-  /* ✅ Центрирование и ширина как у .container */
-  width: 100%;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  box-sizing: border-box;
-
-  /* ✅ Отступы по бокам (десктоп по умолчанию) */
-  padding-left: 120px;
-  padding-right: 120px;
-
-  /* ✅ Отступ снизу: гарантированно отталкивает футер */
+  margin-top: 0;
   margin-bottom: 48px;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* ===== АДАПТИВ ПАДДИНГОВ .MAIN ===== */
-/* 968-1440px: плавный переход 20px → 120px */
-@media (min-width: 968px) and (max-width: 1440px) {
+/* ✅ ≥1440px: СТРОГО 1200px, центрирован */
+@media (min-width: 1440px) {
   .main {
-    padding-left: calc(20px + (100vw - 967px) / 4.73);
-    padding-right: calc(20px + (100vw - 967px) / 4.73);
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
-/* 600-967px: фикс 20px */
-@media (min-width: 600px) and (max-width: 967px) {
+/* ✅ 1024px – 1439.99px: ПЛАВНЫЙ ПЕРЕХОД 960px → 1200px */
+@media (min-width: 1024px) and (max-width: 1439.99px) {
   .main {
-    padding-left: 20px;
-    padding-right: 20px;
+    width: calc(960px + (100vw - 1024px) / 1.733);
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
-/* 348-599px: фикс 24px */
-@media (min-width: 348px) and (max-width: 599px) {
+/* ✅ ≤1023px: ШИРИНА = 100% ЭКРАНА */
+@media (max-width: 1023px) {
   .main {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-}
-
-/* ≤347px: фикс 16px */
-@media (max-width: 347px) {
-  .main {
-    padding-left: 16px;
-    padding-right: 16px;
+    width: 100%;
   }
 }

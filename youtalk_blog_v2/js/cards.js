@@ -112,8 +112,8 @@ function renderCards(cards) {
 
   if (!cards || cards.length === 0) {
     showEmptyCards();
-    updateGradientHeight();
-    adjustFiltersGap();
+    // updateGradientHeight();
+    // adjustFiltersGap();
     return;
   }
 
@@ -134,27 +134,27 @@ function renderCards(cards) {
   }
 
   container.innerHTML = cardsHtml;
-  updateGradientHeight();
+  // updateGradientHeight();
   adjustFiltersGap();
 }
 
-function updateGradientHeight() {
-  const cardsGrid = document.getElementById("cardsGrid");
-  const gradientBg = document.querySelector(".gradient-bg");
-  const main = document.querySelector(".main");
+// function updateGradientHeight() {
+//   const cardsGrid = document.getElementById("cardsGrid");
+//   const gradientBg = document.querySelector(".gradient-bg");
+//   const main = document.querySelector(".main");
 
-  if (!cardsGrid || !gradientBg || !main) return;
+//   if (!cardsGrid || !gradientBg || !main) return;
 
-  const cardsHeight = cardsGrid.offsetHeight;
-  const gradientHeight = cardsHeight / 2;
+//   const cardsHeight = cardsGrid.offsetHeight;
+//   const gradientHeight = cardsHeight / 2;
 
-  const cardsRect = cardsGrid.getBoundingClientRect();
-  const mainRect = main.getBoundingClientRect();
-  const topOffset = cardsRect.top - mainRect.top + 117;
+//   const cardsRect = cardsGrid.getBoundingClientRect();
+//   const mainRect = main.getBoundingClientRect();
+//   const topOffset = cardsRect.top - mainRect.top + 117;
 
-  gradientBg.style.setProperty("--gradient-top", `${topOffset}px`);
-  gradientBg.style.setProperty("--gradient-height", `${gradientHeight}px`);
-}
+//   gradientBg.style.setProperty("--gradient-top", `${topOffset}px`);
+//   gradientBg.style.setProperty("--gradient-height", `${gradientHeight}px`);
+// }
 
 function adjustFiltersGap() {
   const filtersContainer = document.querySelector(".filters");

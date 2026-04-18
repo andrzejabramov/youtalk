@@ -50,6 +50,7 @@
 /* 967-1024px: margin-left 20→32px */
 @media (min-width: 967px) and (max-width: 1024px) {
   .breadcrumbs {
+    margin-top: 16px;
     margin-bottom: 40px;
     margin-left: calc(20px + (100vw - 966px) / 4.75);
     margin-right: auto;
@@ -60,6 +61,7 @@
 /* 1025-1200px: margin-left 32→69px */
 @media (min-width: 1025px) and (max-width: 1200px) {
   .breadcrumbs {
+    margin-top: 16px;
     margin-bottom: 40px;
     margin-left: calc(32px + (100vw - 1024px) / 4.75);
     margin-right: auto;
@@ -70,6 +72,7 @@
 /* 1201-1440px: margin-left 69→126px */
 @media (min-width: 1201px) and (max-width: 1440px) {
   .breadcrumbs {
+    margin-top: 16px;
     margin-bottom: 30px;
     margin-left: calc(69px + (100vw - 1200px) / 4.21);
     margin-right: auto;
@@ -80,6 +83,7 @@
 /* ≥1441px */
 @media (min-width: 1441px) {
   .breadcrumbs {
+    margin-top: 16px;
     margin-bottom: 30px;
     margin-left: calc(126px + (100vw - 1441px) / 2);
     margin-right: auto;
