@@ -26,9 +26,23 @@ document.addEventListener("DOMContentLoaded", () => {
     initBurger();
     initPagination();
 
-    window.addEventListener("resize", () => {
-      // updateGradientHeight();
-      // adjustFiltersGap();
-    });
+    // 🔹 СЛУШАТЕЛИ БРЕЙКПОИНТОВ (без resize-шума, только переходы)
+    const desktopMQ = window.matchMedia("(min-width: 967px)");
+    const mobileMQ = window.matchMedia("(max-width: 599px)");
+
+    function handleLayoutChange() {
+      // Пересчитывает и перерисовывает сетку под новый диапазон
+      updatePage();
+    }
+
+    // Современный стандарт
+    desktopMQ.addEventListener("change", handleLayoutChange);
+    mobileMQ.addEventListener("change", handleLayoutChange);
+
+    // Фоллбэк для Safari < 14
+    if (typeof desktopMQ.addEventListener !== "function") {
+      desktopMQ.addListener(handleLayoutChange);
+      mobileMQ.addListener(handleLayoutChange);
+    }
   });
 });

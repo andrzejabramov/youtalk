@@ -12,7 +12,7 @@
   background: var(--color-white);
   display: flex;
   align-items: center;
-  gap: 8px important;
+  gap: 8px !important;
   overflow-x: auto;
   flex-wrap: nowrap;
   scrollbar-width: none;
