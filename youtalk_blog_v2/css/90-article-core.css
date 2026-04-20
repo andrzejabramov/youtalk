@@ -1,0 +1,138 @@
+/* ============================================= */
+/* 🔹 .MAIN-ARTICLE: АДАПТИВНАЯ ОБЁРТКА         */
+/* ============================================= */
+/* Центрируется как .main на блоге, 1200px на 1440px+ */
+.main-article {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 48px;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1440px) {
+  .main-article {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 967px) and (max-width: 1439.99px) {
+  .main-article {
+    width: calc(960px + (100vw - 1024px) / 1.733);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 966px) {
+  .main-article {
+    width: 728px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .main-article {
+    width: 100%;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+/* ============================================= */
+/* 🔹 КОНТЕЙНЕР ЗАГОЛОВКА (ЦЕНТРИРОВАНИЕ + 121px) */
+/* ============================================= */
+/* Тот же алгоритм центрирования, но +1px padding-left для сдвига контента */
+.page-header {
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1440px) {
+  .page-header {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1px; /* 120px (авто-отступ) + 1px = 121px старт контента */
+  }
+}
+
+@media (min-width: 967px) and (max-width: 1439.99px) {
+  .page-header {
+    width: calc(960px + (100vw - 1024px) / 1.733);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 966px) {
+  .page-header {
+    width: 728px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1px;
+  }
+}
+
+@media (max-width: 767px) {
+  .page-header {
+    width: 100%;
+    padding-left: 0;
+  }
+}
+
+/* Заголовок прижат к левому краю, типографика из 20-page-header.css */
+.page-header h1 {
+  margin: 0;
+  padding: 0;
+}
+
+/* ============================================= */
+/* 🔹 ДВУХКОЛОНОЧНАЯ СЕТКА (внутри .main-article) */
+/* ============================================= */
+/* Обёртка для колонок — включаем флекс только здесь */
+.article-columns {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px; /* Безопасный минимум, можно переопределить точечно */
+}
+
+/* Левая колонка: фиксированная ширина, не сжимается */
+.article-left {
+  width: 691px;
+  flex-shrink: 0;
+}
+
+/* Правая колонка: фиксированная ширина, не сжимается */
+.article-right {
+  width: 481px; /* ← по твоему исходному значению из ТЗ */
+  flex-shrink: 0;
+}
+
+/* Вертикальный ритм внутри колонок */
+.article-col > * + *,
+.article-left > * + *,
+.article-right > * + * {
+  margin-top: 24px;
+}
+
+/* ============================================= */
+/* 🔹 ТОЧЕЧНЫЕ ПЕРЕОПРЕДЕЛЕНИЯ ОТСТУПОВ         */
+/* ============================================= */
+.article__meta {
+  margin-bottom: 24px;
+}
+
+.article__hero {
+  margin-top: 0; /* Отступ уже задан через * + * выше */
+}
+
+.article__toc {
+  margin-top: 0;
+}

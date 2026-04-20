@@ -1,0 +1,130 @@
+/* ============================================= */
+/* 🔹 СОДЕРЖАНИЕ: СПИСОК + МАРКЕРЫ + ОТСТУПЫ   */
+/* ============================================= */
+.article__toc {
+  width: 100%;
+  max-width: 588px;
+  margin-top: 24px;
+}
+
+.article__toc-title {
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-text);
+  margin: 0 0 16px 0;
+}
+
+.article__toc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 588px;
+}
+
+.article__toc-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  max-width: 556px;
+}
+
+.article__toc-marker {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  position: relative;
+  border-radius: 4px;
+}
+.article__toc-marker::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #03b2a5;
+}
+
+.article__toc-link {
+  font-family: var(--font-main);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #333333;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.2s;
+  cursor: pointer;
+}
+.article__toc-link:hover {
+  color: var(--color-primary);
+}
+
+/* Подразделы без маркера */
+.article__toc-item--sub {
+  display: block;
+  width: 500px;
+  font-family: var(--font-main);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #333333;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.article__toc-item--indent-1 {
+  padding-left: 56px;
+}
+.article__toc-item--indent-2 {
+  padding-left: 72px;
+}
+.article__toc-item--indent-3 {
+  padding-left: 88px;
+}
+
+/* ============================================= */
+/* 🔹 БЛОК H3+ТЕКСТ ПОСЛЕ СОДЕРЖАНИЯ            */
+/* ============================================= */
+.article__section {
+  width: 100%;
+  max-width: 690px;
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.article__section h3 {
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0;
+  color: var(--color-text);
+  margin: 0;
+  width: fit-content;
+  max-width: 173px;
+}
+
+.article__text-block {
+  font-family: var(--font-main);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  color: var(--color-text);
+  margin: 0;
+  max-width: 690px;
+}
+.article__text-block p {
+  margin: 0;
+}
+.article__text-block p + p {
+  margin-top: 16px;
+}
