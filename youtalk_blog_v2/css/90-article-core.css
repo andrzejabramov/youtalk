@@ -45,81 +45,69 @@
 }
 
 /* ============================================= */
-/* 🔹 КОНТЕЙНЕР ЗАГОЛОВКА (ЦЕНТРИРОВАНИЕ + 121px) */
+/* 🔹 ЗАГОЛОВОК ВНУТРИ ЛЕВОЙ КОЛОНКИ            */
 /* ============================================= */
-/* Тот же алгоритм центрирования, но +1px padding-left для сдвига контента */
+/* .page-header теперь внутри .article-left (691px),
+   поэтому центрирование на 1200px больше не применяется */
+
 .page-header {
-  margin-bottom: 16px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
   box-sizing: border-box;
 }
 
-@media (min-width: 1440px) {
-  .page-header {
-    width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1px; /* 120px (авто-отступ) + 1px = 121px старт контента */
-  }
-}
-
-@media (min-width: 967px) and (max-width: 1439.99px) {
-  .page-header {
-    width: calc(960px + (100vw - 1024px) / 1.733);
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1px;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 966px) {
-  .page-header {
-    width: 728px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1px;
-  }
-}
-
-@media (max-width: 767px) {
-  .page-header {
-    width: 100%;
-    padding-left: 0;
-  }
-}
-
-/* Заголовок прижат к левому краю, типографика из 20-page-header.css */
+/* Сброс margin/padding, типографика наследуется из 20-page-header.css */
 .page-header h1 {
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 
+/* 🔹 ОПЦИЯ: если нужно, чтобы текст начинался с 121px от края ЭКРАНА:
+   (120px отступ колонки + 1px) → раскомментируй строку ниже */
+/* .page-header h1 { padding-left: 1px; } */
+
 /* ============================================= */
-/* 🔹 ДВУХКОЛОНОЧНАЯ СЕТКА (внутри .main-article) */
+/* 🔹 ДВУХКОЛОНОЧНАЯ СЕТКА (ФИКСИРОВАННЫЕ ШИРИНЫ) */
 /* ============================================= */
-/* Обёртка для колонок — включаем флекс только здесь */
 .article-columns {
   display: flex;
-  justify-content: space-between;
-  gap: 24px; /* Безопасный минимум, можно переопределить точечно */
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 28px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* Левая колонка: фиксированная ширина, не сжимается */
+/* Левая колонка: вертикальный ритм через margin-top */
 .article-left {
-  width: 691px;
+  width: 690px;
+  min-width: 690px;
+  max-width: 690px;
   flex-shrink: 0;
+  flex-grow: 0;
+  box-sizing: border-box;
 }
-
-/* Правая колонка: фиксированная ширина, не сжимается */
-.article-right {
-  width: 481px; /* ← по твоему исходному значению из ТЗ */
-  flex-shrink: 0;
-}
-
-/* Вертикальный ритм внутри колонок */
-.article-col > * + *,
-.article-left > * + *,
-.article-right > * + * {
+.article-left > * + * {
   margin-top: 24px;
+}
+
+/* Правая колонка: современный flex + gap (отступ между виджетами) */
+.article-col--right {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 481px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  text-align: center; /* Центрирует блоки с width < 100% */
+}
+
+/* 🔹 ГАРАНТИРОВАННЫЙ ОТСТУП 24px МЕЖДУ ВИДЖЕТАМИ */
+.article-col--right > * {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 /* ============================================= */
@@ -130,7 +118,7 @@
 }
 
 .article__hero {
-  margin-top: 0; /* Отступ уже задан через * + * выше */
+  margin-top: 0;
 }
 
 .article__toc {
