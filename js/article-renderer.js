@@ -98,6 +98,21 @@ const ArticleRenderer = {
         <img src="${b.line}" alt="" class="article__separator__line" />
       </div>`;
     },
+    tags(b) {
+      const html = b.items
+        .map((item, i) => {
+          const dot =
+            i < b.items.length - 1
+              ? `<span class="article__tag-dot">·</span>`
+              : "";
+          return `<span class="article__tag">${item}</span>${dot}`;
+        })
+        .join("");
+      return `<div class="article__tags">${html}</div>`;
+    },
+    "full-divider"(b) {
+      return `<hr class="article__full-divider" />`;
+    },
   },
 
   render(data, containerId) {

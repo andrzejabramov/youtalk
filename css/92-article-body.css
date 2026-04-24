@@ -336,3 +336,158 @@
   margin-right: 6.88px;
   display: block;
 }
+
+/* ============================================= */
+/* 🔹 ТЕГИ (ФИЛЬТРЫ) + ТОЧКИ                     */
+/* ============================================= */
+.article__tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px; /* Базовый зазор между элементами */
+  width: 100%;
+  margin-bottom: 48px; /* Отступ до сепаратора */
+}
+
+.article__tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+  height: 20px;
+  background: transparent;
+  color: #2963a3;
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+.article__tag-dot {
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #494949;
+  width: 4px;
+  text-align: center;
+  display: inline-block;
+}
+
+/* ============================================= */
+/* 🔹 ПОЛНОШИРИННЫЙ СЕПАРАТОР                    */
+/* ============================================= */
+.article__full-divider {
+  width: 100%;
+  height: 0;
+  border-top: 1px solid #dedede;
+  margin: 0;
+}
+
+/* ============================================= */
+/* 🔹 НИЖНИЙ РЯД (CTA + ИЗОБРАЖЕНИЕ)             */
+/* ============================================= */
+.article__bottom-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 303px; /* 🔹 Точный отступ между блоком и картинкой */
+  margin-top: 72px; /* 🔹 Отступ от сепаратора */
+  width: 100%;
+}
+
+.article__cta {
+  width: 348px;
+  flex-shrink: 0;
+}
+
+.article__cta-title {
+  margin: 0;
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 56px;
+  color: #333333;
+}
+
+.article__cta-text {
+  margin: 24px 0 0 0;
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  color: #333333;
+  width: 327px;
+}
+
+.article__cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 32px 0 0 0;
+  width: 238px;
+  height: 60px;
+  padding: 20px 24px;
+  background: #16c8bb;
+  border-radius: 4px;
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 100%;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.article__cta-btn:hover {
+  background: #14b5a9;
+}
+.article__cta-btn:active {
+  background: #129f95;
+}
+
+.article__bottom-image {
+  width: 348px;
+  height: 280px;
+  object-fit: cover; /* Вписывает в рамку без искажений */
+  flex-shrink: 0;
+  border-radius: 8px; /* Убери, если в макете строго квадрат */
+}
+
+/* ============================================= */
+/* 🔹 ДЕКОРАТИВНЫЕ ОБЛАКА                        */
+/* ============================================= */
+.article__cloud {
+  display: block;
+  object-fit: contain;
+  pointer-events: none; /* Не мешает кликам и выделению текста */
+  user-select: none;
+}
+
+/* 1️⃣ Нижнее облако (в потоке, 76px от paire.png) */
+.article__cloud--bottom {
+  width: 272px;
+  height: 240px;
+  margin-left: 0;
+  position: relative;
+  left: 3px;
+  flex-shrink: 0;
+}
+
+/* 2️⃣ Правое облако (абсолютное позиционирование) */
+.article__columns {
+  position: relative; /* Контекст для абсолютного позиционирования */
+  overflow: visible; /* Разрешаем выход декоративных элементов за границы */
+}
+
+.article__cloud--right {
+  position: absolute;
+  left: calc(690px + 411px); /* 690px ширина левого + 411px смещение */
+  top: 2480px; /* 663px от верха контейнера */
+  width: 686px;
+  height: 606px;
+  transform: rotate(180deg); /* Поворот как в Figma */
+}
