@@ -1,0 +1,227 @@
+/* ============================================= */
+/* 🔹 ГРИД: 7 КОЛОНОК (БАЗА ≥1440px)            */
+/* ============================================= */
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: 111px 93px 106px 91.5px 486px 91.5px 221px;
+  width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+/* ============================================= */
+/* 🔹 РАСПОЛОЖЕНИЕ КОНТЕНТА ПО ЯЧЕЙКАМ (БАЗА)   */
+/* ============================================= */
+
+.footer__col--nav1 {
+  grid-column: 1;
+  min-height: 184px;
+}
+
+.footer__col--nav2 {
+  grid-column: 3;
+  min-height: 184px;
+}
+
+.footer__col--subscribe {
+  grid-column: 5;
+  grid-row: 1;
+  min-height: 184px;
+  margin-top: 0;
+}
+
+.footer__col--brand {
+  grid-column: 7;
+  grid-row: 1;
+  min-height: 122px;
+  margin-top: 0;
+  margin-left: auto;
+}
+
+/* ============================================= */
+/* 🔹 АДАПТИВ ГРИДА: 1024-1440px (ФОРМУЛЫ)      */
+/* ============================================= */
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .footer__grid {
+    grid-template-columns:
+      111px
+      calc(30px + (100vw - 1024px) / 6.6)
+      106px
+      calc(21px + (100vw - 1024px) / 5.9)
+      calc(450px + (100vw - 1024px) / 11.56)
+      calc(21px + (100vw - 1024px) / 5.9)
+      221px;
+
+    width: calc(960px + (100vw - 1024px) / 1.73);
+  }
+}
+
+/* ============================================= */
+/* 🔹 АДАПТИВ ГРИДА: 961-1023px (ФИКС 960px)    */
+/* ============================================= */
+
+@media (min-width: 961px) and (max-width: 1023px) {
+  .footer__grid {
+    grid-template-columns: 111px 30px 106px 21px 450px 21px 221px;
+    width: 960px;
+  }
+}
+
+/* ============================================= */
+/* 🔹 АДАПТИВ ГРИДА: 728-960px (2 РЯДА)         */
+/* ============================================= */
+
+@media (min-width: 728px) and (max-width: 960px) {
+  .footer__grid {
+    grid-template-columns:
+      111px
+      30px
+      106px
+      31px
+      450px
+      0
+      0;
+
+    width: 728px;
+  }
+
+  .footer__col--brand {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: start;
+    margin-top: 24px;
+    margin-left: 0;
+  }
+}
+
+/* ============================================= */
+/* 🔹 АДАПТИВ ГРИДА: 567-767px (СЖАТИЕ GAP)     */
+/* ============================================= */
+
+@media (min-width: 567px) and (max-width: 767px) {
+  .footer__grid {
+    grid-template-columns:
+      111px
+      calc(0px + (100vw - 567px) / 5.37)
+      106px
+      calc(0px + (100vw - 567px) / 5.19)
+      calc(350px + (100vw - 567px) / 1.61)
+      0 0 0;
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .footer__col--brand {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: start;
+    margin-top: 24px;
+    margin-left: 0;
+  }
+}
+
+/* =============================================
+/* 🔹 АДАПТИВ ГРИДА: ≤566px (БАЗА: 3 РЯДА)      */
+/* ============================================= */
+
+@media (max-width: 566px) {
+  .footer__grid {
+    grid-template-columns:
+      111px
+      157px
+      106px
+      0 0 0 0;
+    width: 374px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .footer__col--nav1 {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .footer__col--nav2 {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .footer__col--subscribe {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin-top: 23px;
+    width: 375px;
+    max-width: 100%;
+  }
+
+  .footer__col--brand {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    justify-self: start;
+    margin-top: 31px;
+    margin-left: 0;
+  }
+}
+
+/* =============================================
+/* 🔹 АДАПТИВ ГРИДА: 414 - 566px (БАЗА: 3 РЯДА)      */
+/* ============================================= */
+
+@media (min-width: 414px) and (max-width: 566px) {
+  .footer__grid {
+    grid-template-columns:
+      111px
+      157px
+      106px
+      0 0 0 0;
+    width: 374px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
+/* ============================================= */
+/* 🔹 АДАПТИВ ГРИДА: 327-414px (ГИБКИЙ GAP)     */
+/* ============================================= */
+
+@media (min-width: 327px) and (max-width: 413px) {
+  .footer__grid {
+    grid-template-columns:
+      111px
+      calc(100vw - 256px)
+      106px
+      0 0 0 0;
+    width: 320px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .footer__col--brand {
+    margin-top: calc(5px + (100vw - 327px) / 3.35);
+  }
+}
+
+/* ============================================= */
+/* 🔹 АДАПТИВ ГРИДА: ≤326px (ФИКС)              */
+/* ============================================= */
+
+@media (max-width: 326px) {
+  .footer__grid {
+    grid-template-columns:
+      111px
+      71px
+      106px
+      0 0 0 0;
+    width: 288px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .footer__col--brand {
+    margin-top: 5px;
+  }
+}

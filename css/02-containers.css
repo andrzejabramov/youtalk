@@ -1,0 +1,85 @@
+/* ===== КОНТЕЙНЕР (базовый ≤347px) ===== */
+.container {
+  height: 56px;
+  margin-left: 16px;
+  margin-right: 8px;
+  width: 296px;
+}
+
+/* ≤347px: прижатие вправо, margin 8/0, высота 56px */
+@media (max-width: 347px) {
+  .container {
+    height: 56px;
+    margin-left: 16px;
+    margin-right: 8px;
+    width: 296px;
+  }
+}
+
+/* 348-599px: margin 24px, высота 72px, ширина растёт */
+@media (min-width: 348px) and (max-width: 599px) {
+  .container {
+    height: 72px;
+    margin-left: 24px;
+    margin-right: 24px;
+    width: calc(100vw - 48px);
+  }
+}
+
+/* 600-967px: margin 20px (константа), ширина = экран - 40px */
+@media (min-width: 600px) and (max-width: 967px) {
+  .container {
+    height: 76px;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: calc(100vw - 40px);
+  }
+}
+
+/* 968-1440px: margin 20→120, ширина 927→1200 (ОДИН БЛОК!) */
+@media (min-width: 968px) and (max-width: 1440px) {
+  .container {
+    height: 76px;
+    margin-left: calc(20px + (100vw - 967px) / 4.73);
+    margin-right: calc(20px + (100vw - 967px) / 4.73);
+    width: calc(927px + (100vw - 967px) / 1.733);
+  }
+}
+
+/* >1440px: всё фиксировано */
+@media (min-width: 1441px) {
+  .container {
+    height: 76px;
+    margin-left: 120px;
+    margin-right: 120px;
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* ===== ЛИНИЯ ПОД КОНТЕЙНЕРОМ (БАЗОВЫЙ: 1px) ===== */
+.container-line {
+  display: block;
+  flex-shrink: 0;
+  flex-grow: 0;
+  align-self: auto;
+  width: 100vw;
+
+  height: var(--container-line-height);
+  background: var(--container-line-color);
+
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== ЛИНИЯ НА DESKTOP (≥1200px): BOX-SHADOW INSET ===== */
+@media (min-width: 1200px) {
+  .container-line {
+    background: transparent;
+    height: 2px; /* ← Высота для inset */
+    box-shadow: 0px var(--container-line-shadow-offset)
+      var(--container-line-shadow-blur) var(--container-line-shadow-spread)
+      var(--container-line-color) inset;
+  }
+}

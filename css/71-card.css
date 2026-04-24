@@ -1,0 +1,142 @@
+/* ============================================= */
+/* 🔹 ОСНОВНОЙ БЛОК КАРТОЧКИ                    */
+/* ============================================= */
+
+.card {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 400px; /* Базовый минимум для мобильных */
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.card__media {
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Базовые стили изображения */
+.card__image {
+  width: 100%;
+  object-fit: cover;
+  height: auto;
+}
+
+/* Старые aspect-ratio правила заменены на фиксированную высоту по Figma */
+.card--large .card__image,
+.card:not(.card--large) .card__image {
+  /* Наследуют стили от .card__image */
+}
+
+/* ============================================= */
+/* 🔹 АДАПТИВ КАРТОЧЕК ПО FIGMA (1440px / 1024px) */
+/* ============================================= */
+
+/* 1440px+ (Контейнер 1200px) */
+@media (min-width: 1440px) {
+  .card__image {
+    height: 260px; /* ← Фикс по Figma для 2 и 3 карт */
+  }
+  .card {
+    min-height: 475px; /* Базовая высота ряда (3 карты) */
+  }
+  /* Если в ряду 1 или 2 карточки, высота ряда 499px */
+  .cards-row:has(> .card:nth-child(2):last-child) .card,
+  .cards-row:has(> .card:only-child) .card {
+    min-height: 499px;
+  }
+}
+
+/* 1024px - 1439px (Контейнер 960px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .card__image {
+    height: 206px; /* ← Высота для 3 карт по Figma */
+  }
+  .card {
+    min-height: 458px; /* Базовая высота для 3 карт */
+  }
+  /* Для ряда из 1-2 карт: изображение 260px, карточка 499px */
+  .cards-row:has(> .card:nth-child(2):last-child) .card__image,
+  .cards-row:has(> .card:only-child) .card__image {
+    height: 260px;
+  }
+  .cards-row:has(> .card:nth-child(2):last-child) .card,
+  .cards-row:has(> .card:only-child) .card {
+    min-height: 499px;
+  }
+}
+
+/* ============================================= */
+/* 🔹 ЗАГЛУШКА (пустая карточка) ===== */
+/* ============================================= */
+
+.card--empty {
+  background: var(--color-white);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 400px;
+  max-width: 384px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card--placeholder {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.card__content--empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 32px 24px;
+  background: var(--color-white);
+}
+
+.card__empty-text {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-text-light);
+  margin-bottom: 16px;
+}
+
+.card__empty-close {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  border-radius: 50%;
+  background: var(--color-border);
+  color: var(--color-text);
+  font-size: 18px;
+  cursor: default;
+  margin: 0 auto;
+}
+
+/* ============================================= */
+/* 🔹 ОГРАНИЧЕНИЕ ТЕКСТА (защита от "прыжков" высоты) */
+/* ============================================= */
+.card__description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

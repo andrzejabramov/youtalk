@@ -1,0 +1,346 @@
+/* ============================================= */
+/* 🔹 ПАГИНАЦИЯ: КОНТЕЙНЕР                      */
+/* ============================================= */
+
+.pagination {
+  /* Сетка: 509 / 182 / 509 */
+  display: grid;
+  grid-template-columns: 509px 182px 509px;
+
+  /* Размеры */
+  width: 1200px;
+
+  /* Отступы: сверху 56px, слева/справа auto (центрирование) */
+  margin: 56px auto;
+
+  /* Фон */
+  background: var(--color-white);
+
+  /* Gap между ячейками */
+  gap: 0;
+  position: relative;
+  z-index: 5;
+}
+
+/* ============================================= */
+/* 🔹 АДАПТИВ: 967-1440px (373px → 509px)       */
+/* ============================================= */
+
+@media (min-width: 967px) and (max-width: 1440px) {
+  .pagination {
+    grid-template-columns:
+      calc(373px + (100vw - 967px) / 3.47)
+      182px
+      calc(373px + (100vw - 967px) / 3.47);
+
+    width: 100%;
+
+    /* margin-left как у фильтров, margin-right auto */
+    margin-left: calc(20px + (100vw - 967px) / 4.73);
+    margin-right: auto;
+    margin-top: 56px;
+  }
+}
+
+/* ============================================= */
+/* 🔹 АДАПТИВ: 600-966px (189px → 373px)        */
+/* ============================================= */
+
+@media (min-width: 600px) and (max-width: 966px) {
+  .pagination {
+    grid-template-columns:
+      calc(189px + (100vw - 600px) / 2)
+      182px
+      calc(189px + (100vw - 600px) / 2);
+
+    width: 100%;
+    margin: 56px 20px;
+  }
+}
+
+/* ============================================= */
+/* 🔹 АДАПТИВ: 320-599px (ТОЛЬКО КНОПКА «ЕЩЁ»)  */
+/* ============================================= */
+
+@media (min-width: 320px) and (max-width: 599px) {
+  .pagination {
+    grid-template-columns:
+      calc(189px + (100vw - 600px) / 2)
+      182px
+      calc(189px + (100vw - 600px) / 2);
+
+    width: 100%;
+    margin: 56px 15px;
+  }
+
+  .pagination__btn-first,
+  .pagination__btn-last {
+    display: none;
+  }
+
+  .pagination__btn-more {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .pagination__left,
+  .pagination__right {
+    visibility: hidden;
+  }
+}
+
+/* ============================================= */
+/* 🔹 ТРИ GRID-ЯЧЕЙКИ                           */
+/* ============================================= */
+
+.pagination__left {
+  grid-column: 1;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255, 0, 0, 0.1);
+  border: 1px solid rgba(255, 0, 0, 0.3);
+}
+
+.pagination__center {
+  grid-column: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 255, 0, 0.1);
+  border: 1px solid rgba(0, 255, 0, 0.3);
+}
+
+.pagination__right {
+  grid-column: 3;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  background: rgba(0, 0, 255, 0.1);
+  border: 1px solid rgba(0, 0, 255, 0.3);
+}
+
+/* ============================================= */
+/* 🔹 КНОПКА «ЕЩЁ» (ЦЕНТР)                      */
+/* ============================================= */
+
+.pagination__btn-more {
+  /* Размеры */
+  width: 182px;
+  height: 48px;
+
+  /* Паддинги */
+  padding: 12px 16px;
+
+  /* Flex для 4 контейнеров */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: nowrap; /* ← 🔹 НОВОЕ: запрет переноса */
+
+  /* Фон и границы */
+  background: var(--color-primary);
+  border: none;
+  border-radius: 4px;
+
+  /* Курсор и переходы */
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.pagination__btn-more:hover {
+  background: var(--color-primary-dark);
+}
+
+/* ============================================= */
+/* 🔹 4 КОНТЕЙНЕРА ВНУТРИ КНОПКИ                */
+/* ============================================= */
+
+.pagination__arrow-left,
+.pagination__arrow-right {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0; /* ← 🔹 НОВОЕ: не сжимать */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination__text {
+  width: 37px;
+  height: 24px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0;
+  text-align: center;
+  color: var(--color-white);
+}
+
+.pagination__smiley {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0; /* ← 🔹 НОВОЕ: не сжимать */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination__smiley img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ============================================= */
+/* 🔹 ВИДИМОСТЬ ЭЛЕМЕНТОВ (СТАБИЛЬНАЯ ВЕРСТКА)  */
+/* ============================================= */
+
+/* 🔹 ИСПОЛЬЗУЕМ visibility вместо display, чтобы не ломать flex-центрирование */
+.pagination__arrow-left,
+.pagination__arrow-right {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.pagination--has-prev .pagination__arrow-left {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.pagination--has-next .pagination__arrow-right {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.pagination__smiley {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.pagination--is-last .pagination__smiley {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* ============================================= */
+/* 🔹 КНОПКИ "В НАЧАЛО" / "В КОНЕЦ"             */
+/* ============================================= */
+
+.pagination__btn-edge {
+  width: 95px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-border-light);
+  border: none;
+  border-radius: 4px;
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0;
+  color: var(--color-text);
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.pagination__btn-edge:hover {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.pagination__btn-first {
+  margin-left: 0;
+  margin-right: auto;
+}
+.pagination__btn-last {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+/* ============================================= */
+/* 🔹 КОНТЕЙНЕР С ЦИФРАМИ (СТАТИЧНЫЙ)           */
+/* ============================================= */
+
+.pagination__numbers-wrapper {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+.pagination__numbers-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 0;
+}
+
+.pagination__num {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-border-light);
+  border: none;
+  border-radius: 4px;
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0;
+  color: var(--color-text);
+  cursor: default; /* ← 🔹 НОВОЕ: цифры не кликабельны */
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.pagination__num:hover {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.pagination__num--active {
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-weight: 700;
+}
+
+.pagination__dots {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-text-muted);
+  background: transparent;
+  cursor: default;
+  flex-shrink: 0;
+}

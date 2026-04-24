@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YOU TALK — Блог о психологии</title>
+
+    <!-- ✅ ШРИФТЫ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ✅ СТИЛИ: БАЗА И КОНТЕЙНЕРЫ -->
+    <link rel="stylesheet" href="css/00-reset.css" />
+    <link rel="stylesheet" href="css/01-variables.css" />
+    <link rel="stylesheet" href="css/02-containers.css" />
+
+    <!-- ✅ СТИЛИ: HEADER -->
+    <link rel="stylesheet" href="css/10-header-base.css" />
+    <link rel="stylesheet" href="css/11-header-logo.css" />
+    <link rel="stylesheet" href="css/12-header-nav.css" />
+    <link rel="stylesheet" href="css/13-header-button.css" />
+    <link rel="stylesheet" href="css/14-header-burger.css" />
+
+    <!-- ✅ СТИЛИ: СТРАНИЦА БЛОГА -->
+    <link rel="stylesheet" href="css/20-page-header.css" />
+    <link rel="stylesheet" href="css/21-breadcrumbs.css" />
+    <link rel="stylesheet" href="css/30-filters.css" />
+    <link rel="stylesheet" href="css/40-cards-placeholder.css" />
+    <link rel="stylesheet" href="css/51-pagination.css" />
+
+    <!-- ✅ СТИЛИ: FOOTER -->
+    <link rel="stylesheet" href="css/60-footer-base.css" />
+    <link rel="stylesheet" href="css/61-footer-grid.css" />
+    <link rel="stylesheet" href="css/62-footer-menu.css" />
+    <link rel="stylesheet" href="css/63-footer-subscribe.css" />
+    <link rel="stylesheet" href="css/64-footer-brand.css" />
+    <link rel="stylesheet" href="css/65-footer-socials.css" />
+    <link rel="stylesheet" href="css/66-footer-separator.css" />
+    <link rel="stylesheet" href="css/67-footer-bottom.css" />
+
+    <!-- ✅ СТИЛИ: КАРТОЧКИ -->
+    <link rel="stylesheet" href="css/70-main.css" />
+    <link rel="stylesheet" href="css/71-card.css" />
+    <link rel="stylesheet" href="css/72-card-badge.css" />
+    <link rel="stylesheet" href="css/73-card-content.css" />
+    <link rel="stylesheet" href="css/74-card-grid.css" />
+    <link rel="stylesheet" href="css/gradient.css" />
+
+    <!-- ✅ СТИЛИ: МОДАЛКА (ДЕМО) -->
+    <link rel="stylesheet" href="css/80-modal.css" />
+
+    <!-- ✅ СТИЛИ: СТАТЬЯ (МОДУЛЬНАЯ ГРУППИРОВКА) -->
+    <link rel="stylesheet" href="css/90-article-core.css" />
+    <link rel="stylesheet" href="css/91-article-nav.css" />
+    <link rel="stylesheet" href="css/92-article-body.css" />
+    <link rel="stylesheet" href="css/93-article-extras.css" />
+
+    <!-- 🔹 ОТЛАДКА (удалить перед продакшеном!) -->
+    <!--link rel="stylesheet" href="css/debug.css" /> -->
+  </head>
+
+  <body>
+    <!-- 🔹 ГЛОБАЛЬНЫЙ ФОН-ГРАДИЕНТ -->
+    <div class="gradient-bg" aria-hidden="true"></div>
+
+    <!-- ✅ ШАПКА -->
+    <div class="container">
+      <div data-include="components/header.html"></div>
+    </div>
+
+    <!-- ✅ ЛИНИЯ ПОД КОНТЕЙНЕРОМ (НА ВЕСЬ ЭКРАН) -->
+    <div class="container-line"></div>
+
+    <!-- ✅ КРОШКИ (для страницы БЛОГА) -->
+    <div data-include="components/breadcrumbs-blog.html"></div>
+
+    <!-- ✅ ЗАГОЛОВОК H1 -->
+    <div data-include="components/page-header-blog.html"></div>
+
+    <!-- ✅ ФИЛЬТРЫ -->
+    <div data-include="components/filters.html"></div>
+
+    <!-- ✅ КОНТЕЙНЕР ДЛЯ КАРТОЧЕК (гибкая высота) -->
+    <main class="main">
+      <div class="cards-grid" id="cardsGrid"></div>
+    </main>
+
+    <!-- ✅ ПАГИНАЦИЯ -->
+    <div data-include="components/pagination.html"></div>
+
+    <!-- ✅ ПОДВАЛ -->
+    <div data-include="components/footer.html"></div>
+
+    <!-- 🔹 ШАБЛОН КАРТОЧКИ (для рендеринга через JS) -->
+    <template id="card-template">
+      <article class="card">
+        <div class="card__media">
+          <img src="images/{{image}}" alt="{{alt}}" class="card__image" />
+          <div class="card__badges">{{badges}}</div>
+        </div>
+        <div class="card__content">
+          <h2 class="card__title">{{title}}</h2>
+          <div class="card__meta">
+            <span class="card__author">{{author}}</span>
+          </div>
+          <p class="card__description">{{description}}</p>
+          <time class="card__date">{{date}}</time>
+          <a href="{{link}}" class="card__link">Читать далее →</a>
+        </div>
+      </article>
+    </template>
+
+    <!-- 🔹 ДЕМО-МОДАЛКА: ВВОД КОЛИЧЕСТВА КАРТОЧЕК -->
+    <div id="cardCountModal" class="modal" hidden>
+      <div class="modal__content">
+        <p class="modal__title">Сколько карточек показать?</p>
+        <input
+          type="number"
+          id="cardCountInput"
+          class="modal__input"
+          min="0"
+          max="21"
+          value="3"
+          placeholder="0–21"
+        />
+        <div class="modal__actions">
+          <button
+            type="button"
+            id="modalCancel"
+            class="modal__btn modal__btn--cancel"
+          >
+            Отмена
+          </button>
+          <button
+            type="button"
+            id="modalConfirm"
+            class="modal__btn modal__btn--confirm"
+          >
+            Применить
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ✅ СКРИПТЫ (порядок важен!) -->
+    <script src="js/pagination.js"></script>
+    <script src="js/cards.js"></script>
+    <script src="js/pagination-ui.js"></script>
+    <script src="js/include.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/demo-mode.js"></script>
+  </body>
+</html>

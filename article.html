@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YOU TALK — Статья</title>
+
+    <!-- ✅ ШРИФТЫ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ✅ БАЗА -->
+    <link rel="stylesheet" href="css/00-reset.css" />
+    <link rel="stylesheet" href="css/01-variables.css" />
+    <link rel="stylesheet" href="css/02-containers.css" />
+
+    <!-- ✅ КОМПОНЕНТЫ -->
+    <link rel="stylesheet" href="css/10-header-base.css" />
+    <link rel="stylesheet" href="css/11-header-logo.css" />
+    <link rel="stylesheet" href="css/12-header-nav.css" />
+    <link rel="stylesheet" href="css/13-header-button.css" />
+    <link rel="stylesheet" href="css/14-header-burger.css" />
+    <link rel="stylesheet" href="css/21-breadcrumbs.css" />
+    <link rel="stylesheet" href="css/51-pagination.css" />
+    <link rel="stylesheet" href="css/60-footer-base.css" />
+    <link rel="stylesheet" href="css/61-footer-grid.css" />
+    <link rel="stylesheet" href="css/62-footer-menu.css" />
+    <link rel="stylesheet" href="css/63-footer-subscribe.css" />
+    <link rel="stylesheet" href="css/64-footer-brand.css" />
+    <link rel="stylesheet" href="css/65-footer-socials.css" />
+    <link rel="stylesheet" href="css/66-footer-separator.css" />
+    <link rel="stylesheet" href="css/67-footer-bottom.css" />
+    <link rel="stylesheet" href="css/71-card.css" />
+    <link rel="stylesheet" href="css/72-card-badge.css" />
+    <link rel="stylesheet" href="css/73-card-content.css" />
+    <link rel="stylesheet" href="css/74-card-grid.css" />
+    <link rel="stylesheet" href="css/gradient.css" />
+
+    <!-- ✅ СТАТЬЯ (ФИНАЛЬНАЯ АРХИТЕКТУРА) -->
+    <link rel="stylesheet" href="css/90-article-core.css" />
+    <link rel="stylesheet" href="css/91-article-nav.css" />
+    <link rel="stylesheet" href="css/92-article-body.css" />
+    <link rel="stylesheet" href="css/93-article-extras.css" />
+  </head>
+
+  <body>
+    <!-- ✅ ШАПКА -->
+    <div class="container">
+      <div data-include="components/header.html"></div>
+    </div>
+    <div class="container-line"></div>
+
+    <!-- ✅ КРОШКИ -->
+    <div data-include="components/breadcrumbs-article.html"></div>
+
+    <!-- ✅ ОСНОВНОЙ КОНТЕНТ -->
+    <main class="main-article">
+      <div class="article-columns">
+        <!-- ЛЕВЫЙ СТОЛБЕЦ (690px) -->
+        <div class="article-col article-col--left">
+          <div data-include="components/page-header-article.html"></div>
+
+          <div class="article__meta">
+            <span class="article__author" id="articleAuthor">Загрузка...</span>
+            <time class="article__date" id="articleDate">Загрузка...</time>
+          </div>
+
+          <img src="" alt="" class="article__hero" id="articleImage" />
+
+          <!-- 🔹 КОНТЕЙНЕР ДЛЯ ДИНАМИЧЕСКОГО КОНТЕНТА -->
+          <div id="articleContent"></div>
+        </div>
+
+        <!-- ПРАВЫЙ СТОЛБЕЦ (282px) -->
+        <div class="article-col article-col--right">
+          <div data-include="components/qlick-widget.html"></div>
+          <div data-include="components/specialist-widget.html"></div>
+          <div data-include="components/souvenire-widget.html"></div>
+          <div data-include="components/video-widget.html"></div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ✅ ПОДВАЛ -->
+    <div data-include="components/footer.html"></div>
+
+    <!-- ✅ СКРИПТЫ -->
+    <script src="js/include.js"></script>
+    <script src="js/article-renderer.js"></script>
+    <script src="js/article.js"></script>
+  </body>
+</html>

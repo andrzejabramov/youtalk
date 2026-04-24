@@ -1,0 +1,29 @@
+/* ============================================= */
+/* 🔹 ГРАДИЕНТ: SVG-ФОН (≥1200px)               */
+/* ============================================= */
+
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
+.gradient-bg {
+  display: none;
+  position: absolute;
+  top: 405px;
+  left: 0;
+  width: 100%;
+  height: 672px;
+  background-image: url("../images/gradient.png");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@media (min-width: 1200px) {
+  .gradient-bg {
+    display: block;
+  }
+}

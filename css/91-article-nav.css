@@ -1,0 +1,113 @@
+/* ============================================= */
+/* 🔹 91-NAV: АВТОР, ДАТА, ГЕРОЙ, ОГЛАВЛЕНИЕ     */
+/* ============================================= */
+.article__meta {
+  display: flex;
+  gap: 12px;
+  font-family: var(--font-main);
+  font-size: 14px;
+  line-height: 1.5;
+  color: #666;
+}
+.article__meta > * {
+  margin: 0;
+}
+
+.article__hero {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* ============================================= */
+/* 🔹 СОДЕРЖАНИЕ (TOC)                           */
+/* ============================================= */
+.article__toc {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.article__toc-title {
+  margin: 0 0 14px 0;
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-text);
+}
+
+.article__toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Основной элемент списка */
+.article__toc-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px; /* Отступ от маркера до текста */
+  margin-bottom: 14px; /* Расстояние между основными пунктами */
+}
+
+/* Маркер: квадрат 24x24 + точка 8x8 внутри */
+.article__toc-marker {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  background: transparent;
+}
+.article__toc-marker::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-primary); /* #03B2A5 */
+}
+
+/* Текст ссылки */
+.article__toc-link {
+  flex: 1;
+  font-family: var(--font-main);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: 0px;
+  cursor: pointer;
+}
+.article__toc-link:hover {
+  text-decoration: none;
+  color: var(--color-primary);
+}
+
+/* Подпункты (без маркера) */
+.article__toc-item--sub {
+  margin-bottom: 8px; /* Расстояние до следующего пункта */
+  margin-left: 0;
+  padding-left: 0; /* Переопределяется модификаторами */
+  font-family: var(--font-main);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-text);
+  text-decoration: underline;
+}
+
+/* Отступы подпунктов строго по Figma */
+.article__toc-item--indent-1 {
+  padding-left: 56px;
+}
+.article__toc-item--indent-2 {
+  padding-left: 73px;
+}
+.article__toc-item--indent-3 {
+  padding-left: 88px;
+}

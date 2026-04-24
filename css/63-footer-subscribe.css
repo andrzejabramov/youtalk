@@ -1,0 +1,112 @@
+/* ============================================= */
+/* 🔹 КОЛОНКА 3: ПОДПИСКА                       */
+/* ============================================= */
+
+.footer__col--subscribe {
+  min-height: 184px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%; /* ← ← ← Добавлено */
+  max-width: 486px; /* ← ← ← Добавлено */
+}
+
+.footer__subscribe {
+  width: 384px;
+  max-width: 100%; /* ← ← ← Добавлено */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer__subscribe-text {
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+  letter-spacing: 0;
+  color: var(--color-white);
+  margin: 0;
+  padding: 0;
+  width: 356px;
+  max-width: 100%; /* ← ← ← Добавлено */
+}
+
+.footer__subscribe-form {
+  position: relative;
+  width: 384px;
+  max-width: 100%; /* ← ← ← Добавлено */
+  height: 48px;
+  overflow: hidden; /* ← ← ← Добавлено */
+}
+
+.footer__subscribe-input {
+  width: 100%; /* ← ← ← ИСПРАВЛЕНО: 384px → 100% */
+  height: 48px;
+  border: 1px solid rgba(157, 157, 157, 0.2);
+  border-radius: 4px;
+  background: var(--color-white);
+  font-family: var(--font-main);
+  font-size: 14px;
+  color: var(--color-text);
+  padding: 0 64px 0 16px; /* ← ← ← ИСПРАВЛЕНО: место под кнопку справа */
+  outline: none;
+  box-sizing: border-box;
+}
+
+.footer__subscribe-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.footer__subscribe-input:focus {
+  border-color: var(--color-primary);
+}
+
+.footer__subscribe-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 64px;
+  height: 48px;
+  background: var(--color-primary-dark);
+  border: none;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.footer__subscribe-btn:hover {
+  background: var(--color-primary);
+  opacity: 1;
+}
+
+.footer__subscribe-btn img {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.footer__privacy {
+  max-width: 486px;
+  width: 100%;
+  margin-top: 8px;
+  margin-bottom: 14px;
+}
+
+.footer__privacy-text {
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.25px;
+  color: var(--color-white);
+  margin: 0;
+  padding: 0;
+  white-space: normal;
+  word-wrap: break-word;
+}

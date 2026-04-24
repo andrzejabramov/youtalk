@@ -1,0 +1,338 @@
+/* ============================================= */
+/* 🔹 92-BODY: КОНТЕНТНЫЕ БЛОКИ (7 ТИПОВ)        */
+/* ============================================= */
+/* 1. Цитата */
+.article__quote {
+  background: #f3f7fe;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.article__quote-text,
+.article__quote-author {
+  margin: 0;
+  font-family: var(--font-main);
+  font-size: 16px;
+  line-height: 24px;
+  color: #333;
+  text-align: left;
+}
+.article__quote-text {
+  font-weight: 400;
+}
+.article__quote-author {
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* 2. Секция: Заголовок + Список */
+.article__section-title {
+  margin: 0 0 16px 0;
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  color: #333;
+}
+.article__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.article__list-item {
+  display: flex;
+  gap: 8px;
+}
+.article__list-marker {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  background: #03b2a5;
+  border-radius: 50%;
+  margin-top: 8px;
+}
+.article__list-text {
+  margin: 0;
+  font-family: var(--font-main);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #333;
+}
+
+/* 3. Картинка + Подпись */
+.article__figure {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.article__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+.article__caption {
+  margin: 0;
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.3;
+  color: #868686;
+  text-align: center;
+}
+
+/* 4. Обычный текст */
+.article__text {
+  margin: 0;
+  font-family: var(--font-main);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #333;
+  text-align: left;
+}
+
+/* 5. Облако с текстом */
+.article__text-cloud {
+  position: relative;
+  min-height: 168px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 16px;
+}
+.article__text-cloud__bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  width: 240px;
+  height: 168px;
+  background: url("../images/pink-cloud.svg") center / contain no-repeat;
+  z-index: 0;
+  pointer-events: none;
+}
+.article__text-cloud__content {
+  position: relative;
+  z-index: 1;
+  max-width: 485px;
+  margin: 0;
+  padding: 24px;
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #333;
+  text-align: center;
+}
+
+/* 6. Картинка слева + Текст справа */
+.article__media-row {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+.article__media-row__image {
+  width: 282px;
+  height: auto;
+  max-height: 380px;
+  object-fit: contain;
+  flex-shrink: 0;
+  border-radius: 8px;
+}
+.article__media-row__content {
+  flex: 1;
+  min-width: 0;
+}
+.article__media-row__content p {
+  margin: 0 0 16px 0;
+  font-family: var(--font-main);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #333;
+  text-align: left;
+}
+.article__media-row__content p:last-child {
+  margin-bottom: 0;
+}
+
+/* 7. Карточка-упражнение */
+.article__card {
+  padding: 24px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 180px;
+}
+.article__card__title {
+  margin: 0;
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: #333;
+}
+.article__card__text {
+  margin: 0;
+  font-family: var(--font-main);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #333;
+  text-align: left;
+}
+
+/* Модификаторы (исключения) */
+.mt-40 {
+  margin-top: 40px !important;
+}
+/* ============================================= */
+/* 🔹 МОДИФИКАТОРЫ ФОНОВ (строго в конце файла)  */
+/* ============================================= */
+.article__exercise.article__card--cream {
+  background: #fefaec;
+}
+.article__exercise.article__card--blue {
+  background: #f3f7fe;
+}
+.article__exercise.article__card--peach {
+  background: #fff3eb;
+}
+.article__exercise.article__card--teal {
+  background: #03b2a51a;
+}
+
+/* ============================================= */
+/* 🔹 H3 + ВВОДНЫЙ ТЕКСТ (из intro)             */
+/* ============================================= */
+.article__section-subtitle {
+  margin: 0 0 16px 0;
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  color: #333333;
+}
+.article__text-block {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.article__text-block p {
+  margin: 0;
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #333333;
+  text-align: left;
+}
+
+/* ============================================= */
+/* 🔹 БЛОК УПРАЖНЕНИЯ (EXERCISE)                 */
+/* ============================================= */
+.article__exercise {
+  width: 100%;
+  background: #fefaec;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-sizing: border-box;
+  overflow: hidden;
+  /* height: auto (по нашему правилу: высота зависит от текста) */
+}
+
+/* 🔹 Повышаем специфичность, если сброс или другие стили перебивают */
+#articleContent .article__exercise {
+  padding: 24px !important;
+}
+
+.article__exercise__title {
+  margin: 0;
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: #333333;
+}
+
+.article__exercise__text {
+  margin: 0;
+  font-family: var(--font-main);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #333333;
+}
+
+/* 🔹 Внутренний ритм для динамических блоков */
+#articleContent > * + * {
+  margin-top: 24px;
+}
+
+/* ============================================= */
+/* 🔹 ПАРНЫЙ БЛОК (TWIN-BLOCK)                   */
+/* ============================================= */
+.article__twin {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+}
+.article__twin__col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex: 1; /* В контейнере 690px это ровно 333px каждый */
+}
+.article__twin__image {
+  width: 100%;
+  height: 235px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+.article__twin__text {
+  margin: 0;
+  font-family: var(--font-main);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #333333;
+  text-align: left;
+}
+
+/* ============================================= */
+/* 🔹 РАЗДЕЛИТЕЛЬ С МОЛНИЕЙ (SEPARATOR)          */
+/* ============================================= */
+
+.article__separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content; /* 🔹 Контейнер сжимается до размеров контента */
+  max-width: 178.75px;
+  margin: 0 auto; /* 🔹 Точное центрирование внутри 690px колонки */
+}
+.article__separator__line {
+  width: 66px;
+  height: auto;
+  flex-shrink: 0;
+  display: block;
+}
+.article__separator__icon {
+  height: auto;
+  flex-shrink: 0;
+  margin-left: 7.88px;
+  margin-right: 6.88px;
+  display: block;
+}

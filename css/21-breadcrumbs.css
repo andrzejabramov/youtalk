@@ -1,0 +1,193 @@
+/* ============================================= */
+/* 🔹 КРОШКИ: СТИЛИ                              */
+/* ============================================= */
+
+/* ===== КОНТЕЙНЕР ===== */
+.breadcrumbs {
+  /* Высота */
+  height: 18px;
+
+  /* Отступ сверху и снизу (по брейкпоинтам) */
+  margin-bottom: 24px; /* ≤347px */
+  margin-top: 24px; /* ≤347px */
+
+  /* Отступы по бокам (по брейкпоинтам) */
+  margin-left: 16px; /* ≤347px */
+  margin-right: 16px; /* ≤347px */
+
+  /* Flex для горизонтального списка */
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap; /* ← Важно: не переносить! */
+  gap: 8px; /* Между группами (текст+стрелка) */
+
+  /* Ограничение ширины для мобильных */
+  max-width: calc(100vw - 32px); /* ≤347px: 320 - 16 - 16 = 288px */
+}
+
+/* 348-599px */
+@media (min-width: 348px) and (max-width: 599px) {
+  .breadcrumbs {
+    margin-top: 16px;
+    margin-bottom: 32px;
+    margin-left: 20px;
+    margin-right: 20px;
+    max-width: calc(100vw - 40px); /* 348-599px: margin 20+20=40px */
+  }
+}
+
+/* 600-966px */
+@media (min-width: 600px) and (max-width: 966px) {
+  .breadcrumbs {
+    margin-top: 16px;
+    margin-bottom: 40px;
+    margin-left: 20px;
+    margin-right: auto; /* HUG по тексту */
+    max-width: none; /* ← Нет ограничения на desktop */
+  }
+}
+
+/* 967-1024px: margin-left 20→32px */
+@media (min-width: 967px) and (max-width: 1024px) {
+  .breadcrumbs {
+    margin-top: 16px;
+    margin-bottom: 40px;
+    margin-left: calc(20px + (100vw - 966px) / 4.75);
+    margin-right: auto;
+    max-width: none;
+  }
+}
+
+/* 1025-1200px: margin-left 32→69px */
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .breadcrumbs {
+    margin-top: 16px;
+    margin-bottom: 40px;
+    margin-left: calc(32px + (100vw - 1024px) / 4.75);
+    margin-right: auto;
+    max-width: none;
+  }
+}
+
+/* 1201-1440px: margin-left 69→126px */
+@media (min-width: 1201px) and (max-width: 1440px) {
+  .breadcrumbs {
+    margin-top: 16px;
+    margin-bottom: 30px;
+    margin-left: calc(69px + (100vw - 1200px) / 4.21);
+    margin-right: auto;
+    max-width: none;
+  }
+}
+
+/* ≥1441px */
+@media (min-width: 1441px) {
+  .breadcrumbs {
+    margin-top: 16px;
+    margin-bottom: 30px;
+    margin-left: calc(126px + (100vw - 1441px) / 2);
+    margin-right: auto;
+    max-width: none;
+  }
+}
+
+/* ===== СПИСОК ===== */
+.breadcrumbs__list {
+  display: contents;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ===== ЭЛЕМЕНТ КРОШКИ (ГРУППА: текст + стрелка) ===== */
+.breadcrumbs__item {
+  display: flex;
+  align-items: center;
+  gap: 4px; /* Между текстом и стрелкой */
+  height: 18px;
+  min-width: 0; /* ← Важно для truncation! */
+  flex-shrink: 0; /* ← Не сжимать первые элементы */
+}
+
+/* ===== ПОСЛЕДНИЙ ЭЛЕМЕНТ (текущая страница) — РАСТЯГИВАЕТСЯ ===== */
+.breadcrumbs__item:last-child {
+  flex-shrink: 1; /* ← Может сжиматься для truncation */
+  min-width: 0; /* ← Критично для ellipsis! */
+}
+
+/* ===== ССЫЛКА И ТЕКУЩАЯ: ОБЩИЕ СТИЛИ ===== */
+.breadcrumbs__link,
+.breadcrumbs__current {
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.25px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  min-width: 0; /* ← Важно для truncation! */
+}
+
+/* ===== ССЫЛКА: ЦВЕТ + HOVER ===== */
+.breadcrumbs__link {
+  text-decoration: none;
+  color: var(--color-text-muted);
+  transition: color 0.3s ease;
+}
+
+.breadcrumbs__link:hover {
+  color: var(--color-primary);
+}
+
+/* ===== ТЕКУЩАЯ: ТОЛЬКО ЦВЕТ ===== */
+.breadcrumbs__current {
+  color: var(--color-text-muted);
+}
+
+/* ===== РАЗДЕЛИТЕЛЬ (СТРЕЛКА >) ===== */
+.breadcrumbs__divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  color: var(--color-text-muted);
+  font-size: 9.38px; /* Размер стрелки */
+  line-height: 1;
+  user-select: none;
+  flex-shrink: 0; /* ← Не сжимается */
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+/* ============================================= */
+/* 🔹 МОБИЛЬНАЯ ТРУНКАЦИЯ (<600px)              */
+/* ============================================= */
+
+@media (max-width: 599px) {
+  /* Последний элемент занимает всё оставшееся место */
+  .breadcrumbs__item:last-child {
+    flex-grow: 1;
+  }
+
+  /* Текущая страница: обрезка с многоточием */
+  @media (max-width: 599px) {
+    .breadcrumbs__item:last-child .breadcrumbs__current {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding-right: 4px; /* ← МИНИМАЛЬНЫЙ БУФЕР ДЛЯ … */
+      width: 100%;
+      display: block;
+    }
+  }
+
+  /* Ссылки: фиксированная ширина, не обрезаются */
+  .breadcrumbs__link {
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

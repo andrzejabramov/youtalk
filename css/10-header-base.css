@@ -1,0 +1,91 @@
+/* ============================================= */
+/* ⚠️ ВНИМАНИЕ: ТОЧКА ПЕРЕЛОМА МЕНЮ/БУРГЕР = 967px */
+/* Чтобы изменить, править ТОЛЬКО этот файл!     */
+/* Не менять display в 12/13/14-header-*.css!    */
+/* ============================================= */
+
+/* ===== БАЗОВАЯ ШАПКА ===== */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* ===== КОНТЕЙНЕР ЛОГО + МЕНЮ ===== */
+.header__group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  height: 34px;
+  margin-top: 19px;
+  margin-bottom: 19px;
+  margin-left: 0;
+  width: 48px;
+  margin-right: auto;
+}
+
+@media (min-width: 600px) and (max-width: 967px) {
+  .header__group {
+    height: 36px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 51px;
+  }
+}
+
+@media (min-width: 968px) and (max-width: 1024px) {
+  .header__group {
+    height: 36px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: calc(697px + (100vw - 967px) / 4.333);
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .header__group {
+    height: 36px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: calc(710px + (100vw - 1024px) / 4.333);
+  }
+}
+
+@media (min-width: 1441px) {
+  .header__group {
+    height: 36px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 806px;
+  }
+}
+
+/* ============================================= */
+/* ===== ТОЛЬКО DISPLAY: МЕНЮ/КНОПКА/БУРГЕР ===== */
+/* ============================================= */
+
+@media (max-width: 967px) {
+  .header__nav {
+    display: none !important;
+  }
+  .header__button {
+    display: none !important;
+  }
+  .burger {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 968px) {
+  .header__nav {
+    display: block !important;
+  }
+  .header__button {
+    display: block !important;
+  }
+  .burger {
+    display: none !important;
+  }
+}
