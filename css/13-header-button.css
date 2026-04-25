@@ -25,7 +25,7 @@
   line-height: 1;
   letter-spacing: 0;
   text-align: center;
-  color: var(--color-primary); /* ← #03B2A5 */
+  color: var(--color-primary); /* ← var(--color-primary) */
   white-space: nowrap;
 
   /* Переходы */

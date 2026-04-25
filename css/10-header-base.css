@@ -67,25 +67,25 @@
 /* ============================================= */
 
 @media (max-width: 967px) {
-  .header__nav {
-    display: none !important;
+  .site-header .header__nav {
+    display: none;
   }
-  .header__button {
-    display: none !important;
+  .site-header .header__button {
+    display: none;
   }
-  .burger {
-    display: flex !important;
+  .site-header .burger {
+    display: flex;
   }
 }
 
 @media (min-width: 968px) {
-  .header__nav {
-    display: block !important;
+  .site-header .header__nav {
+    display: block;
   }
-  .header__button {
-    display: block !important;
+  .site-header .header__button {
+    display: block;
   }
-  .burger {
-    display: none !important;
+  .site-header .burger {
+    display: none;
   }
 }

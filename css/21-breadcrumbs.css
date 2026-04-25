@@ -173,15 +173,13 @@
   }
 
   /* Текущая страница: обрезка с многоточием */
-  @media (max-width: 599px) {
-    .breadcrumbs__item:last-child .breadcrumbs__current {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      padding-right: 4px; /* ← МИНИМАЛЬНЫЙ БУФЕР ДЛЯ … */
-      width: 100%;
-      display: block;
-    }
+  .breadcrumbs__item:last-child .breadcrumbs__current {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-right: 4px; /* ← МИНИМАЛЬНЫЙ БУФЕР ДЛЯ … */
+    width: 100%;
+    display: block;
   }
 
   /* Ссылки: фиксированная ширина, не обрезаются */

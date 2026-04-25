@@ -8,7 +8,7 @@
 .qlick-widget {
   width: 282px;
   min-height: 512px;
-  background: #e6f0fd;
+  background: var(--widget-bg-light);
   border-radius: 16px;
   padding: 24px;
   box-sizing: border-box;
@@ -39,7 +39,7 @@
   font-weight: 700;
   font-size: 18px;
   line-height: 24px;
-  color: #333333;
+  color: var(--color-text);
   text-align: center;
   margin: 0;
 }
@@ -50,7 +50,7 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
-  color: #333333;
+  color: var(--color-text);
   text-align: center;
   margin: 0;
 }
@@ -88,7 +88,7 @@
   width: 282px;
   height: 481px;
   background: #ffffff;
-  border: 1px solid #dedede;
+  border: 1px solid var(--color-border-medium);
   border-radius: 16px;
   padding: 24px;
   box-sizing: border-box;
@@ -120,7 +120,7 @@
   font-weight: 700;
   font-size: 20px;
   line-height: 28px;
-  color: #333333;
+  color: var(--color-text);
   text-align: center;
   margin: 0;
 }
@@ -130,7 +130,7 @@
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
-  color: #333333;
+  color: var(--color-text);
   text-align: center;
   margin: 0;
 }
@@ -146,13 +146,13 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
-  color: #a2a7b1;
+  color: var(--widget-text-meta);
 }
 
 .specialist-widget__meta-dot {
   width: 4px;
   height: 4px;
-  background: #a2a7b1;
+  background: var(--widget-text-meta);
   border-radius: 50%;
 }
 
@@ -160,7 +160,7 @@
   width: 250px;
   height: 1px;
   background: transparent;
-  box-shadow: 0px 1px 0px 0px #dedede;
+  box-shadow: 0px 1px 0px 0px var(--color-border-medium);
   margin: 0;
 }
 
@@ -177,7 +177,7 @@
   font-weight: 700;
   font-size: 16px;
   line-height: 24px;
-  color: #333333;
+  color: var(--color-text);
   margin: 0;
   width: fit-content;
 }
@@ -204,7 +204,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #03b2a5;
+  background: var(--color-primary);
 }
 
 .specialist-widget__service-text {
@@ -213,7 +213,7 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
-  color: #333333;
+  color: var(--color-text);
   margin: 0;
 }
 
@@ -284,7 +284,7 @@
   font-weight: 500; /* Medium */
   font-size: 12px;
   line-height: 18px;
-  color: #333333;
+  color: var(--color-text);
   letter-spacing: 0.25px;
   vertical-align: middle;
 }
@@ -303,7 +303,7 @@
   font-weight: 700;
   font-size: 14px;
   line-height: 18px; /* ~130% */
-  color: #333333;
+  color: var(--color-text);
   letter-spacing: 0.25px;
 }
 
@@ -314,7 +314,7 @@
   position: relative;
   width: 282px;
   height: 292px;
-  background: #2963a3;
+  background: var(--color-bg-footer);
   border-radius: 16px;
   margin: 0 auto;
   overflow: hidden;
@@ -363,9 +363,9 @@
   width: 282px;
   height: 304px;
   background: #ffffff;
-  border: 1px solid #dedede;
+  border: 1px solid var(--color-border-medium);
   border-radius: 24px;
-  box-shadow: 0px 30px 50px 0px #eff5fb;
+  box-shadow: 0px 30px 50px 0px var(--color-bg-gradient);
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -395,7 +395,7 @@
   font-weight: 700;
   font-size: 24px;
   line-height: 32px;
-  color: #2963a3;
+  color: var(--color-bg-footer);
   width: 17px;
 }
 
@@ -404,7 +404,7 @@
   font-weight: 700;
   font-size: 18px;
   line-height: 26px;
-  color: #2963a3;
+  color: var(--color-bg-footer);
   width: 137px;
 }
 
@@ -413,7 +413,7 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
-  color: #011632;
+  color: var(--widget-accent-dark);
   margin: 0;
   width: 196px;
   height: 80px;
@@ -424,7 +424,7 @@
   font-weight: 700;
   font-size: 24px;
   line-height: 32px;
-  color: #333333;
+  color: var(--color-text);
   width: 105px;
   height: 32px;
 }

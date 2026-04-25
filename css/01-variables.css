@@ -10,12 +10,15 @@
   --color-border-light: #eff2f2;
   --color-bg-footer: #2963a3;
   --color-border: #c1c5cd;
-  --color-border-light: #dedede;
+  --color-border-medium: #dedede;
   --color-bg-gradient: #eff5fb;
   --color-white: #ffffff;
+  --color-exercise-cream: #fefaec;
+  --color-exercise-peach: #fff3eb;
+  --color-exercise-blue: #f3f7fe;
 
   /* ===== ЛИНИЯ КОНТЕЙНЕРА ===== */
-  --container-line-color: #eff2f2; /* ← Бежевый из Figma */
+  --container-line-color: var(--color-border-light); /* ← Бежевый из Figma */
   --container-line-height: 1px; /* Для ≤1199px */
   --container-line-shadow-offset: -2px; /* Для ≥1200px */
   --container-line-shadow-blur: 0px;
@@ -124,6 +127,4 @@
   --widget-bg-light: #e6f0fd;
   --widget-text-meta: #a2a7b1;
   --widget-accent-dark: #011632;
-  --widget-shadow: 0px 30px 50px 0px #eff5fb;
-  --widget-border: #dedede;
 }
