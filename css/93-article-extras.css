@@ -27,7 +27,7 @@
 }
 
 .qlick-widget__text {
-  width: 234px;
+  width: 234px !important;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -84,6 +84,7 @@
 /* 🔹 SPECIALIST WIDGET                          */
 /* ============================================= */
 .specialist-widget {
+  position: relative;
   width: 282px;
   height: 481px;
   background: #ffffff;
@@ -244,6 +245,69 @@
 }
 
 /* ============================================= */
+/* 🔹 SPECIALIST WIDGET: БЛОК СТАТУСОВ           */
+/* ============================================= */
+.specialist-widget__status-block {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 105px;
+  height: 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 5; /* Поверх контента */
+}
+
+.specialist-widget__status-row {
+  display: flex;
+  align-items: center;
+  height: 24px;
+  border-radius: 6px;
+  padding: 0 6px;
+  background: #f3f4f8b2; /* Полупрозрачный фон */
+  gap: 4px;
+  box-sizing: border-box;
+}
+
+/* --- 1-й элемент (Переписка) --- */
+.specialist-widget__status-row--chat {
+  width: 105px;
+}
+.specialist-widget__status-row--chat .specialist-widget__status-icon {
+  width: 16px;
+  height: 24px; /* Иконка на всю высоту плашки */
+  object-fit: contain;
+}
+.specialist-widget__status-row--chat span {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500; /* Medium */
+  font-size: 12px;
+  line-height: 18px;
+  color: #333333;
+  letter-spacing: 0.25px;
+  vertical-align: middle;
+}
+
+/* --- 2-й элемент (Камера/Видео) --- */
+.specialist-widget__status-row--video {
+  width: 74px;
+}
+.specialist-widget__status-row--video .specialist-widget__status-icon {
+  width: 16px;
+  height: 24px;
+  object-fit: contain;
+}
+.specialist-widget__status-row--video span {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px; /* ~130% */
+  color: #333333;
+  letter-spacing: 0.25px;
+}
+
+/* ============================================= */
 /* 🔹 SOUVENIR WIDGET                            */
 /* ============================================= */
 .souvenir-widget {
@@ -295,6 +359,7 @@
 /* 🔹 VIDEO WIDGET                               */
 /* ============================================= */
 .video-widget {
+  position: relative;
   width: 282px;
   height: 304px;
   background: #ffffff;
@@ -306,6 +371,7 @@
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .video-widget__content {
@@ -382,4 +448,24 @@
 }
 .video-widget__btn:hover {
   background: #2d9a8f;
+}
+
+.video-widget__packet-red {
+  position: absolute;
+  right: 5px;
+  bottom: -21px; /* 21px уходит вниз за край */
+  width: 112px;
+  height: 106px;
+  z-index: 1; /* Нижний слой */
+  pointer-events: none; /* Не перекрывает клики по виджету */
+}
+
+.video-widget__packet-blue {
+  position: absolute;
+  right: -49px; /* 49px уходит вправо за край */
+  bottom: -49px; /* 49px уходит вниз за край */
+  width: 137px;
+  height: 121px;
+  z-index: 2; /* Накладывается поверх красного */
+  pointer-events: none;
 }

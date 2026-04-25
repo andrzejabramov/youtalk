@@ -212,7 +212,7 @@
 }
 
 /* ============================================= */
-/* 🔹 H3 + ВВОДНЫЙ ТЕКСТ (из intro)             */
+/* 🔹 ВВОДНЫЙ ТЕКСТ (из intro)             */
 /* ============================================= */
 .article__section-subtitle {
   margin: 0 0 16px 0;
@@ -460,6 +460,11 @@
 /* ============================================= */
 /* 🔹 ДЕКОРАТИВНЫЕ ОБЛАКА                        */
 /* ============================================= */
+
+.article__bottom-row {
+  position: relative;
+}
+
 .article__cloud {
   display: block;
   object-fit: contain;
@@ -471,10 +476,11 @@
 .article__cloud--bottom {
   width: 272px;
   height: 240px;
-  margin-left: 0;
-  position: relative;
-  left: 3px;
-  flex-shrink: 0;
+  top: 10px;
+  right: -300px;
+  transform: rotate(180deg);
+  pointer-events: none;
+  position: absolute;
 }
 
 /* 2️⃣ Правое облако (абсолютное позиционирование) */
@@ -490,4 +496,141 @@
   width: 686px;
   height: 606px;
   transform: rotate(180deg); /* Поворот как в Figma */
+}
+
+/* ============================================= */
+/* 🔹 АДАПТИВ: ПЕРЕСКОК В 1 КОЛОНКУ (≤566px)     */
+/* ============================================= */
+@media (max-width: 566px) {
+  /* 🔹 Контейнер контента: ширина 526px (20px отступы) */
+  .article-col--left,
+  .article-col--left > * {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* 🔹 Сдвоенные элементы: в одну колонку, ширина 526px → гибко до 288px */
+  .article__media-row,
+  .media-row,
+  .twin-block,
+  .twin-box {
+    width: calc(100% - 40px) !important; /* 526px при 566px вьюпорте */
+    max-width: 526px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    flex-direction: column !important; /* Если был flex */
+    grid-template-columns: 1fr !important; /* Если был grid */
+  }
+
+  /* 🔹 Заголовок страницы: 32px → 32px, ширина 374px */
+  .article__title,
+  .page-header__title,
+  h1.article-title {
+    width: 374px !important;
+    max-width: 100% !important;
+    font-size: 32px !important;
+    line-height: 40px !important;
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+  }
+
+  /* 🔹 566px: Перескок .article__twin в одну колонку */
+  @media (max-width: 566px) {
+    .article__twin {
+      display: flex !important;
+      flex-direction: column !important; /* 🔹 Ставит блоки друг под друга */
+      gap: 24px !important;
+      width: 100% !important;
+    }
+    .article__twin__col {
+      width: 100% !important;
+      display: flex !important;
+      flex-direction: column !important; /* 🔹 Гарантирует вертикаль внутри колонки (картинка над текстом) */
+      align-items: flex-start;
+    }
+  }
+}
+
+/* ============================================= */
+/* 🔹 АДАПТИВ: ФИКСАЦИЯ КОНТЕНТА (≤328px)         */
+/* ============================================= */
+@media (max-width: 328px) {
+  /* 🔹 Контейнер: управляем отступами централизованно */
+  .main-article {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+
+  /* 🔹 Сдвоенные элементы: центрируем, ограничиваем 288px */
+  .article__media-row,
+  .article__twin {
+    width: 100%;
+    max-width: 288px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* 🔹 Заголовок страницы: подчиняется контейнеру */
+  .article__title,
+  h1.article-title {
+    width: 100%;
+    max-width: 288px;
+    font-size: 24px;
+    line-height: 32px;
+    /* margin-left/right убраны → отступы берёт .main-article */
+  }
+}
+
+/* ============================================= */
+/* 🔹 ТИПОГРАФИКА: Заголовок страницы */
+/* ============================================= */
+
+/* 🔹 БАЗА (≥768px) */
+.article__title,
+h1.article-title {
+  max-width: 728px;
+  font-size: 48px !important;
+  line-height: 56px !important;
+  font-weight: 700 !important;
+  color: #333333 !important;
+  margin-left: 20px !important;
+}
+
+.article__section-title,
+.article__list-title {
+  width: 100%;
+  max-width: 100%;
+  font-size: 24px !important;
+  line-height: 32px !important;
+  font-weight: 700 !important;
+  color: #333333 !important;
+}
+
+/* 🔹 ≤414px */
+@media (max-width: 414px) {
+  .article__title,
+  h1.article-title {
+    max-width: 374px;
+    font-size: 32px !important;
+    line-height: 40px !important;
+  }
+}
+
+/* 🔹 ≤320px */
+@media (max-width: 320px) {
+  .article__title,
+  h1.article-title {
+    max-width: 288px;
+    font-size: 24px !important;
+    line-height: 32px !important;
+    margin-left: 16px !important;
+  }
+
+  .article__section-title,
+  .article__list-title {
+    max-width: 130px;
+    font-size: 18px !important;
+    line-height: 26px !important;
+    margin-left: 16px !important;
+  }
 }
