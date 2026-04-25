@@ -9,6 +9,7 @@
   box-sizing: border-box;
 }
 
+/* Контейнер: адаптивная ширина */
 @media (min-width: 1440px) {
   .main-article {
     width: 1200px;
@@ -38,14 +39,15 @@
 /* ============================================= */
 .article-columns {
   display: flex;
-  justify-content: space-between; /* 🔹 РАСКИДЫВАЕТ КОЛОНКИ ПО КРАЯМ */
+  justify-content: space-between;
   align-items: flex-start;
-  gap: 28px;
+  gap: 120px;
   width: 100%;
   box-sizing: border-box;
+  flex-wrap: nowrap; /* 🔹 Запрещаем автоперенос до 974px */
 }
 
-/* Левая колонка: фикс на десктопе, ритм контента */
+/* Левая колонка */
 .article-col--left {
   width: 690px;
   flex-shrink: 0;
@@ -55,7 +57,7 @@
   margin-top: 24px;
 }
 
-/* Правая колонка: фикс 282px, виджеты внутри выровнены по левому краю */
+/* Правая колонка */
 .article-col--right {
   display: flex;
   flex-direction: column;
@@ -63,7 +65,6 @@
   width: 282px;
   flex-shrink: 0;
   box-sizing: border-box;
-  /* 🔹 align-items: flex-start — это для виджетов ВНУТРИ колонки (чтобы они не центрировались) */
   align-items: flex-start;
 }
 .article-col--right > * {
@@ -71,27 +72,148 @@
   width: 100%;
 }
 
-/* АДАПТИВ: ПЛАНШЕТ */
-@media (max-width: 1024px) {
+/* ============================================= */
+/* 🔹 АДАПТИВ 975px — 1440px (Формулы)           */
+/* ============================================= */
+/* 1️⃣ Gap: плавное сжатие от ~228px до 0 */
+@media (min-width: 975px) and (max-width: 1440px) {
+  .article-columns {
+    gap: max(0px, calc((100vw - 976px) / 2.036));
+  }
+}
+/* 2️⃣ Левая: плавное расширение от 690px до ~718px */
+@media (min-width: 975px) and (max-width: 1440px) {
+  .article-col--left {
+    width: calc(690px + (1440px - 100vw) / 17.3);
+  }
+}
+/* 3️⃣ Правая: плавное сжатие 282→222px (только 1024–1440) */
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .article-col--right {
+    width: calc(222px + (100vw - 1024px) / 6.9);
+  }
+}
+/* 4️⃣ Правая: фиксация на 222px (975–1023) */
+@media (min-width: 975px) and (max-width: 1023px) {
+  .article-col--right {
+    width: 222px;
+  }
+}
+
+/* ============================================= */
+/* 🔹 СКРЫТИЕ ЭЛЕМЕНТОВ НА ≤1200px               */
+/* ============================================= */
+@media (max-width: 1200px) {
+  .main-article .article__bottom-row,
+  .main-article .article__cloud--right,
+  .main-article .article__full-divider,
+  .main-article .article__tags {
+    display: none;
+  }
+}
+
+/* ============================================= */
+/* 🔹 ПЕРЕСКОК + СЕТКА 2×2 (≤974px)              */
+/* ============================================= */
+@media (max-width: 974px) {
   .article-columns {
     flex-direction: column;
-    gap: 48px;
+    gap: 40px;
   }
   .article-col--left,
   .article-col--right {
     width: 100%;
     max-width: 100%;
-    flex-shrink: 1;
   }
+
+  /* 🔹 ЖЁСТКАЯ СЕТКА: НИКАКИХ РАСЧЁТОВ, ТОЛЬКО ЦИФРЫ */
   .article-col--right {
-    align-items: center;
+    display: grid;
+    grid-template-columns: 356px 356px;
+    column-gap: 16px;
+    grid-template-rows: 481px 248px;
+    row-gap: 36px;
+    width: 100% !important;
+    height: 759px;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    justify-content: start;
   }
+
   .article-col--right > * {
-    max-width: 728px;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  /* 1️⃣ Верх-Лево */
+  .article-col--right > *:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: start;
+    justify-self: start;
+    min-height: 481px;
+    max-height: 481px;
+    overflow: hidden;
+  }
+
+  .article-col--right > *:nth-child(1) h3,
+  .article-col--right > *:nth-child(1) p {
+    text-align: center !important;
+    width: 310px;
+  }
+
+  /* 🔹 РАСШИРЕНИЕ КОНТЕНТА 1-ГО ВИДЖЕТА (ТЕКСТ + КНОПКА ДО 310PX) */
+  .article-col--right > *:nth-child(1) p,
+  .article-col--right > *:nth-child(1) button,
+  .article-col--right > *:nth-child(1) a,
+  .article-col--right > *:nth-child(1) div {
+    width: 310px !important;
+    max-width: 310px !important;
+    margin: 0 !important;
+    text-align: left;
+  }
+
+  /* 2️⃣ Низ-Лево */
+  .article-col--right > *:nth-child(2) {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: end;
+    justify-self: start;
+    height: 242 !important;
+    min-height: 242px !important;
+    max-height: 242px !important;
+    overflow: hidden;
+  }
+
+  /* 3️⃣ Верх-Право (Специалист) */
+  .article-col--right > *:nth-child(3) {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: start;
+    justify-self: end;
+    height: 481px !important;
+  }
+
+  /* 4️⃣ Низ-Право */
+  .article-col--right > *:nth-child(4) {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: end;
+    justify-self: end;
+    height: 248px !important;
+    min-height: 248px !important;
+    max-height: 248px !important;
+    overflow: hidden;
   }
 }
 
-/* АДАПТИВ: МОБИЛЬНЫЙ */
+/* ============================================= */
+/* 🔹 МОБИЛЬНЫЙ АДАПТИВ (≤767px)                 */
+/* ============================================= */
 @media (max-width: 767px) {
   .article-columns {
     gap: 32px;
@@ -101,9 +223,5 @@
   }
   .article-col--right {
     gap: 20px;
-    align-items: stretch;
-  }
-  .article-col--right > * {
-    max-width: 100%;
   }
 }
