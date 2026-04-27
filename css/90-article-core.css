@@ -147,15 +147,16 @@
     justify-content: start;
   }
 
-  .article-col--right > * {
+  /* 🔹 Базовый сброс для всех слотов */
+  .widget-slot {
     width: 100% !important;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
 
-  /* 1️⃣ Верх-Лево */
-  .article-col--right > *:nth-child(1) {
+  /* 1️⃣ Верх-Лево (Qlick) */
+  .widget-slot--qlick {
     grid-column: 1;
     grid-row: 1;
     align-self: start;
@@ -165,57 +166,51 @@
     overflow: hidden;
     text-align: center;
   }
-  .article-col--right > *:nth-child(1) h2,
-  .article-col--right > *:nth-child(1) h3,
-  .article-col--right > *:nth-child(1) h4,
-  .article-col--right > *:nth-child(1) button,
-  .article-col--right > *:nth-child(1) a,
-  .article-col--right > *:nth-child(1) div,
-  .article-col--right > *:nth-child(1) p {
+  .widget-slot--qlick h2,
+  .widget-slot--qlick h3,
+  .widget-slot--qlick h4,
+  .widget-slot--qlick button,
+  .widget-slot--qlick a,
+  .widget-slot--qlick div,
+  .widget-slot--qlick p {
     text-align: center !important;
     width: 100%;
     max-width: 310px;
     margin: 0;
   }
-}
 
-/* 2️⃣ Низ-Лево */
-.souvenir-widget {
-  min-height: 242px;
-  max-height: 242px;
-  overflow: hidden;
-}
+  /* 2️⃣ Низ-Лево (Souvenir) */
+  .widget-slot--souvenir {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: end;
+    justify-self: start;
+    min-height: 242px;
+    max-height: 242px;
+    overflow: hidden;
+  }
 
-.article-col--right > *:nth-child(2) {
-  grid-column: 1;
-  grid-row: 2;
-  align-self: end;
-  justify-self: start;
-}
+  /* 3️⃣ Верх-Право (Specialist) */
+  .widget-slot--specialist {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: start;
+    justify-self: end;
+    min-height: 481px;
+    max-height: 481px;
+    overflow: hidden;
+  }
 
-/* 3️⃣ Верх-Право */
-.article-col--right > *:nth-child(3) {
-  grid-column: 2;
-  grid-row: 1;
-  align-self: start;
-  justify-self: end;
-  min-height: 481px;
-  max-height: 481px;
-  overflow: hidden;
-}
-
-/* 4️⃣ Низ-Право */
-.article-col--right > *:nth-child(4) {
-  grid-column: 2;
-  grid-row: 2;
-  align-self: end;
-  justify-self: end;
-}
-
-.video-widget {
-  min-height: 248px;
-  max-height: 248px;
-  overflow: hidden;
+  /* 4️⃣ Низ-Право (Video) */
+  .widget-slot--video {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: end;
+    justify-self: end;
+    min-height: 248px;
+    max-height: 248px;
+    overflow: hidden;
+  }
 }
 
 /* ============================================= */

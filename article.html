@@ -82,10 +82,11 @@
 
         <!-- ПРАВЫЙ СТОЛБЕЦ (282px) -->
         <div class="article-col article-col--right">
-          <div data-include="components/qlick-widget.html"></div>
-          <div data-include="components/specialist-widget.html"></div>
-          <div data-include="components/souvenire-widget.html"></div>
-          <div data-include="components/video-widget.html"></div>
+          <!-- Явные классы вместо слепого порядка -->
+          <div class="widget-slot widget-slot--qlick" data-include="components/qlick-widget.html"></div>
+          <div class="widget-slot widget-slot--specialist" data-include="components/specialist-widget.html"></div>
+          <div class="widget-slot widget-slot--souvenir" data-include="components/souvenire-widget.html"></div>
+          <div class="widget-slot widget-slot--video" data-include="components/video-widget.html"></div>
           <!-- 🔹 ОБЛАКО 2 (в правом столбце, позиционируется абсолютно) -->
           <img
             src="images/cloud.svg"
