@@ -147,7 +147,6 @@
     justify-content: start;
   }
 
-  /* 🔹 Базовый сброс для всех слотов */
   .widget-slot {
     width: 100% !important;
     margin: 0;
@@ -155,7 +154,7 @@
     box-sizing: border-box;
   }
 
-  /* 1️⃣ Верх-Лево (Qlick) */
+  /* 1️⃣ Верх-Лево (Qlick) — сохранены все размеры и выравнивания */
   .widget-slot--qlick {
     grid-column: 1;
     grid-row: 1;
