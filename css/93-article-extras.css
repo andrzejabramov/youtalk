@@ -372,7 +372,7 @@
 /* 🔹 СЛОЙ 3: Гибкий текст */
 .souvenir-widget__text {
   position: absolute;
-  top: 60px;
+  top: 48px;
   width: 100%;
   min-height: 80px;
 
@@ -507,4 +507,36 @@
   height: 121px;
   z-index: 2; /* Накладывается поверх красного */
   pointer-events: none;
+}
+
+/* 🔹 БАЗА: Группировка декораций */
+.souvenir-widget__decor-group {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  /* Базовые transform не нужны, зададим только в медиа */
+}
+
+/* 🔹 967px: ПЛАНШЕТ (коробки чуть вверх-вправо) */
+@media (max-width: 967px) {
+  .souvenir-widget__decor-group {
+    transform: translate(20px, -20px); /* +8px вправо, -6px вверх */
+  }
+}
+
+/* 🔹 599px: МОБИЛЬНЫЙ УЗКИЙ (коробки плотнее к центру) */
+@media (max-width: 599px) {
+  .souvenir-widget__decor-group {
+    transform: translate(30px, -20px);
+  }
+}
+
+/* 🔹 328px: КРОШЕЧНЫЙ ЭКРАН (коробки отходят от краёв) */
+@media (max-width: 328px) {
+  .souvenir-widget__decor-group {
+    transform: translate(16px, -14px);
+  }
 }
