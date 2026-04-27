@@ -613,8 +613,8 @@
   }
 }
 
-/* 🔹 ≤320px */
-@media (max-width: 320px) {
+/* 🔹 ≤328px */
+@media (max-width: 328px) {
   .main-article .article__title,
   .main-article h1.article-title {
     max-width: 288px;
@@ -625,7 +625,7 @@
 
   .main-article .article__section-title,
   .main-article .article__list-title {
-    max-width: 130px;
+    max-width: 288px;
     font-size: 18px;
     line-height: 26px;
     margin-left: 16px;
