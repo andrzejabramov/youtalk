@@ -549,17 +549,17 @@
   .specialist-widget,
   .souvenir-widget,
   .video-widget {
-    width: 100% !important; /* Растягивает на все 356px ячейки */
-    height: 100% !important; /* Заставляет занять высоту строки грида (481/242px) */
-    min-height: 0 !important; /* Ломает жёсткие 512px/292px из базы */
-    max-height: 100% !important; /* Запрещает вылезать за границы строки */
-    margin: 0 auto !important; /* Центрирует по горизонтали */
-    padding: 16px !important; /* Компенсация внутренних отступов */
-    box-sizing: border-box !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
-    overflow: hidden !important; /* Обрезает, если контент всё же вылетает */
+    width: 100%; /* Растягивает на все 356px ячейки */
+    height: 100%; /* Заставляет занять высоту строки грида (481/242px) */
+    min-height: 0; /* Ломает жёсткие 512px/292px из базы */
+    max-height: 100%; /* Запрещает вылезать за границы строки */
+    margin: 0 auto; /* Центрирует по горизонтали */
+    padding: 16px; /* Компенсация внутренних отступов */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Обрезает, если контент всё же вылетает */
   }
 }
