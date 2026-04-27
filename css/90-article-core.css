@@ -27,9 +27,8 @@
 }
 @media (max-width: 767px) {
   .main-article {
-    width: 100%;
-    margin-left: 20px;
-    margin-right: 20px;
+    width: calc(100vw - 40px);
+    margin: 0 auto;
     margin-bottom: 32px;
   }
 }
@@ -166,7 +165,7 @@
   .article-col--right > *:nth-child(1) div,
   .article-col--right > *:nth-child(1) p {
     text-align: center !important;
-    width: 310px;
+    width: 100%;
     max-width: 310px;
     margin: 0;
   }

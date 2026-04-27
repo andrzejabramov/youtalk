@@ -142,7 +142,7 @@
 .article__media-row__image {
   width: 282px;
   height: auto;
-  max-height: 380px;
+  max-height: auto;
   object-fit: contain;
   flex-shrink: 0;
   border-radius: 8px;
@@ -208,7 +208,7 @@
   background: var(--color-exercise-peach);
 }
 .article__exercise.article__card--teal {
-  background: var(--color-primary) 1a;
+  background: #03b2a51a;
 }
 
 /* ============================================= */
@@ -508,11 +508,13 @@
 
   /* 🔹 Сдвоенные элементы: в одну колонку, ширина 526px → гибко до 288px */
   .article__media-row,
+  .article__media-row__image,
   .media-row,
   .twin-block,
   .twin-box {
-    width: calc(100% - 40px); /* 526px при 566px вьюпорте */
+    width: 100%; /* 526px при 566px вьюпорте */
     max-width: 526px;
+    height: auto;
     margin-left: auto;
     margin-right: auto;
     flex-direction: column; /* Если был flex */

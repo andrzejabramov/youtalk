@@ -27,7 +27,7 @@
 }
 
 .qlick-widget__text {
-  width: 234px !important;
+  width: 234px;
   display: flex;
   flex-direction: column;
   gap: 24px;

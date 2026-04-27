@@ -27,3 +27,37 @@ body {
     display: block;
   }
 }
+
+/* ============================================= */
+/* 🔹 ГРАДИЕНТ: ДЛЯ СТАТЬИ (≥1200px)             */
+/* ============================================= */
+/* 🔹 КОНТЕЙНЕР-КРОП: строго 82px, обрезает хвосты, не даёт скролл */
+.gradient-crop {
+  position: absolute;
+  bottom: 302px; /* Ставим ровно на линию верха футера */
+  left: 0;
+  width: 100%;
+  height: 82px; /* ← Видим только верхние 82px */
+  overflow: hidden; /* ← Всё, что ниже 82px, физически удаляется из вида */
+  z-index: 1; /* Ниже футера (у него 10) */
+  pointer-events: none;
+}
+
+/* 🔹 САМ ГРАДИЕНТ: без сдвигов, лежит внутри кропа */
+@media (min-width: 1200px) {
+  .gradient-bg--article {
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 672px; /* Исходная высота */
+    background-image: url("../images/gradient.png");
+    background-size: 100% 100%;
+    background-position: top; /* ← Показываем именно верхнюю часть */
+
+    /* 🔹 Сброс всех предыдущих хаков */
+    bottom: auto !important;
+    transform: none !important;
+  }
+}
