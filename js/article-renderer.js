@@ -91,13 +91,6 @@ const ArticleRenderer = {
         .join("");
       return `<div class="article__twin">${cols}</div>`;
     },
-    separator(b) {
-      return `<div class="article__separator">
-        <img src="${b.line}" alt="" class="article__separator__line" />
-        <img src="${b.icon}" alt="" class="article__separator__icon" />
-        <img src="${b.line}" alt="" class="article__separator__line" />
-      </div>`;
-    },
     tags(b) {
       const html = b.items
         .map((item, i) => {
@@ -109,9 +102,6 @@ const ArticleRenderer = {
         })
         .join("");
       return `<div class="article__tags">${html}</div>`;
-    },
-    "full-divider"(b) {
-      return `<hr class="article__full-divider" />`;
     },
   },
 

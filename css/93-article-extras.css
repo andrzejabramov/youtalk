@@ -326,7 +326,7 @@
   position: absolute;
   top: 0;
   left: 2px;
-  width: 281px;
+  width: 100%;
   height: 192px;
   z-index: 1;
 }
@@ -373,8 +373,7 @@
 .souvenir-widget__text {
   position: absolute;
   top: 60px;
-  left: 24px;
-  width: 234px;
+  width: 100%;
   min-height: 80px;
 
   background: transparent; /* ← Прозрачный фон */
@@ -383,7 +382,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4px 8px;
+  padding: 4px 17px;
   box-sizing: border-box;
   z-index: 3; /* Поверх коробок */
 
