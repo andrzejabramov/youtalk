@@ -308,51 +308,91 @@
 }
 
 /* ============================================= */
-/* 🔹 SOUVENIR WIDGET                            */
+/* 🔹 SOUVENIR WIDGET: СБОРКА ПО СЛОЯМ          */
 /* ============================================= */
 .souvenir-widget {
-  position: relative;
+  position: relative; /* Контекст для absolute-слоёв */
   width: 282px;
   height: 292px;
-  background: var(--color-bg-footer);
+  overflow: hidden; /* Разрешаем коробкам выходить за границы */
+  background: var(--color-bg-footer); /* #2963a3 */
   border-radius: 16px;
-  margin: 0 auto;
-  overflow: hidden;
+  flex-shrink: 0; /* Защита от растягивания в колонке */
+  box-sizing: border-box;
 }
 
+/* 🔹 СЛОЙ 1: Верхний фон */
 .souvenir-widget__bg {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 2px;
+  width: 281px;
   height: 192px;
   z-index: 1;
-  object-fit: cover;
 }
 
-.souvenir-widget__image {
+/* 🔹 СЛОЙ 2: Общие стили коробок */
+.souvenir-widget__box {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-  z-index: 2;
   pointer-events: none;
 }
 
-.souvenir-widget__title {
+/* 🔹 Жёлтая коробка (поворот 90°, выходит влево/вниз) */
+.souvenir-widget__box--yellow {
+  top: 164px;
+  left: 10px;
+  width: 112px;
+  height: 146px;
+  transform: rotate(90deg);
+  transform-origin: center center;
+  z-index: 3;
+}
+
+/* 🔹 Бирюзовая коробка (без поворота, выходит вниз) */
+.souvenir-widget__box--turquoise {
+  top: 152px;
+  left: 107px;
+  width: 167px;
+  height: 159px;
+  transform: rotate(0deg);
+  z-index: 2;
+}
+
+/* 🔹 Красная коробка (поворот -90°, выходит вправо/вниз) */
+.souvenir-widget__box--red {
+  top: 195px;
+  left: 198px;
+  width: 79px;
+  height: 120px;
+  transform: rotate(-90deg);
+  transform-origin: center center;
+  z-index: 3;
+}
+
+/* 🔹 СЛОЙ 3: Гибкий текст */
+.souvenir-widget__text {
   position: absolute;
   top: 60px;
   left: 24px;
   width: 234px;
-  margin: 0;
+  min-height: 80px;
+
+  background: transparent; /* ← Прозрачный фон */
+  border-radius: 0; /* ← Убираем скругление */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  box-sizing: border-box;
+  z-index: 3; /* Поверх коробок */
+
   font-family: var(--font-main);
   font-weight: 700;
   font-size: 32px;
   line-height: 40px;
-  color: #ffffff;
+  color: var(--color-white); /* ← Белый текст */
   text-align: center;
-  z-index: 3;
 }
 
 /* ============================================= */

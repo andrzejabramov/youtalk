@@ -1,16 +1,33 @@
 <!-- ===== ВИДЖЕТ "ДАРИТЕ ЗАБОТУ" ===== -->
-<div class="souvenir-widget">
-  <!-- Фоновый декор (в самом верху) -->
+<aside class="souvenir-widget" aria-label="Подарочный сертификат">
+  <!-- 1. Верхний фон (крошки) -->
   <img
     src="images/back-crumbs.png"
     alt=""
     class="souvenir-widget__bg"
     aria-hidden="true"
   />
+
+  <!-- 2. Декоративные коробки (лежат под текстом) -->
   <img
-    src="images/souvenire.png"
-    alt="Подарок"
-    class="souvenir-widget__image"
+    src="images/present-yellow.png"
+    alt=""
+    class="souvenir-widget__box souvenir-widget__box--yellow"
+    aria-hidden="true"
   />
-  <h3 class="souvenir-widget__title">Дарите заботу</h3>
-</div>
+  <img
+    src="images/present-turquoise.png"
+    alt=""
+    class="souvenir-widget__box souvenir-widget__box--turquoise"
+    aria-hidden="true"
+  />
+  <img
+    src="images/present-red.png"
+    alt=""
+    class="souvenir-widget__box souvenir-widget__box--red"
+    aria-hidden="true"
+  />
+
+  <!-- 3. Гибкий текстовый блок -->
+  <div class="souvenir-widget__text">Дарите заботу</div>
+</aside>
