@@ -3,60 +3,169 @@
 /* ============================================= */
 
 /* ============================================= */
-/* 🔹 QCLICK WIDGET                              */
+/* 🔹 ТИПОГРАФИКА ВИДЖЕТОВ (общая база, 0 !important) */
+/* ============================================= */
+.qlick-widget__title,
+.specialist-widget__name,
+.video-widget__title,
+.souvenir-widget__text {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.qlick-widget__description,
+.specialist-widget__service-text,
+.video-widget__desc {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.qlick-widget__btn,
+.specialist-widget__btn,
+.video-widget__btn {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+}
+
+/* ============================================= */
+/* 🔹 QCLICK WIDGET: ГИБКИЙ + ЦЕНТР + ПАДДИНГИ   */
 /* ============================================= */
 .qlick-widget {
-  width: 282px;
+  width: 100%;
+  max-width: 282px;
   min-height: 512px;
+  height: auto;
   background: var(--widget-bg-light);
   border-radius: 16px;
-  padding: 24px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 24px;
   margin: 0 auto;
+  overflow: visible;
+
+  padding-top: 24px;
+  padding-bottom: 24px;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
-.qlick-widget__image {
-  width: 257px;
-  height: 206px;
-  object-fit: contain;
-  display: block;
+.qlick-widget__text,
+.qlick-widget__btn {
+  width: 100%;
+  max-width: 234px;
+  box-sizing: border-box;
 }
 
-.qlick-widget__text {
-  width: 234px;
+/* 🔹 Центрирование текста (разница только в выравнивании) */
+.qlick-widget__title,
+.qlick-widget__description {
+  text-align: center;
+}
+
+.qlick-widget__btn {
+  height: 48px;
+  padding: 12px 16px;
+  background: #35b3a9;
+  border: none;
+  border-radius: 4px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* 1️⃣ 975px – 1199px */
+@media (min-width: 975px) and (max-width: 1199px) {
+  .qlick-widget {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+/* 2️⃣ 567px – 974px */
+@media (min-width: 567px) and (max-width: 974px) {
+  .qlick-widget {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+/* 3️⃣ 320px – 566px */
+@media (min-width: 320px) and (max-width: 566px) {
+  .qlick-widget {
+    padding-left: calc(25px + (100vw - 320px) / 35.14);
+    padding-right: calc(25px + (100vw - 320px) / 35.14);
+  }
+}
+/* 4️⃣ ≤319px */
+@media (max-width: 319px) {
+  .qlick-widget {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+/* 🔹 СНЯТИЕ ОГРАНИЧЕНИЯ ДЛЯ СЕТКИ ≤974px */
+@media (max-width: 974px) {
+  .article-col--right .qlick-widget,
+  .article-col--right .specialist-widget,
+  .article-col--right .souvenir-widget,
+  .article-col--right .video-widget {
+    max-width: 100%; /* Разрешаем занять все 356px ячейки грида */
+    width: 100%;
+  }
+}
+
+/* ============================================= */
+/* 🔹 QCLICK WIDGET: ГИБКИЙ + ЦЕНТР + ПАДДИНГИ   */
+/* ============================================= */
+.qlick-widget {
+  width: 100%;
+  max-width: 282px;
+  min-height: 512px;
+  height: auto;
+  background: var(--widget-bg-light);
+  border-radius: 16px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 24px;
+  margin: 0 auto;
+  overflow: visible;
+
+  /* 🔹 Верх/низ фиксированы, бока меняются по брейкпоинтам */
+  padding-top: 24px;
+  padding-bottom: 24px;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
-.qlick-widget__title {
-  width: 234px;
-  font-family: var(--font-main);
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 24px;
-  color: var(--color-text);
-  text-align: center;
-  margin: 0;
+.qlick-widget__text,
+.qlick-widget__title,
+.qlick-widget__description,
+.qlick-widget__btn {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
+/* 🔹 Жёсткое центрирование текста */
+.qlick-widget__title,
 .qlick-widget__description {
-  width: 234px;
-  font-family: var(--font-main);
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
-  color: var(--color-text);
   text-align: center;
   margin: 0;
 }
 
 .qlick-widget__btn {
-  width: 234px;
   height: 48px;
   padding: 12px 16px;
   background: #35b3a9;
@@ -73,11 +182,37 @@
   justify-content: center;
   gap: 8px;
 }
-.qlick-widget__btn:hover {
-  background: #2d9a8f;
+
+/* 1️⃣ 975px – 1199px: Скачок на 20px */
+@media (min-width: 975px) and (max-width: 1199px) {
+  .qlick-widget {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
-.qlick-widget__btn:active {
-  background: #26847a;
+
+/* 2️⃣ 567px – 974px: Скачок на 32px (перескок в 2×2) */
+@media (min-width: 567px) and (max-width: 974px) {
+  .qlick-widget {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+/* 3️⃣ 320px – 566px: Плавная формула */
+@media (min-width: 320px) and (max-width: 566px) {
+  .qlick-widget {
+    padding-left: calc(25px + (100vw - 320px) / 35.14);
+    padding-right: calc(25px + (100vw - 320px) / 35.14);
+  }
+}
+
+/* 4️⃣ ≤319px: Финальный мобильный */
+@media (max-width: 319px) {
+  .qlick-widget {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
 }
 
 /* ============================================= */
@@ -244,6 +379,24 @@
   background: #26847a;
 }
 
+/* 🔹 SPECIALIST-WIDGET: ДИНАМИКА ШИРИНЫ КОНТЕНТА (975px – 1221px) */
+@media (min-width: 975px) and (max-width: 1221px) {
+  /* Разрешаем контейнеру расти под перенесённый текст */
+  .specialist-widget {
+    height: auto;
+    min-height: 481px; /* Сохраняет базовую высоту, если контент короткий */
+  }
+  .specialist-widget__info,
+  .specialist-widget__divider,
+  .specialist-widget__services,
+  .specialist-widget__service-item,
+  .specialist-widget__btn {
+    width: 100%;
+    max-width: calc(174px + (100vw - 1024px) / 2.33);
+    box-sizing: border-box;
+  }
+}
+
 /* ============================================= */
 /* 🔹 SPECIALIST WIDGET: БЛОК СТАТУСОВ           */
 /* ============================================= */
@@ -394,6 +547,18 @@
   text-align: center;
 }
 
+/* 🔹 SOUVENIR-WIDGET: ФИКС ВЫСОТЫ НА МОБИЛЬНОМ (≤566px) */
+@media (max-width: 566px) {
+  .article-col--right .souvenir-widget {
+    height: 292px;
+    min-height: 292px;
+    max-height: 292px;
+    flex-shrink: 0; /* Запрещает flex-родителю сжимать виджет */
+    width: 100%; /* Растягиваем на всю ширину одноколоночного ряда */
+    box-sizing: border-box;
+  }
+}
+
 /* ============================================= */
 /* 🔹 VIDEO WIDGET                               */
 /* ============================================= */
@@ -520,24 +685,24 @@
   /* Базовые transform не нужны, зададим только в медиа */
 }
 
-/* 🔹 967px: ПЛАНШЕТ (коробки чуть вверх-вправо) */
-@media (max-width: 967px) {
+/* 🔹 600px – 967px: ПЛАНШЕТ */
+@media (min-width: 567px) and (max-width: 967px) {
   .souvenir-widget__decor-group {
-    transform: translate(20px, -20px); /* +8px вправо, -6px вверх */
+    transform: translate(20px, -14px);
   }
 }
 
-/* 🔹 599px: МОБИЛЬНЫЙ УЗКИЙ (коробки плотнее к центру) */
-@media (max-width: 599px) {
+/* 🔹 329px – 599px: МОБИЛЬНЫЙ УЗКИЙ */
+@media (min-width: 329px) and (max-width: 566px) {
   .souvenir-widget__decor-group {
-    transform: translate(30px, -20px);
+    transform: translate(30px, 5px);
   }
 }
 
-/* 🔹 328px: КРОШЕЧНЫЙ ЭКРАН (коробки отходят от краёв) */
+/* 🔹 ≤328px: КРОШЕЧНЫЙ ЭКРАН */
 @media (max-width: 328px) {
   .souvenir-widget__decor-group {
-    transform: translate(16px, -14px);
+    transform: translate(16px, 5px);
   }
 }
 

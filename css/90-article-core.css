@@ -224,6 +224,7 @@
   }
   .article-col--right {
     gap: 20px;
+    justify-content: center;
   }
 }
 
@@ -275,6 +276,8 @@
     grid-template-columns: none;
     grid-template-rows: none;
     overflow: visible;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .qlick-widget,
@@ -305,5 +308,47 @@
     grid-template-columns: none;
     grid-template-rows: none;
     overflow: visible;
+  }
+}
+
+/* 🔹 FLUID RIGHT COLUMN: 975px – 1440px (только ширина) */
+@media (min-width: 975px) and (max-width: 1440px) {
+  .article-col--right {
+    width: calc(215px + (100vw - 975px) / 6.93);
+    max-width: 282px;
+    min-width: 215px;
+  }
+}
+
+/* 🔹 FLUID WIDGETS: 975px – 1440px (только ширина виджетов) */
+@media (min-width: 975px) and (max-width: 1440px) {
+  .article-col--right > .widget-slot,
+  .article-col--right > .qlick-widget,
+  .article-col--right > .specialist-widget,
+  .article-col--right > .souvenir-widget,
+  .article-col--right > .video-widget {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* ============================================= */
+/* 🔹 СИНХРОНИЗАЦИЯ СТОЛБЦОВ: 567px – 767px      */
+/* ============================================= */
+@media (min-width: 567px) and (max-width: 767px) {
+  .article-col--right {
+    /* Виджеты плавно сужаются от 356px до 283px */
+    grid-template-columns:
+      calc(283px + (100vw - 567px) / 2.74)
+      calc(283px + (100vw - 567px) / 2.74);
+
+    /* Gap плавно уменьшается от 16px до 1px */
+    column-gap: calc(1px + (100vw - 567px) / 13.33);
+
+    /* Гарантируем, что грид занимает всю доступную ширину */
+    width: 100%;
+    max-width: 100%;
+    justify-content: center; /* Центрирует сетку, если контейнер чуть шире */
   }
 }
