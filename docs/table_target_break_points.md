@@ -4,7 +4,7 @@
 | 2         | [article-body-1024.png](img/article-body-1024.png)     |
 | 3         | [article-body-1440](img/article-body-1440.png)         |
 | 4         | [article-center-768.png](img/article-center-768.png)   |
-| 5         | [article-center-1024.png]img/article-center-1024.png   |
+| 5         | [article-center-1024.png](img/article-center-1024.png) |
 | 6         | [article-cloud-1440.png](img/article-cloud-1440.png)   |
 | 7         | [article-footer-768.png](img/article-footer-768.png)   |
 | 8         | [article-footer-1024.png](img/article-footer-1024.png) |
