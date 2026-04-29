@@ -1,38 +1,46 @@
-| номер п/п | точка визуального контроля                             |
-| --------- | ------------------------------------------------------ |
-| 1         | [article-body-768.png](img/article-body-768.png)       |
-| 2         | [article-body-1024.png](img/article-body-1024.png)     |
-| 3         | [article-body-1440](img/article-body-1440.png)         |
-| 4         | [article-center-768.png](img/article-center-768.png)   |
-| 5         | [article-center-1024.png](img/article-center-1024.png) |
-| 6         | [article-cloud-1440.png](img/article-cloud-1440.png)   |
-| 7         | [article-footer-768.png](img/article-footer-768.png)   |
-| 8         | [article-footer-1024.png](img/article-footer-1024.png) |
-| 9         | [article-footer-1440.png](img/article-footer-1440.png) |
-| 10        | [article-header-768.png](img/article-header-768.png)   |
-| 11        | [article-header-1024.png](img/article-header-1024.png) |
-| 12        | [article-header-1440.png](img/article-header-1440.png) |
-| 13        |                                                        |
-| 14        |                                                        |
-| 15        |                                                        |
-| 16        |                                                        |
-| 17        |                                                        |
-| 18        |                                                        |
-| 19        |                                                        |
-| 20        |                                                        |
-| 21        |                                                        |
-| 22        |                                                        |
-| 23        |                                                        |
-| 24        |                                                        |
-| 25        |                                                        |
-| 26        |                                                        |
-| 27        |                                                        |
-| 28        |                                                        |
-| 29        |                                                        |
-| 30        |                                                        |
-| 31        |                                                        |
-| 32        |                                                        |
-| 33        |                                                        |
-| 34        |                                                        |
-| 35        |                                                        |
-| 36        |                                                        |
+| номер п/п | точка визуального контроля                              |
+| --------- | ------------------------------------------------------- |
+| 1         | [article-body-768.png](img/article-body-768.png)        |
+| 2         | [article-body-1024.png](img/article-body-1024.png)      |
+| 3         | [article-body-1440](img/article-body-1440.png)          |
+| 4         | [article-center-768.png](img/article-center-768.png)    |
+| 5         | [article-center-1024.png](img/article-center-1024.png)  |
+| 6         | [article-cloud-1440.png](img/article-cloud-1440.png)    |
+| 7         | [article-footer-768.png](img/article-footer-768.png)    |
+| 8         | [article-footer-1024.png](img/article-footer-1024.png)  |
+| 9         | [article-footer-1440.png](img/article-footer-1440.png)  |
+| 10        | [article-header-768.png](img/article-header-768.png)    |
+| 11        | [article-header-1024.png](img/article-header-1024.png)  |
+| 12        | [article-header-1440.png](img/article-header-1440.png)  |
+| 13        | [blog_page_1.png](img/blog_page_1.png)                  |
+| 14        | [breakpoint_566_top.png](img/breakpoint_566_bottom.png) |
+| 15        | [breakpoint_599_top.png](img/breakpoint_599_top.png)    |
+| 16        | [breakpoint_966_top.png](img/breakpoint_966_bottom.png) |
+| 17        | [breakpoint_966_top.png](img/breakpoint_966_top.png)    |
+| 18        | [breakpoint_1200_top.png](img/breakpoint_1200_top.png)  |
+| 19        | [card_count_1.png](img/card_count_1.png)                |
+| 20        | [card_count_2.png](img/card_count_2.png)                |
+| 21        | [card_placeholder.png](img/card_placeholder.png)        |
+| 22        | [header-320.png](img/header-320.png)                    |
+| 23        | [header-348.png](img/header-348.png)                    |
+| 24        | [header-414.png](img/header-414.png)                    |
+| 25        | [header-599.png](img/header-599.png)                    |
+| 26        | [header-600.png](img/header-600.png)                    |
+| 27        | [header-700.png](img/header-700.png)                    |
+| 28        | [header-768.png](img/header-768.png)                    |
+| 29        | [header-850.png](img/header-850.png)                    |
+| 30        | [header-1024.png](img/header-1024.png)                  |
+| 31        | [header-1268.png](img/header-1268.png)                  |
+| 32        | [header-1440.png](img/header-1440.png)                  |
+| 33        | [header-1445.png](img/header-1445.png)                  |
+| 34        | [header-1595.png](img/header-1595.png)                  |
+| 35        | [target_320_bottom.png](img/target_320_bottom.png)      |
+| 36        | [target_320_top.png](img/target_320_top.png)            |
+| 37        | [target_414_bottom.png](img/target_414_bottom.png)      |
+| 38        | [target_414_top.png](img/target_414_top.png)            |
+| 39        | [target_768_bottom.png](img/target_768_bottom.png)      |
+| 40        | [target_768_top.png](img/target_768_top.png)            |
+| 41        | [target_1024_bottom.png](img/target_1024_bottom.png)    |
+| 42        | [target_1024_top.png](img/target_1024_top.png)          |
+| 43        | [target_1400_bottom.png](img/target_1400_bottom.png)    |
+| 44        | [target_1400_top.png](img/target_1400_top.png)          |
