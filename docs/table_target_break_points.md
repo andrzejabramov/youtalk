@@ -1,8 +1,8 @@
 | номер п/п | точка визуального контроля                          |
 | --------- | --------------------------------------------------- |
-| 1         | [article-body-768.png](.img/article-body-768.png)   |
+| 1         | [article-body-768.png](img/article-body-768.png)    |
 | 2         | [article-body-1024.png](.img/article-body-1024.png) |
-| 3         | [article-body-1440](.img/article-body-1440.png)     |
+| 3         | [article-body-1440](..img/article-body-1440.png)    |
 | 4         | article-                                            |
 | 5         | article-                                            |
 | 6         | article-                                            |
