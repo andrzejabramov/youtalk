@@ -282,7 +282,7 @@
 
 .pagination__numbers-wrapper {
   width: 100vw;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   margin-top: 8px;
@@ -343,4 +343,21 @@
   background: transparent;
   cursor: default;
   flex-shrink: 0;
+}
+/* ============================================= */
+/* 🔹 СТАТИЧЕСКАЯ ПАГИНАЦИЯ (для index.html)    */
+/* ============================================= */
+.pagination--static .pagination__btn-more {
+  pointer-events: none;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.pagination--static .pagination__btn-edge,
+.pagination--static .pagination__arrow-left,
+.pagination--static .pagination__arrow-right,
+.pagination--static .pagination__num,
+.pagination--static .pagination__dots,
+.pagination--static .pagination__smiley {
+  display: none;
 }

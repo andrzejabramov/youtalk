@@ -1,58 +1,68 @@
 /* ============================================= */
-/* 🔹 СЕТКА КАРТОЧЕК (БАЗА)                     */
+/* 🔹 СЕТКА КАРТОЧЕК (ПЛОСКАЯ СТРУКТУРА)         */
 /* ============================================= */
-
 .cards-grid {
-  display: block;
-  margin-bottom: 48px;
-}
-
-.cards-row {
   display: grid;
   gap: 24px;
-  margin-bottom: 24px;
+  margin-bottom: 48px;
+  position: relative;
+  z-index: 1;
 }
 
-.cards-row:last-child {
-  margin-bottom: 0;
-}
-
-/* Desktop (≥1024px) — 3 колонки */
-@media (min-width: 1024px) {
-  .cards-row {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* Tablet (768-1023px) — 2 колонки */
-@media (min-width: 768px) and (max-width: 1023px) {
-  .cards-row {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Mobile (≤767px) — 1 колонка */
-@media (max-width: 767px) {
-  .cards-row {
-    grid-template-columns: 1fr;
-  }
+.card {
+  position: relative;
+  z-index: 1;
 }
 
 /* Одиночная карточка — центрирование */
-.cards-row:first-child:last-child .card {
+.cards-grid > .card:only-child {
   max-width: 588px;
   margin-left: auto;
   margin-right: auto;
 }
 
 /* ============================================= */
-/* 🔹 АДАПТИВ КАРТОЧЕК: ≤566px                  */
+/* 🔹 АДАПТИВ: BREAKPOINTS                       */
 /* ============================================= */
 
+/* 🖥 ≥967px: Десктоп (1024, 1200, 1440) */
+@media (min-width: 967px) {
+  .cards-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  /* 1-й ряд: 2 широкие карточки (3/6 = 50%) */
+  .cards-grid > .card:nth-child(1),
+  .cards-grid > .card:nth-child(2) {
+    grid-column: span 3;
+  }
+
+  /* 2-й и 3-й ряды: 3 карточки (2/6 = 33.33%) */
+  .cards-grid > .card:nth-child(n + 3) {
+    grid-column: span 2;
+  }
+}
+
+/* 📐 567px – 966px: Планшет (768) */
+@media (min-width: 567px) and (max-width: 966px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  /* Первые две карточки растягиваются на всю ширину */
+  .cards-grid > .card:nth-child(1),
+  .cards-grid > .card:nth-child(2) {
+    grid-column: 1 / -1;
+  }
+  /* Остальные автоматически встают по 2 в ряд */
+}
+
+/* 📱 ≤566px: Мобильный (414, 320) */
 @media (max-width: 566px) {
-  .cards-row {
+  .cards-grid {
+    grid-template-columns: 1fr;
     gap: 16px;
-    margin-bottom: 16px;
   }
   .card__content {
     padding: 16px 12px;
@@ -61,17 +71,11 @@
     font-size: 16px;
     line-height: 24px;
   }
-  .card--empty {
-    min-height: 300px;
-  }
 }
 
-/* ============================================= */
-/* 🔹 АДАПТИВ КАРТОЧЕК: ≤414px                  */
-/* ============================================= */
-
+/* 📱 ≤414px: Узкий мобильный */
 @media (max-width: 414px) {
-  .cards-row {
+  .cards-grid {
     gap: 12px;
   }
   .card__badge-text {
@@ -81,15 +85,9 @@
     font-size: 13px;
     line-height: 18px;
   }
-  .card__empty-text {
-    font-size: 16px;
-  }
 }
 
-/* ============================================= */
-/* 🔹 АДАПТИВ КАРТОЧЕК: ≤320px                  */
-/* ============================================= */
-
+/* 📱 ≤320px: Минимальный экран */
 @media (max-width: 320px) {
   .card__content {
     padding: 12px 8px;
@@ -105,19 +103,4 @@
     width: 16px;
     height: 16px;
   }
-}
-
-/* ============================================= */
-/* 🔹 ИСПРАВЛЕНИЕ НАЛОЖЕНИЯ: КАРТОЧКИ           */
-/* ============================================= */
-
-.cards-grid {
-  position: relative;
-  z-index: 1;
-  margin-bottom: 48px;
-}
-
-.card {
-  position: relative;
-  z-index: 1;
 }

@@ -130,10 +130,10 @@
 /* Переопределяем логику visibility, чтобы смайлик 
    не прыгал и всегда оставался в потоке */
 .pagination__smiley {
-  display: flex !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  pointer-events: auto !important;
+  display: none;
+  opacity: 1;
+  visibility: hidden;
+  pointer-events: auto;
   cursor: pointer;
   transition: transform 0.2s ease;
 }
