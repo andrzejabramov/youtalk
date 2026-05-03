@@ -188,9 +188,19 @@
                   class="card__badge-icon"
                   width="20"
                   height="20"
-                /><span class="card__badge-text">Self</span>
+                /><span class="card__badge-text"
+                  >Самооценка и самопринятие</span
+                >
               </div>
-            </div>
+              <div class="card__badge">
+                <img
+                  src="images/icon-unicorn.svg"
+                  alt=""
+                  class="card__badge-icon"
+                  width="20"
+                  height="20"
+                /><span class="card__badge-text">Психология питания</span>
+              </div>
           </div>
           <div class="card__content">
             <h2 class="card__title">Как управлять своими эмоциями: 8 шагов</h2>
@@ -391,38 +401,6 @@
 
     <!-- ✅ ПОДВАЛ -->
     <div data-include="components/footer.html"></div>
-
-    <!-- 🔹 ДЕМО-МОДАЛКА: ВВОД КОЛИЧЕСТВА КАРТОЧЕК -->
-    <div id="cardCountModal" class="modal" hidden>
-      <div class="modal__content">
-        <p class="modal__title">Сколько карточек показать?</p>
-        <input
-          type="number"
-          id="cardCountInput"
-          class="modal__input"
-          min="0"
-          max="21"
-          value="3"
-          placeholder="0–21"
-        />
-        <div class="modal__actions">
-          <button
-            type="button"
-            id="modalCancel"
-            class="modal__btn modal__btn--cancel"
-          >
-            Отмена
-          </button>
-          <button
-            type="button"
-            id="modalConfirm"
-            class="modal__btn modal__btn--confirm"
-          >
-            Применить
-          </button>
-        </div>
-      </div>
-    </div>
 
     <!-- ✅ СКРИПТЫ (порядок важен!) -->
     <script src="js/include.js"></script>
